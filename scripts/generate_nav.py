@@ -36,7 +36,7 @@ HISTORICAL_HEADLINES = {
     "20260522": "Gemini 3.5 Flash发布",
 }
 
-EMAIL_SUB_URL = "https://9a47892f.sibforms.com/serve/MUIFAGsYhumfplrRcRceCaRqKCF5sPil0LtuX8WOoED-6ioinVElVvmkKbukme0gxC8GPmVGJmOhZmSjGa-5Mxx2W84_h1feovZDwXFeqAknTPbJnD-8Jx3q24oq_TPtAY7ZUqmPzdA6KBvknSn2lj4cSM9us7Wsi-vezBJwNZyxp_O3_RxWhGuMWV4QeuRGH7wUYveN7WoVz53ItQ=="
+EMAIL_SUB_URL = "https://stats.sender.net/forms/b68J77/view"
 
 def extract_headline(filepath, date_key):
     if date_key in HISTORICAL_HEADLINES:
@@ -299,6 +299,7 @@ def main():
         "",
         "[project.theme]",
         f'variant = "modern"',
+        f'custom_dir = "overrides"',
         f'features = ["navigation.sections", "navigation.top"]'
     ]
 

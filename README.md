@@ -1,6 +1,8 @@
 # AIToBox周刊
 每周AI资讯、工具推荐
 
+📢 **订阅周刊**：[📧 邮件订阅](https://stats.sender.net/forms/b68J77/view) ｜ [🧡 RSS 订阅](https://newsweekly.aitobox.com/rss.xml)
+
 📢 **订阅周刊**：[📧 邮件订阅](https://9a47892f.sibforms.com/serve/MUIFAGsYhumfplrRcRceCaRqKCF5sPil0LtuX8WOoED-6ioinVElVvmkKbukme0gxC8GPmVGJmOhZmSjGa-5Mxx2W84_h1feovZDwXFeqAknTPbJnD-8Jx3q24oq_TPtAY7ZUqmPzdA6KBvknSn2lj4cSM9us7Wsi-vezBJwNZyxp_O3_RxWhGuMWV4QeuRGH7wUYveN7WoVz53ItQ==) ｜ [🧡 RSS 订阅](https://newsweekly.aitobox.com/rss.xml)
 
 记录每周值得分享的AI资讯、好用的工具和服务，周六发布。
@@ -15,7 +17,7 @@
 
 **六月**
 
-- 20260627期：[AI在工作中学习将是下一个重大突破[The next big breakthrough will be AIs learning on the job]](docs/AIToBoxWeeklyNews_20260627.md)
+- 20260629期：[AI在工作中学习将是下一个重大突破[The next big breakthrough will be AIs learning on the job]](docs/AIToBoxWeeklyNews_20260629.md)
 - 20260621期：[Exclusive: OpenAI Losses Increased Nearly 8X in 2025, With Spending Hitting $34 Billion](docs/AIToBoxWeeklyNews_20260621.md)
 - 20260614期：[Dangerous Technology For Americans Only](docs/AIToBoxWeeklyNews_20260614.md)
 - 20260607期：[Pluralistic: Criticizing the everything machine (06 Jun 2026)](docs/AIToBoxWeeklyNews_20260607.md)
