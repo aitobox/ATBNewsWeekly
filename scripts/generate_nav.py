@@ -318,14 +318,18 @@ def main():
     readme_path = "README.md"
     if os.path.exists(readme_path):
         with open(readme_path, "r", encoding="utf-8") as f:
-            lines = f.readlines()
+            readme_content = f.read()
         
-        # Update lines 2 and 3 of README to put RSS link in the subtitle header
-        if len(lines) >= 3:
-            lines[1] = "每周AI资讯、工具推荐\n"
-            lines[2] = f"\n📢 **订阅周刊**：[📧 邮件订阅]({EMAIL_SUB_URL}) ｜ [🧡 RSS 订阅](https://newsweekly.aitobox.com/rss.xml)\n\n"
-            
-        readme_content = "".join(lines)
+        # Make the header replacement idempotent
+        readme_content = re.sub(r"📢 \*\*订阅周刊\*\*：.*?\n", "", readme_content)
+        readme_content = re.sub(r"每周AI资讯、工具推荐.*?\n", "每周AI资讯、工具推荐\n", readme_content)
+        readme_content = re.sub(r"\n{3,}", "\n\n", readme_content)
+        
+        # Insert subscription banner
+        readme_content = readme_content.replace(
+            "每周AI资讯、工具推荐",
+            f"每周AI资讯、工具推荐\n\n📢 **订阅周刊**：[📧 邮件订阅]({EMAIL_SUB_URL}) ｜ [🧡 RSS 订阅](https://newsweekly.aitobox.com/rss.xml)"
+        )
         
         split_marker = "[AIToBox NewsWeekly](https://newsweekly.aitobox.com)"
         parts = readme_content.split(split_marker)
