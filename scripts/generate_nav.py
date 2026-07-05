@@ -36,7 +36,7 @@ HISTORICAL_HEADLINES = {
     "20260522": "Gemini 3.5 Flash发布",
 }
 
-EMAIL_SUB_URL = "https://stats.sender.net/forms/b68J77/view"
+EMAIL_SUB_URL = "https://stats.sender.net/forms/e9rM7P/view"
 
 def extract_headline(filepath, date_key):
     if date_key in HISTORICAL_HEADLINES:
@@ -45,7 +45,7 @@ def extract_headline(filepath, date_key):
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         # 1. Try to find Headline section (e.g. "## 🌟 本期头条" or "## 本期头条")
         match = re.search(r"##\s*.*?头条.*?\n(.*?)(?=\n##\s|$)", content, re.DOTALL)
         if match:
@@ -58,7 +58,7 @@ def extract_headline(filepath, date_key):
             h3_text_match = re.search(r"###\s*(?:\*\*)?(.*?)(?:\*\*)?\n", section_content)
             if h3_text_match:
                 return h3_text_match.group(1).strip()
-                
+
         # 2. Fallback to first item under ## AI资讯
         match_news = re.search(r"##\s*AI资讯.*?\n(.*?)(?=\n##\s|$)", content, re.DOTALL)
         if match_news:
@@ -72,18 +72,18 @@ def extract_headline(filepath, date_key):
                 return h4_text_match.group(1).strip().strip("* ")
     except Exception as e:
         print(f"Error extracting headline from {filepath}: {e}")
-    
+
     return "Weekly News"
 
 def extract_description(filepath):
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         lines = content.split("\n")
         output_parts = []
         in_headline = False
-        
+
         for line in lines:
             line_str = line.strip()
             if line_str.startswith("## "):
@@ -98,7 +98,7 @@ def extract_description(filepath):
             else:
                 if line_str.startswith("### ") or line_str.startswith("#### "):
                     output_parts.append(line_str)
-                    
+
         return "\n".join(output_parts)
     except Exception as e:
         print(f"Error extracting description from {filepath}: {e}")
@@ -108,10 +108,10 @@ def markdown_to_html(md_text, page_url=None):
     lines = md_text.split("\n")
     in_quote = False
     html_lines = []
-    
+
     # Wrap in a styled div with a spacious line-height (1.85) and standard font family
     html_lines.append("<div style=\"line-height: 1.85; font-size: 16px; color: #2d3748; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\">")
-    
+
     for line in lines:
         stripped = line.strip()
         if stripped.startswith(">"):
@@ -119,7 +119,7 @@ def markdown_to_html(md_text, page_url=None):
             if quote_text.startswith("**EN**:") or quote_text.startswith("**ZH**:"):
                 quote_text = quote_text.replace("**EN**:", "<strong>EN</strong>:")
                 quote_text = quote_text.replace("**ZH**:", "<strong>ZH</strong>:")
-            
+
             if not in_quote:
                 html_lines.append("  <blockquote style=\"border-left: 4px solid #e2e8f0; padding-left: 16px; margin: 16px 0; color: #718096; font-style: italic;\">")
                 in_quote = True
@@ -128,7 +128,7 @@ def markdown_to_html(md_text, page_url=None):
             if in_quote:
                 html_lines.append("  </blockquote>")
                 in_quote = False
-            
+
             # Evaluate longer prefix first to avoid "###" matching "####"
             if stripped.startswith("####"):
                 heading_text = stripped[4:].strip()
@@ -148,7 +148,7 @@ def markdown_to_html(md_text, page_url=None):
 
     if in_quote:
         html_lines.append("  </blockquote>")
-        
+
     html_lines.append("</div>")
 
     html_content = "\n".join(html_lines)
@@ -181,20 +181,20 @@ def to_toml_val(val):
 
 def generate_rss_feed(issues_list, output_path):
     rss_items = []
-    
+
     for filename, headline, full_date, filepath in issues_list:
         pub_date = get_rfc822_date(full_date)
         md_desc = extract_description(filepath)
         page_url = f"https://newsweekly.aitobox.com/{filename[:-3]}/"
-        
+
         # In RSS output, replace the first headline title hyperlink with the issue page_url
         h3_match = re.search(r"###\s*(?:\*\*)?\[(.*?)(?=\]\()\]\((.*?)\)", md_desc)
         if h3_match:
             original_url = h3_match.group(2)
             md_desc = md_desc.replace(f"]({original_url})", f"]({page_url})", 1)
-            
+
         html_desc = markdown_to_html(md_desc, page_url)
-        
+
         item_xml = f"""    <item>
       <title><![CDATA[ {full_date}期：{headline} ]]></title>
       <link>{page_url}</link>
@@ -203,10 +203,10 @@ def generate_rss_feed(issues_list, output_path):
       <description><![CDATA[{html_desc}]]></description>
     </item>"""
         rss_items.append(item_xml)
-        
+
     now_rfc = email.utils.format_datetime(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))))
     rss_items_xml = "\n".join(rss_items)
-    
+
     rss_template = f"""<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -227,11 +227,11 @@ def generate_rss_feed(issues_list, output_path):
 def main():
     docs_dir = "docs"
     pattern = re.compile(r"^AIToBoxWeeklyNews_(\d{4})(\d{2})(\d{2})\.md$")
-    
+
     # Grouping structure: {year: {month: [(filename, headline, full_date)]}}
     data = {}
     all_issues = []
-    
+
     for filename in os.listdir(docs_dir):
         m = pattern.match(filename)
         if m:
@@ -240,15 +240,15 @@ def main():
             day_num = m.group(3)
             full_date = f"{year}{month_num}{day_num}"
             month_name = MONTH_MAP.get(month_num, f"{month_num}月")
-            
+
             filepath = os.path.join(docs_dir, filename)
             headline = extract_headline(filepath, full_date)
-            
+
             if year not in data:
                 data[year] = {}
             if month_name not in data[year]:
                 data[year][month_name] = []
-                
+
             data[year][month_name].append((filename, headline, full_date))
             all_issues.append((filename, headline, full_date, filepath))
 
@@ -258,41 +258,41 @@ def main():
 
     # Sort logic: newest first
     nav = []
-    
+
     # Prepend Welcome page, Email Subscription, and RSS Subscription to top navigation bar
     nav.append({"欢迎": "welcome.md"})
     nav.append({"邮件订阅": EMAIL_SUB_URL})
     nav.append({"RSS 订阅": "https://newsweekly.aitobox.com/rss.xml"})
-    
+
     markdown_list_lines = []
-    
+
     # Sort years descending
     for year in sorted(data.keys(), reverse=True):
         year_nav = []
         months_in_year = data[year]
-        
+
         markdown_list_lines.append(f"\n## {year}\n")
-        
+
         # Sort months descending
         sorted_months = sorted(
             months_in_year.keys(),
             key=lambda m: [k for k, v in MONTH_MAP.items() if v == m][0] if m in MONTH_MAP.values() else m,
             reverse=True
         )
-        
+
         for month in sorted_months:
             month_nav = []
             markdown_list_lines.append(f"**{month}**\n")
-            
+
             issues = sorted(months_in_year[month], key=lambda x: x[2], reverse=True)
             for filename, headline, full_date in issues:
                 display_title = f"{full_date}期"
                 month_nav.append({display_title: filename})
                 markdown_list_lines.append(f"- {full_date}期：[{headline}](docs/{filename})")
-            
+
             markdown_list_lines.append("")
             year_nav.append({month: month_nav})
-            
+
         nav.append({year: year_nav})
 
     # Generate TOML manually
@@ -319,18 +319,19 @@ def main():
     if os.path.exists(readme_path):
         with open(readme_path, "r", encoding="utf-8") as f:
             readme_content = f.read()
-        
+
         # Make the header replacement idempotent
         readme_content = re.sub(r"📢 \*\*订阅周刊\*\*：.*?\n", "", readme_content)
+        readme_content = re.sub(r"<div[^>]*class=\"sender-form-field\"[^>]*></div>\n*", "", readme_content)
         readme_content = re.sub(r"每周AI资讯、工具推荐.*?\n", "每周AI资讯、工具推荐\n", readme_content)
         readme_content = re.sub(r"\n{3,}", "\n\n", readme_content)
-        
+
         # Insert subscription banner
         readme_content = readme_content.replace(
             "每周AI资讯、工具推荐",
-            f"每周AI资讯、工具推荐\n\n📢 **订阅周刊**：[📧 邮件订阅]({EMAIL_SUB_URL}) ｜ [🧡 RSS 订阅](https://newsweekly.aitobox.com/rss.xml)"
+            f"每周AI资讯、工具推荐\n\n📢 **订阅周刊**：[📧 邮件订阅]({EMAIL_SUB_URL}) ｜ [🧡 RSS 订阅](https://newsweekly.aitobox.com/rss.xml)\n\n<div style=\"text-align: left\" class=\"sender-form-field\" data-sender-form-id=\"e9rM7P\"></div>"
         )
-        
+
         split_marker = "[AIToBox NewsWeekly](https://newsweekly.aitobox.com)"
         parts = readme_content.split(split_marker)
         if len(parts) >= 2:
