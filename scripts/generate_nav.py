@@ -186,6 +186,13 @@ def generate_rss_feed(issues_list, output_path):
         pub_date = get_rfc822_date(full_date)
         md_desc = extract_description(filepath)
         page_url = f"https://newsweekly.aitobox.com/{filename[:-3]}/"
+        
+        # In RSS output, replace the first headline title hyperlink with the issue page_url
+        h3_match = re.search(r"###\s*(?:\*\*)?\[(.*?)(?=\]\()\]\((.*?)\)", md_desc)
+        if h3_match:
+            original_url = h3_match.group(2)
+            md_desc = md_desc.replace(f"]({original_url})", f"]({page_url})", 1)
+            
         html_desc = markdown_to_html(md_desc, page_url)
         
         item_xml = f"""    <item>
