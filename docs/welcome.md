@@ -8,11 +8,21 @@
 
 ## 🌟 订阅我们的周刊
 
+#### 🌟 RSS订阅
+
 为了第一时间获取更新，你可以通过 RSS 订阅我们：
 
 👉 **[点击订阅 RSS 源](https://newsweekly.aitobox.com/rss.xml)**
 
 你可以将该 RSS 链接复制到你喜欢的阅读器中（如 Feedly, Inoreader, NetNewsWire, Reeder 等）。
+
+#### 🌟 邮件订阅
+
+你也可以输入邮箱地址，每周末定期收到我们的周刊电子邮件投递：
+
+[📧 邮件订阅](https://stats.sender.net/forms/e9rM7P/view)
+
+<div style="text-align: left" class="sender-form-field" data-sender-form-id="e9rM7P"></div>
 
 ---
 
