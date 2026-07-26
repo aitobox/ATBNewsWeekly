@@ -8,9 +8,7 @@
 
 ## 🌟 本期头条 (Headline)
 
-### **[OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened](https://simonwillison.net/2026/Jul/22/openai-cyberattack/#atom-everything)** - *simonwillison.net*
-
-OpenAI针对Hugging Face的意外网络攻击是科幻小说照进现实[OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened]
+### OpenAI针对Hugging Face的意外网络攻击是科幻小说照进现实[OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened]
 
 **深度解读**
 
@@ -35,7 +33,7 @@ OpenAI针对Hugging Face的意外网络攻击是科幻小说照进现实[OpenAI�
 
 Markstream 是为 AI Chat 界面设计的开源流式 Markdown 渲染器，能够在模型内容尚未完整返回时持续渲染未闭合的 Markdown。
 
-## 功能特点
+* 功能特点
 
 - 提供 Vue、React、Svelte、Angular 包，并有 Nuxt、Next.js 集成文档
 - 支持 Mermaid 图表、KaTeX 数学公式、Shiki / Monaco 代码渲染
@@ -43,7 +41,7 @@ Markstream 是为 AI Chat 界面设计的开源流式 Markdown 渲染器，能�
 - 适用于聊天机器人、AI 助手、知识库问答等流式输出场景
 - MIT 许可证，持续维护中
 
-## 体验地址
+* 体验地址
 
 - 在线体验：https://markstream-vue.simonhe.me/
 - 项目文档：https://markstream.simonhe.me/
@@ -51,7 +49,7 @@ Markstream 是为 AI Chat 界面设计的开源流式 Markdown 渲染器，能�
 
 说明：我是 Markstream 的维护者，本 issue 为项目自荐。感谢审阅。
 
-## 配图或视频
+* 配图或视频
 
 项目文档与在线体验页中提供了可直接操作的示例。
 
