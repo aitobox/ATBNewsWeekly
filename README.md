@@ -15,6 +15,13 @@
 
 ## 2026
 
+**七月**
+
+- 20260725期：[OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened](docs/AIToBoxWeeklyNews_20260725.md)
+- 20260718期：[Winners and losers in the coming AI margin collapse (part 2)](docs/AIToBoxWeeklyNews_20260718.md)
+- 20260711期：[苹果起诉 OpenAI、io 及前员工，指控其窃取商业机密[Apple Sues OpenAI, io, and Former Employees, Alleging Theft of Trade Secrets]](docs/AIToBoxWeeklyNews_20260711.md)
+- 20260705期：[Claude那令人诟病的Electron Mac应用竟是“内鬼”所为[Claude’s Criminally Bad Electron Mac App Is an Inside Job]](docs/AIToBoxWeeklyNews_20260705.md)
+
 **六月**
 
 - 20260629期：[AI在工作中学习将是下一个重大突破[The next big breakthrough will be AIs learning on the job]](docs/AIToBoxWeeklyNews_20260629.md)

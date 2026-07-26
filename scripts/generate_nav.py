@@ -75,86 +75,167 @@ def extract_headline(filepath, date_key):
 
     return "Weekly News"
 
-def extract_description(filepath):
+def extract_full_content(filepath):
+    """Read the full markdown content of an issue file."""
     try:
         with open(filepath, "r", encoding="utf-8") as f:
-            content = f.read()
-
-        lines = content.split("\n")
-        output_parts = []
-        in_headline = False
-
-        for line in lines:
-            line_str = line.strip()
-            if line_str.startswith("## "):
-                in_headline = False
-                if "头条" in line_str:
-                    in_headline = True
-                    output_parts.append(line_str)
-                else:
-                    output_parts.append(line_str)
-            elif in_headline:
-                output_parts.append(line)
-            else:
-                if line_str.startswith("### ") or line_str.startswith("#### "):
-                    output_parts.append(line_str)
-
-        return "\n".join(output_parts)
+            return f.read()
     except Exception as e:
-        print(f"Error extracting description from {filepath}: {e}")
+        print(f"Error reading full content from {filepath}: {e}")
         return "AIToBox WeeklyNews"
 
-def markdown_to_html(md_text, page_url=None):
-    lines = md_text.split("\n")
-    in_quote = False
-    html_lines = []
+def inline_md(text):
+    """Convert inline markdown to HTML: bold, italic, code, links."""
+    # Escape XML special chars first (but not < > inside already-converted HTML)
+    # We'll process in order: code (to protect content), bold, italic, links
+    # Inline code: `code`
+    text = re.sub(r"`([^`]+)`", r'<code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">\1</code>', text)
+    # Bold+italic: ***text***
+    text = re.sub(r"\*\*\*(.*?)\*\*\*", r"<strong><em>\1</em></strong>", text)
+    # Bold: **text**
+    text = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", text)
+    # Italic: *text* (not preceded/followed by *)
+    text = re.sub(r"(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)", r"<em>\1</em>", text)
+    # Links: [text](url)
+    text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2" style="color:#3182ce;text-decoration:none;">\1</a>', text)
+    return text
 
-    # Wrap in a styled div with a spacious line-height (1.85) and standard font family
-    html_lines.append("<div style=\"line-height: 1.85; font-size: 16px; color: #2d3748; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\">")
+def markdown_to_html(md_text, page_url=None):
+    """Convert full markdown document to styled HTML for RSS readers."""
+    lines = md_text.split("\n")
+    html_parts = []
+    in_blockquote = False
+    in_ul = False
+    in_ol = False
+
+    def close_lists():
+        nonlocal in_ul, in_ol
+        if in_ul:
+            html_parts.append("  </ul>")
+            in_ul = False
+        if in_ol:
+            html_parts.append("  </ol>")
+            in_ol = False
+
+    def close_blockquote():
+        nonlocal in_blockquote
+        if in_blockquote:
+            html_parts.append("  </blockquote>")
+            in_blockquote = False
+
+    html_parts.append(
+        "<div style=\"max-width:720px;margin:0 auto;line-height:1.85;font-size:16px;"
+        "color:#2d3748;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',"
+        "Roboto,Helvetica,Arial,sans-serif;padding:0 8px;\">"
+    )
 
     for line in lines:
         stripped = line.strip()
+
+        # Horizontal rule
+        if re.match(r"^(---+|===+|\*\*\*+)$", stripped):
+            close_blockquote()
+            close_lists()
+            html_parts.append("  <hr style=\"border:none;border-top:1px solid #edf2f7;margin:24px 0;\">")
+            continue
+
+        # Blockquote
         if stripped.startswith(">"):
+            close_lists()
             quote_text = stripped[1:].strip()
-            if quote_text.startswith("**EN**:") or quote_text.startswith("**ZH**:"):
-                quote_text = quote_text.replace("**EN**:", "<strong>EN</strong>:")
-                quote_text = quote_text.replace("**ZH**:", "<strong>ZH</strong>:")
-
-            if not in_quote:
-                html_lines.append("  <blockquote style=\"border-left: 4px solid #e2e8f0; padding-left: 16px; margin: 16px 0; color: #718096; font-style: italic;\">")
-                in_quote = True
-            html_lines.append(f"    <p style=\"margin-bottom: 8px; line-height: 1.85;\">{quote_text}</p>")
+            quote_text = inline_md(quote_text)
+            if not in_blockquote:
+                html_parts.append(
+                    "  <blockquote style=\"border-left:4px solid #4299e1;background:#ebf8ff;"
+                    "padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;\">")
+                in_blockquote = True
+            html_parts.append(f"    <p style=\"margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;\">{quote_text}</p>")
+            continue
         else:
-            if in_quote:
-                html_lines.append("  </blockquote>")
-                in_quote = False
+            close_blockquote()
 
-            # Evaluate longer prefix first to avoid "###" matching "####"
-            if stripped.startswith("####"):
-                heading_text = stripped[4:].strip()
-                if page_url:
-                    # Link secondary headings directly to the post page
-                    html_lines.append(f"  <h4 style=\"margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; line-height: 1.4;\"><a href=\"{page_url}\" style=\"color: #3182ce; text-decoration: none;\">{heading_text}</a></h4>")
-                else:
-                    html_lines.append(f"  <h4 style=\"margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; line-height: 1.4;\">{heading_text}</h4>")
-            elif stripped.startswith("###"):
-                html_lines.append(f"  <h3 style=\"margin-top: 24px; margin-bottom: 12px; font-size: 1.3em; line-height: 1.4;\">{stripped[3:].strip()}</h3>")
-            elif stripped.startswith("##"):
-                html_lines.append(f"  <h2 style=\"margin-top: 32px; margin-bottom: 16px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px; font-size: 1.6em; line-height: 1.3;\">{stripped[2:].strip()}</h2>")
-            elif stripped:
-                html_lines.append(f"  <p style=\"margin-bottom: 16px; line-height: 1.85;\">{stripped}</p>")
+        # Headings (check longer prefixes first)
+        if stripped.startswith("######"):
+            close_lists()
+            html_parts.append(f"  <h6 style=\"margin-top:16px;margin-bottom:8px;font-size:0.9em;color:#4a5568;\">{inline_md(stripped[6:].strip())}</h6>")
+            continue
+        if stripped.startswith("#####"):
+            close_lists()
+            html_parts.append(f"  <h5 style=\"margin-top:18px;margin-bottom:8px;font-size:1em;color:#4a5568;\">{inline_md(stripped[5:].strip())}</h5>")
+            continue
+        if stripped.startswith("####"):
+            close_lists()
+            heading_text = inline_md(stripped[4:].strip())
+            if page_url:
+                html_parts.append(
+                    f"  <h4 style=\"margin-top:20px;margin-bottom:8px;font-size:1.1em;"
+                    f"color:#2d3748;line-height:1.4;\"><a href=\"{page_url}\" "
+                    f"style=\"color:#3182ce;text-decoration:none;\">{heading_text}</a></h4>")
             else:
-                html_lines.append("")
+                html_parts.append(f"  <h4 style=\"margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;\">{heading_text}</h4>")
+            continue
+        if stripped.startswith("###"):
+            close_lists()
+            html_parts.append(
+                f"  <h3 style=\"margin-top:28px;margin-bottom:10px;font-size:1.25em;"
+                f"color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;"
+                f"padding-left:10px;\">{inline_md(stripped[3:].strip())}</h3>")
+            continue
+        if stripped.startswith("##"):
+            close_lists()
+            html_parts.append(
+                f"  <h2 style=\"margin-top:36px;margin-bottom:14px;font-size:1.5em;"
+                f"color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;"
+                f"padding-bottom:6px;\">{inline_md(stripped[2:].strip())}</h2>")
+            continue
+        if stripped.startswith("#"):
+            close_lists()
+            html_parts.append(
+                f"  <h1 style=\"margin-top:0;margin-bottom:16px;font-size:1.8em;"
+                f"color:#1a202c;line-height:1.2;\">{inline_md(stripped[1:].strip())}</h1>")
+            continue
 
-    if in_quote:
-        html_lines.append("  </blockquote>")
+        # Unordered list item: - or * or +
+        ul_match = re.match(r"^[-*+] (.+)$", stripped)
+        if ul_match:
+            close_ol = in_ol
+            if close_ol:
+                html_parts.append("  </ol>")
+                in_ol = False
+            if not in_ul:
+                html_parts.append("  <ul style=\"margin:8px 0 16px 0;padding-left:24px;\">")
+                in_ul = True
+            html_parts.append(f"    <li style=\"margin-bottom:6px;line-height:1.7;\">{inline_md(ul_match.group(1))}</li>")
+            continue
 
-    html_lines.append("</div>")
+        # Ordered list item: 1. 2. etc.
+        ol_match = re.match(r"^\d+\.\s+(.+)$", stripped)
+        if ol_match:
+            if in_ul:
+                html_parts.append("  </ul>")
+                in_ul = False
+            if not in_ol:
+                html_parts.append("  <ol style=\"margin:8px 0 16px 0;padding-left:24px;\">")
+                in_ol = True
+            html_parts.append(f"    <li style=\"margin-bottom:6px;line-height:1.7;\">{inline_md(ol_match.group(1))}</li>")
+            continue
 
-    html_content = "\n".join(html_lines)
-    html_content = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", html_content)
-    html_content = re.sub(r"\[(.*?)(?=\]\()\]\((.*?)\)", r'<a href="\2" style="color: #3182ce; text-decoration: none;">\1</a>', html_content)
-    return html_content
+        # Empty line
+        if not stripped:
+            close_lists()
+            html_parts.append("")
+            continue
+
+        # Regular paragraph
+        close_lists()
+        html_parts.append(f"  <p style=\"margin-bottom:14px;line-height:1.85;\">{inline_md(stripped)}</p>")
+
+    # Close any open structures
+    close_blockquote()
+    close_lists()
+    html_parts.append("</div>")
+
+    return "\n".join(html_parts)
 
 def get_rfc822_date(date_str):
     try:
@@ -179,21 +260,19 @@ def to_toml_val(val):
         return "{ " + ", ".join(parts) + " }"
     return str(val)
 
+RSS_MAX_ITEMS = 10
+
 def generate_rss_feed(issues_list, output_path):
     rss_items = []
 
-    for filename, headline, full_date, filepath in issues_list:
+    # Only include the most recent RSS_MAX_ITEMS issues
+    for filename, headline, full_date, filepath in issues_list[:RSS_MAX_ITEMS]:
         pub_date = get_rfc822_date(full_date)
-        md_desc = extract_description(filepath)
+        # Read the full markdown content of the issue
+        md_content = extract_full_content(filepath)
         page_url = f"https://newsweekly.aitobox.com/{filename[:-3]}/"
 
-        # In RSS output, replace the first headline title hyperlink with the issue page_url
-        h3_match = re.search(r"###\s*(?:\*\*)?\[(.*?)(?=\]\()\]\((.*?)\)", md_desc)
-        if h3_match:
-            original_url = h3_match.group(2)
-            md_desc = md_desc.replace(f"]({original_url})", f"]({page_url})", 1)
-
-        html_desc = markdown_to_html(md_desc, page_url)
+        html_desc = markdown_to_html(md_content, page_url)
 
         item_xml = f"""    <item>
       <title><![CDATA[ {full_date}期：{headline} ]]></title>
