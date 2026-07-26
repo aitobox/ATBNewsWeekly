@@ -20,3 +20,41 @@
   sender('a0dc5c172d9800')
 </script>
 {% endblock %}
+
+{% block container %}
+  {{ super() }}
+  {% if page.canonical_url and "AIToBoxWeeklyNews_" in page.canonical_url %}
+  <div class="md-content" style="margin-top: 40px;">
+    <div class="md-content__inner md-typeset">
+      <div id="disqus-container" style="
+        border-top: 2px solid #4299e1;
+        padding-top: 32px;
+        margin-top: 16px;
+      ">
+        <h2 style="
+          font-size: 1.3em;
+          color: #1a202c;
+          margin-bottom: 20px;
+        ">💬 评论区</h2>
+        <div id="disqus_thread"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "{{ page.canonical_url }}";
+      this.page.identifier = "{{ page.canonical_url }}";
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://atbweeklynews.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    请启用 JavaScript 以查看
+    <a href="https://disqus.com/?ref_noscript">由 Disqus 提供的评论</a>。
+  </noscript>
+  {% endif %}
+{% endblock %}
