@@ -21,24 +21,20 @@
 </script>
 {% endblock %}
 
-{% block container %}
+{% block content %}
   {{ super() }}
   {% if page.canonical_url and "AIToBoxWeeklyNews_" in page.canonical_url %}
-  <div class="md-content" style="margin-top: 40px;">
-    <div class="md-content__inner md-typeset">
-      <div id="disqus-container" style="
-        border-top: 2px solid #4299e1;
-        padding-top: 32px;
-        margin-top: 16px;
-      ">
-        <h2 style="
-          font-size: 1.3em;
-          color: #1a202c;
-          margin-bottom: 20px;
-        ">💬 评论区</h2>
-        <div id="disqus_thread"></div>
-      </div>
-    </div>
+  <div id="disqus-container" style="
+    border-top: 2px solid #4299e1;
+    padding-top: 32px;
+    margin-top: 32px;
+  ">
+    <h2 style="
+      font-size: 1.3em;
+      color: #1a202c;
+      margin-bottom: 20px;
+    ">💬 评论区</h2>
+    <div id="disqus_thread"></div>
   </div>
   <script>
     var disqus_config = function () {
