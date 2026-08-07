@@ -15,9 +15,14 @@
 
 ## 2026
 
+**八月**
+
+- 20260807期：[Meta 发布 Muse Code，一款面向大型软件项目的全新 AI 编程智能体[Meta Launches Muse Code, a New AI Coding Agent for Large Software Projects]](docs/AIToBoxWeeklyNews_20260807.md)
+- 20260801期：[前沿实验室 Agent 入侵深度剖析：2026 年 7 月事件的技术时间线 [Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident]](docs/AIToBoxWeeklyNews_20260801.md)
+
 **七月**
 
-- 20260725期：[OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened](docs/AIToBoxWeeklyNews_20260725.md)
+- 20260725期：[OpenAI针对Hugging Face的意外网络攻击是科幻小说照进现实[OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened]](docs/AIToBoxWeeklyNews_20260725.md)
 - 20260718期：[Winners and losers in the coming AI margin collapse (part 2)](docs/AIToBoxWeeklyNews_20260718.md)
 - 20260711期：[苹果起诉 OpenAI、io 及前员工，指控其窃取商业机密[Apple Sues OpenAI, io, and Former Employees, Alleging Theft of Trade Secrets]](docs/AIToBoxWeeklyNews_20260711.md)
 - 20260705期：[Claude那令人诟病的Electron Mac应用竟是“内鬼”所为[Claude’s Criminally Bad Electron Mac App Is an Inside Job]](docs/AIToBoxWeeklyNews_20260705.md)

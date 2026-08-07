@@ -338,8 +338,9 @@ def main():
     # Sort logic: newest first
     nav = []
 
-    # Prepend Welcome page, Subscription Guide, Email Subscription, and RSS Subscription to top navigation bar
+    # Prepend Welcome page, ATBInsight, Subscription Guide, Email Subscription, and RSS Subscription to top navigation bar
     nav.append({"欢迎": "welcome.md"})
+    nav.append({"ATBInsight": "https://insight.aitobox.com/"})
     #nav.append({"订阅指引": "subscribe-success.md"})
     nav.append({"邮件订阅": EMAIL_SUB_URL})
     nav.append({"RSS 订阅": "https://newsweekly.aitobox.com/rss.xml"})
