@@ -96,8 +96,18 @@ def inline_md(text):
     text = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", text)
     # Italic: *text* (not preceded/followed by *)
     text = re.sub(r"(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)", r"<em>\1</em>", text)
-    # Links: [text](url)
-    text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2" style="color:#3182ce;text-decoration:none;">\1</a>', text)
+    # Convert markdown links first to avoid matching URLs inside markdown link syntax
+    links = []
+    def save_link(m):
+        links.append(f'<a href="{m.group(2)}" style="color:#3182ce;text-decoration:none;">{m.group(1)}</a>')
+        return f"___LINK_{len(links)-1}___"
+
+    text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", save_link, text)
+    # Convert standalone URLs
+    text = re.sub(r"(https?://[^\s<\"]+)", r'<a href="\1" style="color:#3182ce;text-decoration:none;">\1</a>', text)
+    # Restore markdown links
+    for i, link in enumerate(links):
+        text = text.replace(f"___LINK_{i}___", link)
     return text
 
 def markdown_to_html(md_text, page_url=None):
