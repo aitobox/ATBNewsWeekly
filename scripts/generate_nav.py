@@ -250,8 +250,8 @@ def markdown_to_html(md_text, page_url=None):
 def get_rfc822_date(date_str):
     try:
         dt = datetime.datetime.strptime(date_str, "%Y%m%d")
-        # Assume publish time is 10:00:00 UTC+8
-        dt = dt.replace(hour=10, minute=0, second=0, tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
+        # Assume publish time is 18:00:00 UTC+8
+        dt = dt.replace(hour=18, minute=0, second=0, tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
         return email.utils.format_datetime(dt)
     except Exception:
         return email.utils.format_datetime(datetime.datetime.now())
