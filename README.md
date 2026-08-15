@@ -17,6 +17,7 @@
 
 **八月**
 
+- 20260815期：[Claude 升级黎曼猜想长期数学边界[Anthropic Says Claude Improved a Longstanding Bound Tied to the Riemann Hypothesis]](docs/AIToBoxWeeklyNews_20260815.md)
 - 20260808期：[OpenAI回应苹果公司的诉讼与初步禁令动议：“苹果搞错了”[OpenAI Responds to Apple’s Lawsuit and Motion for Preliminary Injunction: ‘Apple Is Getting This Wrong’]](docs/AIToBoxWeeklyNews_20260808.md)
 - 20260807期：[Meta 发布 Muse Code，一款面向大型软件项目的全新 AI 编程智能体[Meta Launches Muse Code, a New AI Coding Agent for Large Software Projects]](docs/AIToBoxWeeklyNews_20260807.md)
 - 20260801期：[前沿实验室 Agent 入侵深度剖析：2026 年 7 月事件的技术时间线 [Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident]](docs/AIToBoxWeeklyNews_20260801.md)
