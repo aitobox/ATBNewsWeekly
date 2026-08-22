@@ -17,6 +17,7 @@
 
 **八月**
 
+- 20260822期：[字节跳动 Seed 团队与清华大学 AIR 联合推出 CUDA Agent：用于 CUDA 内核生成的大规模智能体强化学习系统[ByteDance Seed and Tsinghua AIR Introduces CUDA Agent: A Large-Scale Agentic RL System for CUDA Kernel Generation]](docs/AIToBoxWeeklyNews_20260822.md)
 - 20260815期：[Claude 升级黎曼猜想长期数学边界[Anthropic Says Claude Improved a Longstanding Bound Tied to the Riemann Hypothesis]](docs/AIToBoxWeeklyNews_20260815.md)
 - 20260808期：[OpenAI回应苹果公司的诉讼与初步禁令动议：“苹果搞错了”[OpenAI Responds to Apple’s Lawsuit and Motion for Preliminary Injunction: ‘Apple Is Getting This Wrong’]](docs/AIToBoxWeeklyNews_20260808.md)
 - 20260807期：[Meta 发布 Muse Code，一款面向大型软件项目的全新 AI 编程智能体[Meta Launches Muse Code, a New AI Coding Agent for Large Software Projects]](docs/AIToBoxWeeklyNews_20260807.md)

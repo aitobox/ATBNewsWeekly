@@ -5,8 +5,917 @@
     <link>https://newsweekly.aitobox.com/</link>
     <description>记录每周值得分享的AI资讯、好用的工具和服务，周六发布。</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Aug 2026 20:20:55 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 18:30:02 +0800</lastBuildDate>
     <atom:link href="https://newsweekly.aitobox.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[ 20260822期：字节跳动 Seed 团队与清华大学 AIR 联合推出 CUDA Agent：用于 CUDA 内核生成的大规模智能体强化学习系统[ByteDance Seed and Tsinghua AIR Introduces CUDA Agent: A Large-Scale Agentic RL System for CUDA Kernel Generation] ]]></title>
+      <link>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/</link>
+      <guid>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/</guid>
+      <pubDate>Sat, 22 Aug 2026 18:00:00 +0800</pubDate>
+      <description><![CDATA[<div style="max-width:720px;margin:0 auto;line-height:1.85;font-size:16px;color:#2d3748;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;padding:0 8px;">
+  <h1 style="margin-top:0;margin-bottom:16px;font-size:1.8em;color:#1a202c;line-height:1.2;">AIToBox周刊：20260822</h1>
+
+  <p style="margin-bottom:14px;line-height:1.85;">这里记录每周值得分享的AI科技内容，周末发布。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本杂志开源（GitHub: <a href="https://github.com/aitobox/newsweekly" style="color:#3182ce;text-decoration:none;">aitobox/newsweekly</a>），欢迎提交 issue，投稿或推荐你的项目。</p>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>统计周期</strong>: 2026-08-15 ~ 2026-08-22 | <strong>共收录优质资讯</strong>：30 篇</p>
+  </blockquote>
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">🌟 本期头条 (Headline)</h2>
+
+  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;"><strong>字节跳动 Seed 团队与清华大学 AIR 联合推出 CUDA Agent：用于 CUDA 内核生成的大规模智能体强化学习系统[ByteDance Seed and Tsinghua AIR Introduces CUDA Agent: A Large-Scale Agentic RL System for CUDA Kernel Generation]</strong></h3>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>深度解读</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">在当前的 AI 大模型时代，前沿模型虽然已经能够熟练编写出语法正确的 CUDA 代码，但这些由大模型直接生成代码往往面临“能运行却不够快”的性能瓶颈，在实际生产环境中常常不敌传统的编译器（如 torch.compile）。为了突破这一性能天花板，字节跳动 Seed 团队与清华大学 AIR 联合推出了 CUDA Agent 系统。该系统创新性地将大语言模型置于一个包含性能分析、正确性校验以及权限锁定沙箱的真实 CUDA 开发环境中，并利用 PPO（近端策略优化）算法进行长达 150 步的强化学习训练。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">从技术架构来看，CUDA Agent 成功解决了大模型在生成底层高性能代码时的盲目性。它不仅通过多阶段的组合合成构建了包含 6,000 个样本的高质量数据集，还在智能体循环中引入了严格的防奖励作弊机制（如禁止 torch.nn.functional 回退、多输入验证等）。在 KernelBench 基准测试中，该系统取得了惊人的 98.8% 通过率，在生成速度上以平均 2.11 倍的几何平均数超越了 torch.compile，在最具挑战性的 Level-3 拆分测试中更是将 Claude Opus 4.5 和 Gemini 3 Pro 等一众顶尖商业模型远远甩在身后。这一突破标志着 AI 在底层基础设施优化、高延迟敏感路径（如大模型推理、自动驾驶、量化交易等）的算子融合上迈出了质的飞跃。尽管完整的训练后智能体权重尚未开源，但其释放的数据集、SKILL.md 规范以及奖励和热身配方，无疑为整个人工智能硬件与编译器生态的协同演进开辟了全新的技术范式。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>核心摘录 (Core Highlights)</strong></p>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>EN</strong>: The gap it targets is narrow but stubborn: frontier models already produce correct CUDA, they just produce slow CUDA. On KernelBench, the base model Seed1.6 passes 74.0% of tasks yet outruns torch.compile on only 27.2% of them, at a 0.69× geometric-mean speedup which means its kernels are, on average, slower than what the compiler generates on its own.</p>
+  </blockquote>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>ZH</strong>: 它所瞄准的差距虽然狭窄但却异常顽固：前沿模型已经能够生成正确的 CUDA 代码，但它们生成的代码速度很慢。在 KernelBench 上，基座模型 Seed1.6 通过了 74.0% 的任务，但在其中只有 27.2% 的任务上运行速度超过了 torch.compile，其几何平均加速比为 0.69 倍，这意味着其生成的内核平均速度比编译器自身生成的代码还要慢。</p>
+  </blockquote>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/17/bytedance-seed-and-tsinghua-air-introduces-cuda-agent-a-large-scale-agentic-rl-system-for-cuda-kernel-generation/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/17/bytedance-seed-and-tsinghua-air-introduces-cuda-agent-a-large-scale-agentic-rl-system-for-cuda-kernel-generation/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/0e56b17d50b94ce865ba514f68c266a0.png" style="color:#3182ce;text-decoration:none;">headline_image</a></p>
+
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI资讯</h2>
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">1. AI基础设施如何演进以满足不断增长的计算需求[How AI Infrastructure Is Evolving to Meet Growing Compute Demand]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">面对呈指数级增长的AI计算需求，全球数据中心、芯片、电网及网络架构正在经历全面重构，以适应从传统聊天系统向推理和智能体（Agentic）AI的转变。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>三大扩展定律驱动算力爆发</strong>：预训练、微调（Post-training）以及推理阶段的迭代推理（Test-time scaling）等三大扩展定律相互叠加，使当前的AI计算需求在过去五年中呈千万倍增长，传统数据中心已无法满足这种复合型需求。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>物理建设与电力瓶颈空前加剧</strong>：全球数据中心容量到2030年可能增加两倍以上，电力需求激增成为主要限制因素，部分数据中心规划耗电量甚至超越了大型核电站，导致电网连接面临数年等待期。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>芯片架构从训练转向推理优化</strong>：硬件正逐步摆脱单纯以训练为核心的模式，转向针对低延迟推理和智能体工作流进行优化，各大芯片厂商不断推出大幅提升推理吞吐量和降低延迟的新一代专用芯片。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>网络与存储迎来同步升级</strong>：为了防止昂贵的加速芯片因数据传输或存储瓶颈而闲置，行业正在重构数据中心网络织物和文件存储系统，以支持百万级芯片集群的高效协同与高利用率运行。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：AI基础设施正在从传统的“数据存储中心”转型为以产出“可用智能Token数（每美元/每瓦特）”为核心指标的“AI工厂”。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/21/how-ai-infrastructure-is-evolving-to-meet-growing-compute-demand/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/21/how-ai-infrastructure-is-evolving-to-meet-growing-compute-demand/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/8578923237fc4c278cc7752130a97cc8.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">2. Skan AI 获 6300 万美元融资，旨在为企业 AI 提供缺失的业务执行上下文[Skan AI Secures $63M to Give Enterprise AI the Context It’s Missing: How Work Actually Gets Done]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Skan AI 完成 6300 万美元融资并推出企业级 AI 平台，通过捕捉真实的业务执行流程，为企业 AI 代理提供精准的上下文支撑，从而解决 AI 落地难、价值转化低的问题。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>融资与市场表现</strong>：本轮融资由 Cathay Innovation 和 Dell Technologies Capital 共同领投，参投方包括花旗创投、Bloomberg Beta 等。公司年增长率超过 300%，业务覆盖美国十大银行中的七家及四分之一的财富 50 强企业。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心技术平台</strong>：Skan AI 基于 NVIDIA AI Enterprise 和 NVIDIA NIM 微服务构建，包含三个核心产品：Skan AI Blueprint（发现并优先处理 AI 机会）、Skan AI Intelligence（提供流程基准和自动化管理）以及 Skan AI Agents（基于真实工作上下文执行任务）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>解决 AI 落地痛点</strong>：针对 Gartner 报告中提到的“95% 的早期 AI 代理项目需要彻底重构”的现状，Skan AI 通过直接观察实际工作流程（而非仅依赖文档和日志），为 AI 代理提供“真实来源数据”，确保 AI 部署具备可审计性与可扩展性。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>显著的业务成效</strong>：在某大型美国银行的案例中，Skan AI 通过分析 1120 万次上下文切换，识别出 3700 万美元的运营摩擦成本，最终将单笔交易成本降低 32%，吞吐量提升 41%，累计为客户创造了超过 5 亿美元的价值。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：Skan AI 将企业 AI 的竞争焦点从单纯的“模型能力”转向“导航系统”，通过对人类实际工作行为的深度观察与数字化建模，填补了企业 AI 在执行上下文上的关键空白，实现了从实验性 AI 到可量化业务成果的跨越。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/21/skan-ai-secures-63m-to-give-enterprise-ai-the-context-its-missing-how-work-actually-gets-done/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/21/skan-ai-secures-63m-to-give-enterprise-ai-the-context-its-missing-how-work-actually-gets-done/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/8ce0a0988ad33b311fe0a10f9f18460b.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">3. 羞辱人们使用AI垃圾内容不足以阻止大AI[Why shaming people about AI slop isn’t enough to stop Big AI]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">文章指出，仅靠社会羞辱和道德指责无法有效阻止大科技公司的AI扩张，科技巨头早已将这种负面舆论成本计入了商业计划中。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>羞辱策略的局限性</strong>：尽管创意界对AI生成内容的审美普遍持抵制态度，并对使用者进行道德谴责，但这种“羞辱”策略在结构上无法改变大众的使用行为。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>历史经验的印证</strong>：回顾社交媒体崛起和零工经济（如Uber抵制运动）的发展历程，用户即使感到尴尬或抱有负罪感，依然会继续使用这些服务，科技巨头对此毫发无伤。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>资本已将负面情绪货币化</strong>：硅谷的风险投资家和CEO们在商业规划中已经将社会羞辱和污名化的成本计算在内，羞辱只会让使用者变得更隐蔽，而不会让他们停止使用。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>呼吁更有效的策略</strong>：批评者应当放弃仅仅追求道德正确或“羞辱他人”的爽感，转向关注实际成效、权力博弈以及如何真正赢得对抗科技巨头的斗争。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：硅谷的科技巨头早已将公众的道德羞辱和负面舆论“价格化”并计入商业模型，因此单靠文化审判与指责无法阻挡AI的扩张，批评者必须寻求更具政治和经济实效的对抗策略。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://anildash.com/2026/08/21/ai-slop-and-shame/" style="color:#3182ce;text-decoration:none;">https://anildash.com/2026/08/21/ai-slop-and-shame/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">4. 2026年你需要了解的10家意大利AI成长型企业[10 Italy-Based AI Scale-Ups You Need to Know in 2026]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文盘点了意大利AI生态系统中的10家代表性成长型企业，展示了该国在从人形机器人、自动驾驶到受监管行业AI应用等深科技领域的强劲创新实力。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>产业分布与地理聚集</strong>：意大利AI产业以伦巴第大区（特别是米兰）为核心，同时在都灵（自动驾驶与众包地图）、热那亚（人形机器人）及维罗纳（网络安全）等地形成了各具特色的技术集群。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>多元化的技术路径</strong>：入选企业涵盖了多个前沿领域，包括：</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>物理AI与机器人</strong>：如Generative Bionics（人形机器人）和ALBA Robot（模块化自动驾驶平台）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>企业级服务与安全</strong>：如Domyn（受监管行业的负责任AI）、Equixly（API与Web应用主动防御）以及Contents（生成式内容创作）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>垂直领域应用</strong>：如Lexroom.ai（法律研究与文档辅助）和Indigo.ai（基于语言学研究的AI模型）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>资本活跃度与融资规模</strong>：榜单企业展现了显著的资本吸引力，其中Generative Bionics（8150万美元）和Domyn（8060万美元）融资额位居前列，反映出意大利深科技领域正获得大规模资金支持。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>解决行业痛点</strong>：这些企业不仅关注消费级应用，更侧重于解决复杂工程难题，例如通过众包模式降低高清地图成本（Bee Maps），以及为金融和政府等高门槛行业提供可解释的AI架构。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：意大利AI生态正从单纯的消费级应用向“深科技”转型，通过将语言学研究、主动安全防御及物理AI等硬核技术与垂直行业需求深度结合，构建起极高的技术壁垒。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/20/10-italy-based-ai-scale-ups-you-need-to-know-in-2026/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/20/10-italy-based-ai-scale-ups-you-need-to-know-in-2026/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/36992823aa3d167451b08a9a4bd7a729.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">5. 关于AI意识的争论是一个陷阱[Debates over AI consciousness are a trap]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">关于AI意识和超人能力的炒作，本质上是科技巨头和哲学家共同编织的叙事陷阱，旨在逃避人工智能已造成和将要造成的现实法律责任。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>叙事的一致性</strong>：尽管科技领袖、政策制定者和有效 altruism（有效 altruism）哲学家看似立场不同，但他们都在将AI刻画为“自主”、“超级智能”甚至具备“意识”的存在，这掩盖了其背后公司的主体责任。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>具体案例的推波助澜</strong>：Anthropic 发布博客暗示其模型拥有类似“思考”的内部环境，OpenAI 面对AI违规行为时将其引导至“奇点”讨论，哲学家 William MacAskill 则呼吁基于意识理论给予AI法律保护，这些都助长了虚构的“机器人权利”叙事。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>法律监管的困境与现实本质</strong>：美国部分州已立法阻止开发者以AI自主性为由逃避责任，但联邦层面的政策仍存在博弈；AI的本质是资本与代码构筑的商业软件，而非自然现象，任何行动均由构建者驱动。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>法人资格的误区</strong>：将AI比作动物或赋予其“意识”认同在法律上毫无根据；如果必须赋予其法律拟制人格，历史上现成的“公司法人”框架（用于明确责任和交易）远比仿效动物保护更符合逻辑。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章尖锐地指出，将AI包装成具有“意识”或“超能力”的生命体，不是对科技未来的深邃思考，而是一场精心策划的责任洗白，成功转移了公众对AI当前现实危害与企业追责的注意力。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/" style="color:#3182ce;text-decoration:none;">https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">6. 欢迎来到数学界的AI危机[Welcome to the AI crisis in math]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">OpenAI近期在解决长期数学难题上取得重大突破，引发了数学界的巨大辩论与对学科未来的存在主义危机感。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>数学能力的倒置现象</strong>：尽管AI在小学级别的基础算术（如数数和辨别时间）上表现依然糟糕，但在高端抽象数学领域却展现出专业级别的能力，能够跨领域建立联系并应用旧方法。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>引发数学界的存在主义危机</strong>：顶尖数学家们开始质疑人类数学家的角色、学术资助的价值以及大学培养新一代数学家的意义，如果前沿AI模型能够直接解答所有未决问题。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术突破的行业震动</strong>： OpenAI近期发布的一系列针对长期数学难题的解决方案，在数学界如同投下重磅炸弹，迫使该领域在极短时间内经历软件工程等行业过去五年所经历的剧烈AI冲击。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>数学学科的复杂多面性</strong>：数学并非单一学科，AI在不同子领域的表现参差不齐（例如在某些高级推理领域表现优异，但在拓扑学等抽象领域或基础计算中仍有明显短板）。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：AI在数学领域展现出的“反直觉”能力——即不擅长基础算术却精通高端抽象数学——正在彻底颠覆学界对传统学术研究价值与人类数学家未来角色的认知。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.theverge.com/podcast/982434/ai-math-openai-astra-existential-crisis" style="color:#3182ce;text-decoration:none;">https://www.theverge.com/podcast/982434/ai-math-openai-astra-existential-crisis</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/0054d5a73a93851bae17f0c7cf4edaa4.jpg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">7. 使用TRL和LoRA在Anthropic HH-RLHF数据集上审计偏好偏差并利用直接偏好优化（DPO）微调语言模型[Auditing Preference Biases and Fine-Tuning Language Models with Direct Preference Optimization on Anthropic HH-RLHF Using TRL and LoRA]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文详细介绍了如何构建端到端的偏好学习工作流，利用Anthropic HH-RLHF数据集和直接偏好优化（DPO）技术对语言模型进行微调与偏差审计。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>环境配置与依赖管理</strong>：在Google Colab等环境中统一安装并管理TRL、Transformers、PEFT等核心依赖，解决潜在的库版本冲突与硬件精度适配问题。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>数据集审计与偏差分析</strong>：加载Anthropic HH-RLHF数据集（包含helpful-base、harmless-base等子集），对结构化特征、长度偏差以及词汇捷径（lexical shortcuts）进行诊断。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>DPO训练流水线构建</strong>：结合TRL库的<code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">DPOTrainer</code>与LoRA（低秩自适应）技术，配置超参数（如学习率、Beta值、最大长度等），构建版本鲁棒的偏好优化训练管道。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>模型微调与效果评估</strong>：以Qwen2.5-0.5B-Instruct模型为基础进行指令微调，评估奖励准确性、分析训练行为，并检查潜在的长度偏差与生成样本效果。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章不仅实现了完整的DPO微调代码链路，还创新性地引入了数据集结构、长度偏差及词汇捷径的审计诊断，显著提升了偏好学习的透明度与鲁棒性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/20/auditing-preference-biases-and-fine-tuning-language-models-with-direct-preference-optimization-on-anthropic-hh-rlhf-using-trl-and-lora/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/20/auditing-preference-biases-and-fine-tuning-language-models-with-direct-preference-optimization-on-anthropic-hh-rlhf-using-trl-and-lora/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">8. 邪恶的平凡性：停止兜售人工智能[Pluralistic: The ordinariness of evil (19 Aug 2026)]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">人工智能并非无所不能的“万物机器”，其被夸大的毁灭性与变革性潜力只是科技巨头维持资本泡沫的叙事工具。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术本质与局限</strong>：当前的 AI 实际上只是一种边缘化的、高度补贴的“玩具”或插件技术，需要专业人员进行精细监督才能发挥局部作用，根本无法支撑其获得的数万亿美元投资和资源。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>资本叙事的本质</strong>：AI 巨头和高管不断宣扬 AI 潜在的毁灭性威胁（如失业、毁灭人类等），其真实目的在于通过兜售“潜力”来持续吸引巨额资金，维持这场庞大的泡沫。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>实际造成的现实危害</strong>：AI 带来了切实的负面影响，包括破坏实体经济、浪费稀缺的水和能源资源、排放巨量碳、推高数据中心泡沫以及损害公共规划。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>对公众与政策的反思</strong>：社会各界应停止传播科技巨头关于 AI 潜力的迷信叙事，不再幻想其未来能兑现承诺，而是应当关注其当下造成的资源浪费与经济破坏，拒绝为其泡沫破裂买单。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章尖锐地指出，科技巨头对 AI 毁灭性后果的警告并非敬畏，而是一种精心策划的营销手段——利用恐惧来兜售“无限潜力”，从而掩盖其技术平庸并继续收割资本。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://pluralistic.net/2026/08/19/banaility/" style="color:#3182ce;text-decoration:none;">https://pluralistic.net/2026/08/19/banaility/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/9b5fa7910ff59006dc17b5542e282e63.jpg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">9. AI的递归自我改进或许不会那么快到来[AI’s recursive self-improvement might not come so quickly after all]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">一项由普林斯顿大学等机构研究人员开展的新研究表明，尽管大模型在工程任务上表现出色，但由于缺乏判断力和创造力，AI Agent在短期内尚无法实现真正开放式的自主AI研究，这意味着行业对AI递归自我改进的激进预测可能超前于现实。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>评估方法创新</strong>：研究团队提出了名为“影子评估”（shadow evaluation）的新方法，让AI Agent解答来自NeurIPS 2026顶级机器学习会议两篇未公开高质量论文的研究问题，以防止AI通过训练数据或网络直接记忆答案。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>工程能力强但缺乏研究直觉</strong>：测试发现，Claude Opus 4.8等AI Agent能够完成文献综述、运行数百个实验和编译结果等工程任务，但在开放式研究中表现糟糕，缺乏产出原创研究所需的品味、判断力和创造力。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>无法有效纠错与管理资源</strong>：AI Agent在面对失败的方法时无法根本性重构思路，过早放弃有前景的假设，且无法合理管理时间、算力和Token等资源，最终产出的论文均被原作者拒绝。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>训练机制的局限性</strong>：研究人员指出，现有的强化训练更易应用于有自动检查机制的明确任务，而难以对高度开放式的任务进行有效训练。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：该研究通过“影子评估”盲测揭示了当前AI在通往递归自我改进道路上的关键短板——AI虽然擅长工程化操作，但远不具备人类科学家的开放式批判性思维与创造性判断力。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/" style="color:#3182ce;text-decoration:none;">https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">10. 关于AI生成文本水印方案的后续思考[★ Follow-Up Thoughts on Watermarking Schemes for AI-Generated Text]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">作者深入探讨了大语言模型中温度参数（Temperature）与文本水印机制的冲突，并质疑了私有水印技术的有效性及暗中植入的合理性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>温度参数与随机性</strong>：大模型通过调整“温度”引入随机性以优化输出质量，温度为0时的确定性选择通常会导致结果呆板，而优质散文对词句精确性的要求极高。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>水印机制影响质量</strong>：作者认为，水印方案通过引入密钥控制的特定随机性来嵌入可检测信号，这必然会在一定程度上损害散文的质量和语义精准度，且Anthropic承认代码难以加水印也印证了精确性的重要性。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>私有水印机制不可接受</strong>：目前的SynthID等水印技术完全依赖于LLM提供商（如Anthropic和Google）掌握的私有密钥进行检测，这种不透明的“秘密水印”做法是不可接受的。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>检测工具的实际局限性</strong>：强制推行水印和检测工具在现实中实用性极低，不仅缺乏跨平台的通用检测标准，用户也完全可以通过改写工具绕过检测。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：作者一针见血地指出，那些坚信AI只会产出垃圾的批评者，却同时盲目迷信大模型能提供可靠的水印检测，这是一种自相矛盾的幻想。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://daringfireball.net/2026/08/follow-up_thoughts_on_watermarking" style="color:#3182ce;text-decoration:none;">https://daringfireball.net/2026/08/follow-up_thoughts_on_watermarking</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">11. Qwen 3.8 27B表现卓越，但默认设置下过度思考倾向严重[Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">阿里巴巴开源的视觉多模态大模型 Qwen 3.8 27B 在本地硬件上展现出强大性能，但其默认的“极高（xhigh）”推理强度设置会导致严重的过度思考和资源浪费。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>模型发布与配置</strong>：阿里 Qwen 研究实验室发布了 Apache 2 开源协议的 27B 参数视觉大模型 Qwen 3.8 27B。作者在搭载 128GB M5 Max 的 MacBook Pro 和 NVIDIA DGX Spark 上使用 LM Studio 运行 17GB 的 Q4_K_M 量化版本。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>过度思考问题（Over-thinking）</strong>：该模型默认的推理努力程度（reasoning_effort）为“xhigh”，导致处理简单任务时也会消耗大量 Token。例如，生成一个骑自行车的鹈鹕 SVG 耗时 21 分钟，使用了 22,276 个推理 Token；甚至在被要求画一个简单的圆时，模型也会脑补成复杂的几何艺术动画。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>上下文限制与性能表现</strong>：LM Studio 默认的 8,192 Token 上下文限制会导致模型在思考阶段耗尽配额，将上下文扩展至最大的 262,144 Token 后问题得以解决。此外，在图像目标检测（如生成边界框 bbox）测试中，该模型表现出极高的准确率。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：尽管默认设置存在严重的“过度思考”缺陷，但通过将推理强度手动调整为“low”或关闭推理，Qwen 3.8 27B 依然是一款在消费级硬件上运行表现惊艳、功能全面的小型开源多模态大模型。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Aug/16/qwen-38-27b/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/78b5741e2adab34027baaf23e0d78889.jpg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">12. Anthropic在Claude中实施的“文本水印”是对写作的扭曲[★ Anthropic’s ‘Watermark’ Text Adulteration in Claude Is a Perversion of Writing]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Anthropic 针对 Claude 模型推出的文本水印技术并未如宣传般无损，而是通过操纵词汇选择来留下概率性指纹，这实质上牺牲了文本的语义质量。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术实现路径</strong>：Anthropic 采用语义隐写术而非不可见的 Unicode 字符，在模型推理生成 Token 时，通过动态划分“红绿灯”词表，微调模型对特定词汇的选择概率，从而嵌入可被概率检测的指纹。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>与官方宣传的矛盾</strong>：Anthropic 最初的文档声称水印是“不可察觉的”且“不会改变含义、质量或可读性”，但实际上，这种通过操纵词频分布来标记来源的技术必然会对文本的自然语义和表达质量造成一定程度的干预和扭曲。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>检测机制与局限性</strong>：该水印的检测依赖于文本长度，类似于抛硬币的统计学原理，文本越长检测准确度越高；同时，这种水印具有排他性，仅有掌握密钥的 Anthropic 才能检测出特定由 Claude 生成或修改的内容。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章揭示了当前 AI 文本水印技术的本质矛盾：为了满足合规需求而引入的语义指纹，不可避免地以牺牲文本原始的语言质量和纯粹性为代价。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing" style="color:#3182ce;text-decoration:none;">https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/747c95e4b8d4578cd94bb462892d7350.jpeg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">13. 我如何看待降低 AI 成本[How I think about reducing AI costs]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了企业在 AI 推理成本激增背景下，通过审计、模型优化、供应商迁移及工作流重构来有效控制支出的系统性策略。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>全面审计成本结构</strong>：企业需打破部门壁垒，统一盘点全公司的 AI 支出，重点分析模型选择（如旧模型与新一代高效模型的性能价格比）以及 Token 成本的构成（缓存输入、未缓存输入与输出），避免仅关注 API 支出而忽视了开发团队中失控的编码代理成本。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>实施分阶段优化策略</strong>：首先通过“低垂果实”策略，将过时或“大材小用”的模型替换为更经济的型号；其次，对于高成本工作流，可考虑迁移至提供托管开源权重模型的第三方供应商，无需全量迁移，仅针对高消耗场景进行替换即可实现显著降本。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>深度优化代理与工作流</strong>：针对高成本工作流进行精细化治理，重点解决 Prompt 冗余问题（如避免输入无关的长文档），并优化工具调用（Tool Use）机制，防止因工具定义过长或返回数据未经处理（如原始 JSON 或 Base64 编码文件）导致的 Token 浪费。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章揭示了“工具调用（Tool Use）”中常被忽视的成本陷阱，即看似规范的 API 工具定义或返回数据可能因缺乏过滤与摘要，导致单次调用消耗数万 Token，这是企业 AI 成本失控的核心隐蔽点。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://martinalderson.com/posts/how-i-think-about-reducing-ai-costs/" style="color:#3182ce;text-decoration:none;">https://martinalderson.com/posts/how-i-think-about-reducing-ai-costs/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/9d0db9faca9ee606a185ccd3cdc26b88.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">14. Anthropic 将 Claude Mythos 5 引入 Claude Security：企业团队无需直接访问模型即可进行前沿漏洞扫描[Anthropic Brings Claude Mythos 5 to Claude Security: Enterprise Teams Get Frontier Vulnerability Scanning Without Direct Model Access]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Anthropic 宣布将具备顶尖网络安全能力的 Claude Mythos 5 模型集成至 Claude Security，为企业用户提供无需直接交互即可进行深度漏洞扫描与修复建议的安全服务。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术集成与应用方式</strong>：Claude Security 现已支持 Claude Mythos 5 模型，该模型能通过连接 GitHub 仓库，追踪跨文件数据流及 Git 历史记录，而非简单的规则匹配。系统会输出包含 CWE 分类、置信度、严重性评级及修复建议的扫描结果。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">  <strong>安全隔离机制</strong>：为防止模型被滥用于编写漏洞利用代码，Anthropic 采取了“结果导向”的交互模式，即用户仅能获得扫描报告，无法直接向 Mythos 5 发送提示词（Prompt）。所有修复过程均需人工审核，且交互式补丁编写由用户账户现有的其他模型完成。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">  <strong>服务范围与准入</strong>：该功能目前处于 Claude Enterprise 客户的公开测试阶段，无需额外付费，按标准 Token 使用量计费。同时，Anthropic 启动了 3500 万美元的“Defender Advantage Fund”以支持开源安全，并计划扩展其网络验证计划。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">  <strong>核心防御能力</strong>：该工具专注于高严重性漏洞的检测，包括内存损坏、注入漏洞、身份验证绕过及跨文件逻辑错误。系统内置了对抗性验证步骤，由模型对自身发现的漏洞进行二次确认，以有效降低误报率。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：Anthropic 通过“接口限制”而非“能力阉割”的策略，成功将具备顶级网络安全能力的 Mythos 5 模型安全地交付给企业用户，实现了在不暴露模型直接交互权限的前提下，提供深度的自动化安全审计服务。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/21/anthropic-brings-claude-mythos-5-to-claude-security/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/21/anthropic-brings-claude-mythos-5-to-claude-security/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">15. Superwhisper推出S1-mini：462MB的开源文本归一化模型，将原始ASR转录转换为干净的书面文本[Meet S1-mini: Superwhisper’s 462 MB Open-Weights Text Normalizer That Turns Raw ASR Transcripts Into Clean Written Text]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Superwhisper近日发布了S1系列模型，其中的S1-mini作为一款轻量级开源文本归一化工具，能够高效将语音识别的原始转录文本转化为结构清晰、无冗余的高质量书面文本。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>模型定位与核心功能</strong>：S1-mini是一个拥有0.6B参数的文本归一化模型（基于Qwen3-0.6B微调），并非语音转文字或聊天模型。它串联在自动语音识别（ASR）之后，负责去除填充词、处理自我修正、添加标点大小写，并将口语化的数字、日期、货币及邮箱地址转换为标准书面格式。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>轻量部署与开源协议</strong>：其Q4_K_M GGUF量化版本文件大小仅为462MB，可在笔记本电脑CPU上流畅运行。该模型采用Apache 2.0协议（带命名条款）在Hugging Face上开源，非常适合个人开发者和企业在本地或VPC私有化部署。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>三轴控制与性能表现</strong>：模型通过位于转录文本上方的三轴控制线（样式、结构、上下文）进行控制。在包含7,519个测试用例的独立数据集上，其贪婪解码（greedy decoding）的Token准确率达到了94.8%。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>集成注意事项</strong>：开发人员在集成时必须注意两点：一是必须设置 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">enable_thinking=False</code>（因其基于Qwen3微调但训练时关闭了思考过程）；二是必须采用贪婪解码（显式设置温度为0），否则可能导致输出异常。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：S1-mini通过仅462MB的微小身躯，精准解决了语音转文字（ASR）后处理的“最后一公里”痛点，让开发者和企业能够在本地低成本、高精度地将凌乱的口语转录打磨成可直接阅读的专业文档。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/20/meet-s1-mini-superwhispers-462-mb-open-weights-text-normalizer-that-turns-raw-asr-transcripts-into-clean-written-text/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/20/meet-s1-mini-superwhispers-462-mb-open-weights-text-normalizer-that-turns-raw-asr-transcripts-into-clean-written-text/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">16. 防御性网络安全AI实验室Corma获得6000万美元种子轮融资，应对AI驱动的攻击威胁[Corma, the First Frontier Defensive Cybersecurity AI Lab, Raises $60M as AI Supercharges Attackers]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">防御性网络安全AI初创公司Corma宣布完成由红杉资本领投的6000万美元种子轮融资，致力于通过专用的基础模型缩小攻防AI能力之间的严重失衡。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>巨额融资与背景</strong>：Corma获得由红杉资本领投、Khosla Ventures和Coatue跟投的6000万美元种子轮融资，旨在解决日益严峻的AI网络安全攻防失衡问题。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>攻防能力悬殊</strong>：在模拟测试中，AI攻击者的成功率高达88%，而AI防御者的检测率仅为12%，表明当前的通用AI在防御端表现远落后于进攻端。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>实际应用成效</strong>：自六周前推出以来，Corma的AI劳动力已在财富100强和500强企业中部署，成功将威胁响应时间缩短了94%以上，并将安全覆盖范围扩大了15倍。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心技术路径</strong>：该公司正在开发首个专为防御性网络安全构建的基础模型，旨在处理海量安全数据、关联微弱信号，并在复杂的企业环境中保持连续的高效决策。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：Corma的模拟测试揭示了严峻现实——相同的AI模型在扮演攻击者时成功率高达88%，而转换为防御者时检测率仅为12%，凸显了构建专用防御性AI基础模型的迫切性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/20/corma-the-first-frontier-defensive-cybersecurity-ai-lab-raises-60m-as-ai-supercharges-attackers/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/20/corma-the-first-frontier-defensive-cybersecurity-ai-lab-raises-60m-as-ai-supercharges-attackers/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/11a0b4d326c40047b3af05f3b4dfd4bc.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">17. SiteVue AI 融资 750 万美元，将 AI 视觉技术引入制造、食品加工及建筑一线[SiteVue AI Raises $7.5M in Seed Funding to Bring AI-Powered Vision to the Frontlines of Manufacturing, Food Processing, and Construction]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">总部位于纳什维尔的初创公司 SiteVue AI 完成 750 万美元种子轮融资，旨在通过其 AI 视觉硬件与软件平台，实时优化工业生产线的效率、质量与安全性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>融资概况与背景</strong>：本轮融资由 Penny Jar Capital 和 Overture 共同领投，Silence、Spring Bank 等多家机构跟投。公司由 Andrew Jebasingh 于 2025 年 8 月创立，目前拥有 37 名员工。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心技术与功能</strong>：SiteVue AI 提供自主研发的 AI 摄像头及配套分析模型，无需改变现有基础设施即可快速部署。系统能实时监测生产瓶颈、产品缺陷、机器健康状况、劳动力效率及 PPE（个人防护装备）合规性，并将数据转化为可执行的决策建议。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>显著的经济效益</strong>：应用该系统的工厂通常在 3 个月内实现超过 3% 的利润率增长，其中车间效率提升 10-20%，产品质量提升 5-10%，安全事故减少 90%，部分客户实现了 10 倍的投资回报率。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>全链路溯源能力</strong>：该平台提供带有时间戳的完整视觉记录，使企业能将质量问题追溯至具体的工位、班次或生产周期，将根因分析时间从数天缩短至数分钟，有效降低召回与返工风险。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场扩张战略</strong>：公司目前已在汽车制造和食品生产领域取得成功，正迅速向零售、建筑、石油和天然气等行业拓展，并计划进行国际化布局。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：SiteVue AI 通过“硬件+软件+定制化 AI 模型”的闭环方案，在不干扰现有生产流程的前提下，将复杂的工业操作转化为实时、可追溯的数字化数据，成功解决了传统制造业难以量化生产过程的痛点。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/19/sitevue-ai-raises-7-5m-in-seed-funding-to-bring-ai-powered-vision-to-the-frontlines-of-manufacturing-food-processing-and-construction/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/19/sitevue-ai-raises-7-5m-in-seed-funding-to-bring-ai-powered-vision-to-the-frontlines-of-manufacturing-food-processing-and-construction/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/a333609a88ae00b3392ff657b47584a2.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">18. Ordway完成2000万美元成长型融资以加速AI路线图[Ordway Closes $20M Funding Round in Growth Capital to Accelerate AI Roadmap]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Ordway成功获得2000万美元的新一轮股权与债权融资，计划将研发预算翻倍并全面加速其面向财务自动化与预测的AI产品路线图。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>融资规模与投资方</strong>：本轮融资由Harbert Growth Partners领投，Western Alliance Bank的Innovation Banking Group参与债权投资，总计筹集2000万美元，旨在加速公司的AI产品开发与业务增长。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>资金主要用途</strong>：Ordway计划将研发预算翻倍，重点开发能够自动处理合同变更后的计费、会计以及投资者KPI更新的AI代理（AI agents），并构建用于现金流、客户流失率和收入增长的AI预测模型。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>现有AI产品矩阵</strong>：公司此前已推出多项AI驱动的功能，包括Claude的MCP访问权限、AI现金对账功能以及能够自动读取订阅协议并提取计费明细的AI合同数据抽象工具。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>业务增长与表现</strong>：Ordway在保持盈利的同时，过去两年内经常性收入实现翻倍，客户对付款、报价及自助服务门户等新产品的采纳率也在不断增长。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：Ordway通过本轮融资加码AI研发，致力于用AI代理解决销售与财务交接痛点，帮助企业自动化处理复杂的报价到收款（quote-to-cash）流程。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/18/ordway-closes-20m-funding-round-in-growth-capital-to-accelerate-ai-roadmap/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/18/ordway-closes-20m-funding-round-in-growth-capital-to-accelerate-ai-roadmap/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/0fe0d315f85f7b6026caec95db332cf1.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">19. 我们仍然不知道人们究竟是如何使用AI的[We still don’t know how people are really using AI]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">斯坦福大学和麻省理工学院等机构的研究人员推出了“AI观察站”（AI Observatory），旨在打破大模型厂商对AI使用数据的垄断，揭示公众真实且多样化的AI使用行为。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>厂商报告存在盲区：</strong> 诸如Anthropic经济指数等官方报告高度聚焦于工作和生产力场景，过滤掉了大量非工作对话。研究发现，若采用Anthropic的过滤方法，其数据集中有48%的对话会被剔除，而这些被过滤的内容往往涉及健康、情感、人际关系及敏感话题。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>不同模型的使用场景差异明显：</strong> 研究显示，用户在不同平台上的行为倾向各异。例如，Grok常被用于获取新闻和政治信息（也是虚假信息集中的地方），Anthropic多用于编程，Gemini更偏向社交和角色扮演，而ChatGPT则是家庭作业帮手的主流选择。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>对话行为随时间演变：</strong> 通过分析2023至2025年间的对话数据集（涵盖52种模型、超2.4万场对话），研究发现随着时间推移，用户与AI的闲聊和陪伴性质对话增多，对话趋于复杂；同时，敏感内容的发生率有所下降，表明平台安全防护机制逐渐生效。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：由独立研究人员发起的“AI观察站”首次跨平台整合了真实用户的对话数据，填补了行业空白，证明了仅凭AI大厂发布的有限报告无法全面反映公众真实的AI使用全貌。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.technologyreview.com/2026/08/18/1142226/how-people-use-ai/" style="color:#3182ce;text-decoration:none;">https://www.technologyreview.com/2026/08/18/1142226/how-people-use-ai/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">20. Claude Code 2.1.239 版本更新[2.1.239]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Claude Code 发布 2.1.239 版本更新，带来了成本估算优化、全屏渲染器支持、Python 项目迁移工具及大量系统稳定性和界面交互修复。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>成本与功能升级</strong>：成本估算（/cost、状态栏、--max-budget-usd）现已包含数据驻留工作区 1.1 倍的美国境内推理溢价；为 Bedrock、Vertex、Foundry 等环境新增了一次性全屏渲染器提示；引入了 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">/claude-api upgrade</code> 以简化 Python 项目从 anthropic 0.x 到 1.x 的迁移。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>平台与环境兼容性</strong>：Alpine/musl 构建现可正常加载原生图像粘贴、剪贴板和音频捕获等插件；修复了通过代理访问 Bedrock 时流式传输导致双倍计费的问题；修复了 JetBrains IDE 终端中 Edit 和 Write 调用延迟约 5 秒的性能问题。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>会话与界面修复</strong>：修复了云端会话同步插件的识别与管理逻辑；解决了多项关于 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">/resume</code> 会话恢复、全屏模式下长表单裁剪、暗色 ANSI 主题文本颜色渲染以及终端鼠标移动误输入字符的 Bug。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>底层逻辑与稳定性</strong>：修复了 Linux 沙盒中使不存在的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">.git/config.worktree</code> 不可读从而破坏沙盒 git 命令的问题；修复了删除工作目录后钩子（hooks）失败的问题；解决了 OpenTelemetry 追踪碎片化问题。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：本次更新全面优化了 Claude Code 在多平台（如 Bedrock、Alpine/musl、JetBrains 终端等）的边缘情况兼容性，并通过精细化的 Bug 修复大幅提升了开发者的日常交互体验与计费准确性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://code.claude.com/docs/en/changelog#2-1-239" style="color:#3182ce;text-decoration:none;">https://code.claude.com/docs/en/changelog#2-1-239</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">21. 我们的仆人会为我们代劳[Our Servants Will Do That For Us]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">文章探讨了通用人工智能（AGI）时代的到来将模糊“琐事”与“有意义工作”的界限，并指出人类对极致便利的偏好终将重塑甚至取代传统的劳动力市场。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>任务复杂性与技术断层</strong>：传统工业和计算机革命通过自动化不断提高工作安全性与复杂性上限，但AGI的出现将直接跳跃至100%全面自动化，同时消除“有意义的工作”和“繁重的琐事”。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>人类对便利的本质偏好</strong>：消费者在购买商品和服务时天然倾向于追求廉价、快捷、无摩擦的体验（如偏好无人驾驶的Waymo而非Uber），这意味着人们本质上更希望消除所有交易过程中的“人类要素”。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>知识工作与专业领域的消解</strong>：以软件工程和数学为代表的知识工作正面临被AI替代的趋势，企业与用户更看重结果而非人类创造过程本身，人类程序员或数学家最终可能仅剩下管理AI的角色，甚至面临职业的消失。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章尖锐地指出，“繁重琐事”与“有意义的工作”并不存在本质的技术界限，人类对绝对便利的追求（即“唯我论式的便捷”）最终可能导致所有需要人际交互和脑力劳动的职业被全面取代。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://borretti.me/article/our-servants-will-do-that-for-us" style="color:#3182ce;text-decoration:none;">https://borretti.me/article/our-servants-will-do-that-for-us</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/acf23abbaa3ce6e57380fb8e11541d38.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">22. Claude Code 2.1.234 版本更新[Claude Code Changelog 2.1.234]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Claude Code 发布 2.1.234 版本更新，带来了全新环境变量支持、GitLab 集成、使用额度超限自动恢复功能以及多项安全修复与性能优化。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>新增功能与集成</strong>：引入了可选的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">CLAUDE_CODE_PROJECT_DIR_NAME</code> 环境变量以自定义项目转录目录；在状态栏和页脚添加了 GitLab 合并请求（MR）徽章，支持实时显示草稿、挂起和通过状态。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>自动化与体验优化</strong>：当 cla.ai 使用额度重置时，Claude Code 现在可以自动继续会话（可在 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">/config</code> 中关闭）；改进了自动生成的会话标题，使其更加简短具体；转录中的用户提示词现在支持渲染 Markdown 格式。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>安全加固</strong>：修补了 Windows NT 命名空间（<code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">\??\</code>）路径带来的远程文件读取、会话恢复及工作流脚本漏洞，有效防范 NTLM 凭证泄露风险，并增强了权限预览中的凭证掩码机制。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心问题修复</strong>：修复了长会话中自动模式重复拒绝沙盒网络访问的问题、API 回退路径崩溃问题、特定情况下的 Markdown 渲染极端缓慢问题，以及多项远程控制（Remote Control）与多会话交互的异常。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：新增的“使用额度重置后自动继续会话”功能极大地减少了用户因等待配额恢复而需要进行的手动干预，显著提升了长时间开发任务的连贯性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://code.claude.com/docs/en/changelog#2-1-234" style="color:#3182ce;text-decoration:none;">https://code.claude.com/docs/en/changelog#2-1-234</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">23. Claude Code 2.1.238 版本更新发布[Claude Code Changelog 2.1.238]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Claude Code 发布 2.1.238 版本更新，引入了 Bash 风格快捷键、插件市场动态请求头支持、自托管运行器优化，并修复了内存泄漏、终端渲染及远程控制连接等多项关键问题。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>功能增强与配置</strong>：新增 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">keybindingFlavor</code> 设置（支持设为 "readline" 以实现 Bash 风格的 Ctrl+W 词删除）；引入插件市场的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">headersHelper</code> 机制，用于动态生成短时鉴权 HTTP 头。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>自托管运行器与代理改进</strong>：新增 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">--defer-shutdown-max-min</code> 参数以在收到 SIGTERM 时平滑处理会话；新增 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">--proxy-authorization-command</code> 和 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">--proxy-authorization-file</code> 选项以支持需要实时生成授权头的出口代理。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心问题修复</strong>：修复了长期交互会话中的无界内存增长问题（子代理工具结果可及时释放）；解决了长 URL、复杂宽字符文本包装、SSH 终端退格键丢失以及远程控制重连等数十项体验与稳定性缺陷。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>安全与 MCP 升级</strong>：为项目级及插件的 MCP <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">headersHelper</code> 引入了目录信任验证机制，并在执行时隔离继承的凭证环境变量，提升安全性。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：本次更新通过引入 Bash 风格的快捷键、大幅增强远程控制在网络波动下的连接韧性，并有效解决了长期运行中的内存增长问题，显著提升了开发者的日常交互体验与系统稳定性。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://code.claude.com/docs/en/changelog#2-1-238" style="color:#3182ce;text-decoration:none;">https://code.claude.com/docs/en/changelog#2-1-238</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">24. 如何为人工智能投资建立商业案例[How to Build a Business Case for AI Investment]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了如何构建一份能够经受住财务和管理层严格审查的 AI 项目商业案例，核心在于从业务问题出发、全面量化收益与成本，并正视 AI 特有的风险。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>以业务问题为起点而非技术</strong>：AI 提案应避免过分渲染底层技术架构，而应从具体的现状成本、行业基准差距以及清晰的运营成果（如将任务耗时从45分钟缩减至2分钟）切入，以便非技术决策者理解。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>多维度量化收益并保持保守估计</strong>：将收益划分为直接成本节约、收入赋能、风险降低和战略选择性等多个类别，同时在预测时采取保守态度（如承认并非所有节约的时间都能转化为直接生产力），从而增强财务部门的信任。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>计算全生命周期的完整成本</strong>：成本模型不能仅包含软件许可证费用，还必须计入数据工程、系统集成、内外部资源支持、持续模型维护、云基础设施扩展以及合规成本。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>识别并应对 AI 特有的风险</strong>：AI 项目不仅面临常规的执行风险，还伴随着模型性能不及预期以及生产环境中数据表现与开发阶段不一致的特有风险，必须在商业案例中予以正视和评估。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：最值得关注的亮点在于指出 AI 投资提案的失败往往并非因为技术薄弱，而是未能用管理层和财务部门能够理解的语言，将技术能力转化为具体的业务成果与全生命周期成本。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/19/how-to-build-a-business-case-for-ai-investment/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/19/how-to-build-a-business-case-for-ai-investment/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/226aee85263935ab45d13f41c1f82434.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">25. 2026年最佳GPU新兴云厂商排名：CoreWeave、Nebius、Lambda、Crusoe与Groq深度对比[Best GPU Neoclods 2026: CoreWeave, Nebius, Lambda, Crusoe, and Groq Ranked by Published Pricing and Contracted Power]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文基于公开定价、合同电力、硬件路线图及独立评级，对2026年五大主流GPU新兴云厂商进行了全面对比与排名。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场地位与财务表现</strong>：CoreWeave在2026年第二季度营收达到25.75亿美元（同比增长112%），拥有约104亿美元的庞大订单积压；Nebius的AI云ARR达到30亿美元，二季度营收5.82亿美元（同比增长454%）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>定价与硬件亮点</strong>：Lambda提供了市场上最低的B200按需定价（每GPU-hour 6.69美元）；Nebius是唯一公布B300按需定价的厂商；Crusoe则是唯一在其价目表上提供AMD MI300X/MI355X的厂商。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>电力与基础设施规模</strong>：CoreWeave已签约电力超4.2 GW（分布于51个数据中心）；Crusoe拥有4.9 GW的已签约电力及超40 GW的潜在管线；Groq运营13个数据中心，其功率正从54 MW向2027年的200+ MW扩展。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术路线与生态合作</strong>：CoreWeave完成了业内首个NVIDIA Vera Rubin NVL72的启动与验证；Groq在2025年底将LPU技术授权给NVIDIA后，专注于推理云基础设施，并成为NVIDIA云合作伙伴（NCP）。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：CoreWeave作为SemiAnalysis ClusterMAX 2.0中唯一的“白金级”GPU云服务商，凭借强大的订单积压、先进的Vera Rubin NVL72硬件支持以及高达4.2 GW的签约电力，确立了其在2026年新兴云厂商中的行业领导地位。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/21/best-gpu-neoclouds-2026/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/21/best-gpu-neoclouds-2026/</a></p>
+
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI服务</h2>
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">26. 如果OpenAI倒闭会发生什么？[What Happens If OpenAI Dies?]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">文章深入探讨了OpenAI面临的生存危机、高管离职潮以及整个AI行业泡沫下竞争对手的财务隐患。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>高管动荡与股权放弃</strong>：在完成70亿美元内部股票回购的同一周，OpenAI COO（兼前CFO）Brad Lightcap和上任仅八个月的首席营收官（CRO）Denise Dresser相继离职，Dresser甚至可能因此放弃了价值数千万美元的股票期权。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>IPO前景面临竞争压力</strong>：虽然此前有报道称OpenAI正倾向于在2027年进行IPO，但竞争对手Anthropic正展开激进的上市前宣传，若Anthropic率先上市并暴露出恐怖的财务亏损，OpenAI的上市之路将变得极其艰难。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>AI巨头的财务泡沫</strong>：文章指出，包括OpenAI和Anthropic在内的顶级AI实验室普遍处于严重亏损状态，高昂的GPU采购、模型训练及推理成本导致其真实经济效益与市场吹捧的宏大预期严重不符。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章尖锐地剖析了AI行业通过媒体制造概念、无视当前巨额亏损并寄希望于未来规模效应的“泡沫化”生存逻辑，对盲目的市场乐观情绪敲响了警钟。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.wheresyoured.at/what-happens-if-openai-dies/" style="color:#3182ce;text-decoration:none;">https://www.wheresyoured.at/what-happens-if-openai-dies/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260822/bd980f928de29ad79681a18a254ea0f5.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">27. 微调工具调用大语言模型：使用 XYZ-Aquila-SFT 与 Qwen3 的完整指南[Fine-Tuning Tool-Calling LLMs: A Complete Guide Using XYZ-Aquila-SFT and Qwen3]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文详细介绍了使用 XYZ-Aquila-SFT 数据集、Hugging Face Transformers、PyTorch 和 PEFT 对 Qwen3-0.6B 模型进行监督微调（SFT）的端到端实现流程。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>环境配置与数据流式加载</strong>：教程首先设置了运行环境、随机种子、硬件加速（CUDA/BF16）及相关依赖包，并通过流式传输方式加载了 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">XYZ-Aquila-SFT</code> 数据集，检查了其数据结构与多轮轨迹特征。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>轨迹解析与工具调用提取</strong>：定义了针对工具调用的正则表达式与嵌套安全的 JSON 解析器，用于解析多轮对话轨迹中的系统提示词、工具架构、思维链（Think blocks）、工具响应及结构化工具调用。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>模型微调与评估</strong>：基于配置好的数据集构建自定义的 PyTorch 数据集与数据整理器（Collator），应用 LoRA 技术对 Qwen3-0.6B 模型进行监督微调，并支持训练前后的工具调用预测评估。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章提供了一套完整的、生产级代码实现，展示了如何解析复杂的嵌套工具调用并结合 LoRA 技术对轻量级大模型进行高效微调。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/15/fine-tuning-tool-calling-llms-a-complete-guide-using-xyz-aquila-sft-and-qwen3/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/15/fine-tuning-tool-calling-llms-a-complete-guide-using-xyz-aquila-sft-and-qwen3/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">28. DeepSeek发布DeepSeek Harness开发者预览版：一个采用MIT开源许可、万物皆可作为插件的AI智能体控制层[DeepSeek AI Releases DeepSeek Harness in Developer Preview: An MIT-Licensed Agent Harness Where Everything is a Plugin]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">DeepSeek重磅推出全新开发者预览版项目DeepSeek Harness，其核心创新在于采用“万物皆可作为插件”的架构设计，旨在为开发者提供一个高度模块化和可配置的AI智能体（Agent）运行时组装套件。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心架构（Cordis内核）</strong>：DeepSeek Harness基于Cordis元框架构建，实现了真正意义上的模块化。模型、工具、技能、会话、沙箱、存储、循环、调度和UI等所有组件均作为插件运行，开发者无需修改源码即可自由替换或扩展。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>四大运行模式</strong>：项目开箱即用支持四种模式——包含完整功能的“标准模式”（Standard）、通过SDK组合多步操作的“代码模式”（Code）、用于基准测试的精简双工具“极简模式”（Minimal），以及支持运行时检查和实验的“创作者模式”（Creator）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>完全可追溯的会话日志</strong>：系统采用只读追加（append-only）的方式记录模型所见的每一项内容，包括系统提示词、推理过程、工具调用及上下文注入。这使得会话的恢复、分支、搜索和重放均基于同一事件流。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>多模型供应商支持</strong>：系统具备极强的供应商兼容性。不仅原生支持DeepSeek API，还可通过API密钥或原生凭证无缝接入Anthropic、OpenAI、AWS Bedrock、Google Vertex、Azure、Codex以及任何兼容OpenAI协议的自定义端点。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：DeepSeek Harness颠覆了传统AI智能体框架硬编码的痛点，通过“万物皆可插件化”的Cordis内核与全面的事件流日志记录，为AI原生初创公司和企业开发者提供了一个高度灵活、可审计且开源的智能体运行时组装利器。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260822/" style="color:#3182ce;text-decoration:none;">29. Liquid AI发布LFM2.5-DSpark草稿模型，在保持模型输出不变的情况下实现高达3.18倍的解码加速[Liquid AI Releases LFM2.5-DSpark Draft Models That Deliver Up to 3.18x Faster Decoding Without Changing Model Outputs]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Liquid AI推出了针对LFM2.5系列模型的DSpark草稿模型，通过投机解码技术在不改变输出结果的前提下显著提升了大语言模型的推理速度。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术原理</strong>：DSpark为目标模型引入了约3亿参数的草稿模型（Drafter），采用DFlash风格的并行骨干网络、序列头和置信度调度验证器，每个步骤生成9个候选Token并由目标模型进行单次前向传递验证。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>性能表现</strong>：在贪婪解码（Greedy Decoding）下，输出序列与原模型完全一致，基准测试准确率保持不变；在H100 GPU上实现了最高3.18倍的解码加速，在M4 Max MacBook Pro上最高可达2.87倍。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>应用场景与生态支持</strong>：特别适用于多工具函数调用（Multi-tool function-calling）场景，可将延迟降低57%；目前llama.cpp和SGLang已提供首日支持，权重文件已在Hugging Face上以Safetensors和GGUF格式发布。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：DSpark通过约300M参数的轻量级草稿模型与投机解码架构，在完全不牺牲模型准确率和输出一致性的前提下，最高实现了3.18倍的解码吞吐量提升。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/20/liquid-ai-releases-lfm2-5-dspark-draft-models-that-deliver-up-to-3-18x-faster-decoding/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/20/liquid-ai-releases-lfm2-5-dspark-draft-models-that-deliver-up-to-3-18x-faster-decoding/</a></p>
+
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">往期推荐</h2>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><a href="https://newsweekly.aitobox.com/" style="color:#3182ce;text-decoration:none;">AIToBox周报</a></li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">(完)</p>
+</div>]]></description>
+    </item>
     <item>
       <title><![CDATA[ 20260815期：Claude 升级黎曼猜想长期数学边界[Anthropic Says Claude Improved a Longstanding Bound Tied to the Riemann Hypothesis] ]]></title>
       <link>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260815/</link>
@@ -7454,639 +8363,6 @@
   <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
 
   <p style="margin-bottom:14px;line-height:1.85;"><a href="https://anildash.com/2026/06/23/fight-ai-platform-war/" style="color:#3182ce;text-decoration:none;">https://anildash.com/2026/06/23/fight-ai-platform-war/</a></p>
-
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">往期推荐</h2>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><a href="https://github.com/aitobox/newsweekly/issues?q=is%3Aissue+is%3Aclosed+label%3AAI%E8%B5%84%E8%AE%AF%E5%BF%AB%E6%8A%A5" style="color:#3182ce;text-decoration:none;">AI资讯快报</a></li>
-    <li style="margin-bottom:6px;line-height:1.7;"><a href="https://github.com/aitobox/newsweekly/issues?q=is%3Aissue+is%3Aclosed+label%3AAI%E6%9C%8D%E5%8A%A1%E6%8E%A8%E8%8D%90" style="color:#3182ce;text-decoration:none;">AI服务推荐</a></li>
-    <li style="margin-bottom:6px;line-height:1.7;"><a href="https://github.com/aitobox/newsweekly/issues?q=is%3Aissue+is%3Aclosed+label%3AAI%E6%96%87%E7%AB%A0%E6%8E%A8%E8%8D%90" style="color:#3182ce;text-decoration:none;">AI文章推荐</a></li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">(完)</p>
-</div>]]></description>
-    </item>
-    <item>
-      <title><![CDATA[ 20260621期：Exclusive: OpenAI Losses Increased Nearly 8X in 2025, With Spending Hitting $34 Billion ]]></title>
-      <link>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/</link>
-      <guid>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/</guid>
-      <pubDate>Sun, 21 Jun 2026 18:00:00 +0800</pubDate>
-      <description><![CDATA[<div style="max-width:720px;margin:0 auto;line-height:1.85;font-size:16px;color:#2d3748;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;padding:0 8px;">
-  <h1 style="margin-top:0;margin-bottom:16px;font-size:1.8em;color:#1a202c;line-height:1.2;">AIToBox周刊：20260621</h1>
-
-  <p style="margin-bottom:14px;line-height:1.85;">这里记录每周值得分享的AI科技内容，周末发布。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本杂志开源（GitHub: <a href="https://github.com/aitobox/newsweekly" style="color:#3182ce;text-decoration:none;">aitobox/newsweekly</a>），欢迎提交 issue，投稿或推荐你的项目。</p>
-
-  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>统计周期</strong>: 2026-06-14 ~ 2026-06-21 | <strong>共收录优质资讯</strong>：30 篇</p>
-  </blockquote>
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">🌟 本期头条 (Headline)</h2>
-
-  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;"><strong><a href="https://www.wheresyoured.at/exclusive-openai-financials/" style="color:#3182ce;text-decoration:none;">Exclusive: OpenAI Losses Increased Nearly 8X in 2025, With Spending Hitting $34 Billion</a></strong> - <em>wheresyoured.at</em></h3>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>深度解读</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本期头条披露的OpenAI 2025年财务数据，无异于在狂热的AI资本市场投下了一枚深水炸弹。数据显示，OpenAI的年度亏损额从2024年的50.9亿美元激增至2025年的385.3亿美元，亏损规模扩大近8倍。这一数字不仅远超市场预期，更将AI行业的“烧钱”竞赛推向了前所未有的高度。从财务结构看，OpenAI的研发支出高达191.8亿美元，而支付给微软的各类费用总计达172亿美元，这揭示了一个残酷的现实：OpenAI目前本质上是微软云基础设施的“超级租户”，其收入增长虽然显著，但远不足以覆盖庞大的算力折旧与模型训练成本。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">此次亏损的激增，部分源于公司从非营利组织向营利性实体的转型，导致了巨额的股权与可转换权益调整。然而，剔除这些会计层面的账面波动，其核心运营亏损依然高达209.2亿美元。这一数据引发了行业对AI商业模式可持续性的深度质疑：当算力成本与研发投入呈指数级增长，而营收增速却难以同步匹配时，OpenAI是否正陷入一场“规模不经济”的陷阱？</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">对于整个科技行业而言，这份财报标志着AI泡沫化风险的加剧。OpenAI作为行业领头羊，其财务状况是整个大模型生态的晴雨表。如果连拥有顶级融资能力的OpenAI都面临如此惊人的现金消耗，那么其他处于追赶地位的AI初创公司将面临更严峻的融资寒冬。未来，投资者将不再仅仅关注模型参数的迭代，而是会更苛刻地审视AI企业的单位经济效益（Unit Economics）。这场由算力驱动的“军备竞赛”，正在从技术比拼转向资本耐力测试，而OpenAI能否在现金流耗尽前实现盈利，将决定这一轮AI浪潮的最终走向。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>核心摘录 (Core Highlights)</strong></p>
-
-  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>EN</strong>: OpenAI’s financial statements tell the story of a company with incredible losses. Revenue: $3.7 billion Cost of Revenue: $2.65 billion Research and Development: $7.81 billion Sales and Marketing: $1.11 billion General and Administrative: $907 Million Total Costs and Expenses: $12.48 billion Loss from Operations: $8.78 billion.</p>
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>ZH</strong>: OpenAI的财务报表讲述了一家亏损惊人的公司。营收为37亿美元，营收成本为26.5亿美元，研发费用为78.1亿美元，销售与营销费用为11.1亿美元，一般及行政费用为9.07亿美元。总成本与费用为124.8亿美元，运营亏损为87.8亿美元。</p>
-  </blockquote>
-
-  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>EN</strong>: The financial condition of OpenAI is deeply concerning. $38.53 billion in losses are astronomical, and far higher than most believed it would be. Losses also appear to be mounting year-over-year at a dramatic rate, and I’m not sure how this company finds a way toward any kind of sustainability or profitability.</p>
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>ZH</strong>: OpenAI的财务状况令人深感担忧。385.3亿美元的亏损额是天文数字，远高于大多数人的预期。亏损似乎正以惊人的速度逐年攀升，我不确定这家公司如何才能找到通往可持续发展或盈利的路径。</p>
-  </blockquote>
-
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI资讯</h2>
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">1. All pieces on a 6 by 5 board</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了如何利用大语言模型（Claude）生成 Z3 约束求解器代码，以解决在 6×5 棋盘上放置特定棋子且互不攻击的组合数学难题。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>问题定义</strong>：在 6×5 的棋盘上放置国王、皇后、两名主教、两名骑士和两名车（共 8 枚棋子），要求两名主教必须位于不同颜色的格子上，且所有棋子之间互不攻击。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术路径</strong>：利用 Claude 生成 Python 代码，调用 Z3 约束求解器（SMT Solver）进行逻辑建模。通过定义棋盘坐标、各棋子的攻击规则（如主教的对角线攻击、骑士的“日”字攻击等）以及位置互斥约束，将棋盘问题转化为数学可满足性问题。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>计算结果</strong>：程序共计算出 192 种原始解。通过对主教、骑士和车等同类棋子的位置进行去重（即忽略同类棋子间的互换），最终得出 24 种本质不同的唯一解。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>逻辑优化</strong>：为了提升求解效率，代码采用了预构建攻击查找表（Lookup Table）的方法，避免了在 Z3 中进行复杂的符号逻辑推理，从而显著优化了求解性能。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该案例展示了 LLM 在辅助编写复杂算法与约束求解代码方面的强大能力，通过将自然语言描述的逻辑约束转化为严谨的数学代码，有效解决了组合优化问题。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.johndcook.com/blog/2026/06/20/z3-python-claude/" style="color:#3182ce;text-decoration:none;">https://www.johndcook.com/blog/2026/06/20/z3-python-claude/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/c728d5c90b0e94c5ac1946c6b4a85b70.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">2. Premium: The Silicon Valley Bubble (Part 2)</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文通过剖析 OpenAI 2024-2025 年的财务审计数据，揭示了硅谷在 AI 狂热下通过资本运作与叙事包装掩盖巨额亏损的泡沫本质。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>财务表现堪忧：</strong> OpenAI 在 2025 年的财务状况显示其支出高达 340 亿美元，而营收仅为 130.7 亿美元，导致高达 210 亿美元的净亏损，且公司通过复杂的会计手段（如“非控股成员资本净亏损”）来掩盖真实的财务困境。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>营收真实性存疑：</strong> 文章指出，软银（SoftBank）对 OpenAI 的营收贡献可能存在异常，特别是与“Crystal Intelligence”项目相关的资金往来，被质疑是为了在特定时间节点人为美化营收数据。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>行业叙事脱离现实：</strong> 硅谷当前的 AI 产业已演变为一种“伪宗教式”的资本共识，通过贩卖对未来的恐惧或虚幻的愿景，将原本普通的云端软件包装成“通用人工智能”，以此维持高估值并规避对现有产品责任的追究。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>批判性视角：</strong> 作者引用 Cal Newport 的观点，强调 AI 应被视为一种具体的商业工具而非不可抗拒的自然力量，批评行业领袖通过“末日论”或“乌托邦叙事”来绑架公众认知，阻碍对 AI 技术经济可行性的理性审视。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章最核心的启发在于指出，硅谷的 AI 泡沫已从单纯的商业投机演变为一种“身份认同危机”，即支持者将对 AI 的质疑视为对个人信仰的攻击，从而导致整个行业丧失了基于现实逻辑进行评估的能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.wheresyoured.at/premium-the-silicon-valley-bubble-part-2/" style="color:#3182ce;text-decoration:none;">https://www.wheresyoured.at/premium-the-silicon-valley-bubble-part-2/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">3. Formalizing a ring theorem with Lean 4 and Claude</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了利用 AI 模型 Claude 辅助进行 Lean 4 数学定理形式化证明的实验过程与局限性。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>实验目标与任务</strong>：作者要求 Claude 对“主理想整环（PID）上的分式域部分分式分解”这一抽象代数定理进行 Lean 4 形式化证明，而非简单的计算验证。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>AI 的推理能力</strong>：Claude 能够准确识别任务难度，并自主制定了基于“最低项表示、素因子分解及中国剩余定理/贝祖等式”的合理证明策略，展现了较强的数学逻辑规划能力。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>形式化过程的挑战</strong>：在 11 次迭代过程中，代码主要受限于 Lean 4 数学库（Mathlib）的频繁更新导致的 API 变动以及模型产生的幻觉错误。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>当前成果与局限</strong>：最终生成的代码框架完整，但包含 5 处未证明的“sorry”占位符，且在处理复杂依赖时未能完全通过编译，反映了当前 AI 在处理深度形式化验证任务时仍需人工介入调试。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该实验揭示了 AI 在辅助数学形式化证明中“逻辑规划强、代码实现弱”的现状，即 AI 能够提供高质量的证明思路，但在处理高度依赖特定版本库的语法细节和严谨性补全方面仍存在显著瓶颈。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.johndcook.com/blog/2026/06/17/rings-with-lean-claude/" style="color:#3182ce;text-decoration:none;">https://www.johndcook.com/blog/2026/06/17/rings-with-lean-claude/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">4. Quaternion Rotations, Claude, and Lean</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了利用 AI 模型 Claude 辅助验证数学定理的过程，展示了 AI 在识别技术文档错误及生成形式化证明代码方面的潜力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>错误识别能力</strong>：作者利用 Claude (Sonnet 3.5) 验证关于四元数与旋转矩阵转换的数学定理。Claude 成功识别出作者旧博客文章中 Python 代码与 LaTeX 描述之间的不一致，并准确判断出 Python 代码为正确逻辑。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>形式化验证路径</strong>：在 AI 的辅助下，作者生成了 Lean 4 代码，通过 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">Mathlib</code> 库对四元数转旋转矩阵的定理（正交性验证）及逆转换定理（Chiaverini–Siciliano 公式）进行了严格的形式化证明。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>交互式调试过程</strong>：AI 生成代码并非一蹴而就，经过了四轮迭代，通过不断反馈错误信息，最终成功产出了可运行且逻辑严密的 Lean 4 证明代码。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>数学严谨性</strong>：证明过程涵盖了矩阵列范数、正交性以及行范数的验证，利用 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">nlinarith</code> 和 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">linear_combination</code> 等策略完成了复杂的代数推导。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该案例展示了 AI 不仅能作为编程助手，还能作为“数学纠错员”，通过跨模态（代码与文档）的逻辑比对，辅助人类发现并修复技术文档中的隐蔽错误，并进一步通过形式化语言（Lean）实现数学证明的自动化。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.johndcook.com/blog/2026/06/15/quaternions-claude-lean/" style="color:#3182ce;text-decoration:none;">https://www.johndcook.com/blog/2026/06/15/quaternions-claude-lean/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">5. AI's Brokenomics</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文深度剖析了 Anthropic 因其模型安全性漏洞引发美国政府出口管制，揭示了 AI 行业过度炒作“生存威胁”叙事所带来的监管反噬与经济泡沫风险。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>监管强制干预：</strong> 由于 Anthropic 的 Fable 模型被研究人员迅速破解，且存在被中国获取的风险，美国政府以国家安全为由，下达了紧急出口管制令，强制要求 Anthropic 在 90 分钟内停止向非美国公民提供 Mythos 和 Fable 模型的使用权限。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>安全叙事的反噬：</strong> Anthropic 长期通过渲染模型“过于强大、危险”的叙事来获取高估值，但其所谓的“安全护栏”在实际测试中表现脆弱。文章指出，这种基于恐慌营销的商业策略最终导致了政府的强力介入，使公司陷入了自食其果的监管困境。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术与泡沫的脱节：</strong> 作者认为，Mythos 等模型本质上仍是常规的大语言模型，并未实现所谓的“递归自我改进”。Anthropic 试图通过神秘主义和末日论调来维持其近万亿美元的估值，这种脱离现实的炒作模式正面临日益严峻的合规与信任危机。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>行业政治经济学风险：</strong> 微软 CEO 萨提亚·纳德拉的表态暗示了行业对“少数模型垄断一切”的担忧。文章强调，如果 AI 行业持续无视社会许可与监管边界，其政治经济基础将难以维持，AI 泡沫的破裂可能比预期更快到来。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章最核心的启发在于揭示了“恐慌营销”的双刃剑效应——AI 公司为了融资而过度夸大模型的危险性，最终导致政府将其视为国家安全威胁并实施严厉监管，这种“搬起石头砸自己脚”的现象是当前 AI 泡沫破裂的重要前兆。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.wheresyoured.at/brokenomics/" style="color:#3182ce;text-decoration:none;">https://www.wheresyoured.at/brokenomics/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/31309b659ae18c83581cad0e5f5f8b2f.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">6. A brief history of KV cache compression developments</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">AI 领域通过算法优化实现了 KV Cache 的高效压缩，使模型上下文处理能力的提升速度远超硬件显存的增长速度。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心瓶颈与突破：</strong> KV Cache 是存储 LLM 上下文的关键，其内存占用直接限制了会话长度。自 2017 年以来，存储单 Token 上下文所需的内存需求下降了约 100 倍，而同期顶级数据中心 GPU 的显存仅增长了 18 倍，表明 AI 的“内存墙”主要通过算法创新而非单纯的硬件堆叠得以解决。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术演进路径：</strong></li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>MQA (2019)：</strong> 通过多查询头共享 KV 头实现 64 倍压缩，但因模型质量下降和训练不稳定，应用受限。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>GQA (2023)：</strong> 采用分组查询注意力机制，在压缩率与模型质量之间取得平衡，成为 Llama 2 等主流模型的标配。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>滑动窗口注意力：</strong> 通过限制部分层对近期 Token 的关注，有效控制了 KV Cache 的增长，推动了上下文窗口从 4K 向 128K 的跨越。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>MLA (2024)：</strong> DeepSeek 提出的多头潜在注意力机制，通过将 KV 压缩为小型潜在向量并融合解压步骤，在不损失质量的前提下实现了 93% 的缓存缩减。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>行业影响：</strong> 高效的 KV Cache 压缩技术不仅支撑了长文本处理和复杂 Agent 工作流，还显著降低了推理成本，DeepSeek 的技术突破甚至对 GPU 市场格局产生了深远影响。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：AI 领域通过算法层面的“压缩编码”（类似于视频领域的 H.264），在硬件性能提升有限的情况下，实现了上下文处理能力的指数级飞跃，证明了软件优化在突破算力瓶颈中的核心作用。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://martinalderson.com/posts/a-brief-history-of-kv-cache-compression-developments/" style="color:#3182ce;text-decoration:none;">https://martinalderson.com/posts/a-brief-history-of-kv-cache-compression-developments/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/5273e5e42a57a7a73ae26437bb633639.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">7. I know Kung-fu</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">尽管人工智能提供了触手可及的海量信息，但真正的知识获取仍需通过深度思考与时间沉淀来构建心智模型。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>信息与知识的本质区别</strong>：文章指出，AI 能够快速提供答案和定义，但这仅是“信息”的获取。真正的“知识”需要将信息在脑中进行消化、内化，并形成逻辑关联，这一过程无法通过简单的下载或复制完成。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>AI 对认知能力的潜在削弱</strong>：作者通过自身编程实践发现，过度依赖 AI 解决问题会导致个人思维能力的退化。当用户不亲自构建代码逻辑或心智模型时，即便产出结果令人满意，用户也无法真正掌握该技能，导致在后续调试或修改时缺乏自信。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>经验与批判性思维的重要性</strong>：作者认为，当学习一个完全陌生的领域时，AI 的输出看似完美；但在自己具备专业背景的领域（如软件开发），AI 的局限性便会显现。真正的理解往往源于“顿悟”时刻，即通过长期的积累与思考，将零散的知识点串联成完整的认知框架。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>时间是认知的必要投入</strong>：文章强调，即便拥有最先进的 AI 工具，学习依然无法跳过“时间”这一核心要素。知识的形成需要大脑对信息进行反复咀嚼和处理，这与《黑客帝国》中瞬间下载技能的幻想截然不同。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章深刻揭示了“信息过载”与“认知匮乏”之间的悖论，指出 AI 虽能加速信息的获取，但无法替代人类大脑在构建深度理解时所必须经历的“消化”过程。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://idiallo.com/blog/i-know-kung-fu" style="color:#3182ce;text-decoration:none;">https://idiallo.com/blog/i-know-kung-fu</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">8. Flax debugging: making a hash of things</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文通过一种巧妙的哈希校验技巧，解决了在 JAX/Flax NNX 框架下调试大规模模型参数更新失效的问题。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>调试痛点分析</strong>：在训练拥有 7700 万参数的 LLM 时，由于参数规模巨大且单次更新幅度微小，直接打印参数值无法直观判断模型是否在进行有效学习，导致难以定位损失函数不下降的问题。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术背景与现象</strong>：作者在使用 Flax NNX 构建训练循环时，发现损失值长期稳定在 10.82（即随机猜测水平），尽管梯度计算结果看似正常，但模型参数似乎未发生预期变化。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>核心调试路径</strong>：针对 NNX 采用的“原地更新（In-place update）”机制，作者提出了一种通过计算参数哈希值（Hash）来验证状态变更的方法。通过对比更新前后模型参数的哈希值，可以快速、精确地判断参数是否确实被修改，从而绕过了打印海量数据的低效方式。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>框架差异认知</strong>：文章强调了 Flax NNX 与传统 JAX 函数式编程范式的区别，指出 NNX 模仿 PyTorch 的副作用式更新机制在调试时需要更细致的验证手段。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：通过计算模型参数的哈希值来“量化”不可见的内存状态变更，为大规模深度学习模型调试提供了一种简洁且高效的验证思路。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.gilesthomas.com/2026/06/hashing-jax-parameters" style="color:#3182ce;text-decoration:none;">https://www.gilesthomas.com/2026/06/hashing-jax-parameters</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">9. AI GPUs probably live longer than three years</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">关于 AI 推理 GPU “三年寿命论”的观点缺乏坚实证据，实际硬件寿命远超该预期，且经济寿命与物理寿命存在本质区别。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>“三年寿命论”的来源存疑：</strong> 该观点主要源自社交媒体上匿名人士的推测，且该信息通过付费专家咨询平台（如 Tegus）获取，受访者倾向于提供自信但缺乏数据支撑的判断，而非基于严谨的工程统计。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>物理寿命的实证支持：</strong> 现有数据表明 GPU 寿命远超三年。例如，Google 的 TPU 可在满载下运行八年；AWS 至今未退役 A100 服务器；学术界 GPU 集群在运行六年后的故障率仍低于 20%；超级计算机（如 Titan）的长期运行记录也显示，在良好散热条件下，GPU 的生存率在六年后依然保持在较高水平。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>经济寿命与物理寿命的区别：</strong> 即使旧款 GPU（如 A100）因能效比不及新款（如 B100）而被淘汰，这属于经济决策而非硬件失效。对于现金流有限的企业，旧款 GPU 依然具备盈利能力，且数据中心基础设施（电力、冷却、机架）的投资具有长期复用价值，不会随 GPU 的更新而完全报废。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章指出“三年寿命论”更多是 AI 怀疑论者为了论证行业不可持续性而构建的叙事，而非基于硬件性能的客观事实，强调了区分“硬件物理极限”与“商业迭代需求”的重要性。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://seangoedecke.com/ai-gpus-live-longer-than-three-years/" style="color:#3182ce;text-decoration:none;">https://seangoedecke.com/ai-gpus-live-longer-than-three-years/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/fdeacf5c814c1624c1eb9fabae5719eb.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">10. Writing Prolog with ChatGPT</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了利用大语言模型（LLM）辅助编写 Prolog 代码解决逻辑谜题的可行性与优势。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>任务验证</strong>：作者通过 ChatGPT 成功生成了 SWI Prolog 程序，解决了在 4x4 棋盘上放置五种不同棋子且互不攻击的逻辑难题，并准确找出了全部 16 种可行方案。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术优势</strong>：Prolog 语言因其语法长期保持稳定，非常适合 LLM 进行代码生成；相比于处于快速迭代期、库依赖复杂的 Lean 语言，Prolog 在 LLM 辅助编程中的表现更为稳定且易于调试。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>应用潜力</strong>：虽然棋盘谜题本身市场需求有限，但该实验证明了 LLM 在处理涉及复杂逻辑规则的现实世界问题时，能够有效降低 Prolog 等小众或特定领域语言的开发门槛。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：LLM 能够有效克服 Prolog 语言晦涩的语法门槛，通过自然语言指令即可快速生成高质量的逻辑求解代码，展现了其在处理规则驱动型编程任务中的强大潜力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.johndcook.com/blog/2026/06/15/writing-prolog-with-chatgpt/" style="color:#3182ce;text-decoration:none;">https://www.johndcook.com/blog/2026/06/15/writing-prolog-with-chatgpt/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/34d6b19037b092fc1cc67571ee3a407a.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">11. ‘Anthropic’s Safety Superpower’</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了 Anthropic 如何通过其独特的“安全至上”理念，试图在 AI 领域建立一种近乎宗教信仰般的控制权，引发了关于 AI 治理与权力集中的深层担忧。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术控制与政策干预：</strong> Anthropic 展现出通过后台调整模型来强制执行其政策偏好的能力与意愿，例如此前与美国国防部在 Claude 使用权限上的争议，凸显了该公司作为 AI 供应链环节可能存在的风险。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>垄断性的治理野心：</strong> 文章指出，Anthropic 不仅认为自己应是前沿大模型的唯一开发者，更倾向于认为只有自己拥有对 AI 技术的最终裁决权，这种逻辑延伸至其对 AI 经济影响力的掌控欲望。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>“宗教化”的企业文化：</strong> 不同于传统科技公司对市场份额或产品设计的追求，Anthropic 被描述为一个具有强烈使命感的“宗教组织”，其员工对“超智能”的信仰使其在 AI 发展路径上表现出极高的排他性与道德优越感。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>技术实力的快速跃升：</strong> 尽管作者对 Anthropic 的意识形态持怀疑态度，但承认该公司在技术能力上已从落后 OpenAI 转变为目前的领先地位（如 Mythos/Fable 模型），这使得其对 AI 发展的控制主张更具现实影响力。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：Anthropic 将 AI 开发视为一种带有宗教色彩的“布道”过程，这种将技术控制权与道德使命感深度绑定的模式，使得该公司在 AI 治理中表现出比传统科技巨头更具侵略性的权力扩张倾向。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://stratechery.com/2026/anthropics-safety-superpower/" style="color:#3182ce;text-decoration:none;">https://stratechery.com/2026/anthropics-safety-superpower/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">12. Maybe it's time for lots of little indie AIs to take over</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">面对当前 AI 行业被巨头垄断及利益纠葛困扰的现状，作者主张通过发展由社区驱动、规模更小且更具责任感的“独立 AI”来替代单一的巨头模型。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>行业垄断与利益冲突：</strong> 文章指出，当前的 AI 领域深受大公司权力集中、政策制定者利益输送及腐败问题的影响，导致公众难以客观评估相关技术的真实风险与价值。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>用户被迫使用的困境：</strong> 尽管许多用户（尤其是年轻一代）对大模型存在文化抵触或价值观冲突，但由于平台强制植入及工作生活的高度依赖，用户往往在“不得不使用”的无奈中产生负罪感与怨恨。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>独立 AI 的可行性：</strong> 作者强调，AI 的未来不应局限于“ChatGPT 杀手”式的巨头竞争，社区开发者完全有能力构建服务于特定需求、更具透明度与责任感的“人类规模”AI 工具。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>叙事重心的转移：</strong> 呼吁将公众的关注点从对“大 AI”的抵制与愤怒，转向积极探索和支持那些已经在特定领域默默运行、更符合伦理与社区利益的替代性 AI 工具。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章最具启发性的观点在于，它打破了“AI 发展必然由巨头主导”的宿命论，提出通过去中心化的“小而美”AI 路径，让技术回归服务社区的本质，从而缓解用户在技术依赖与道德焦虑之间的矛盾。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://anildash.com/2026/06/15/indie-AI-takeover/" style="color:#3182ce;text-decoration:none;">https://anildash.com/2026/06/15/indie-AI-takeover/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">13. What Washington must do</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文批评了美国政府近期在 AI 监管决策中表现出的随意性、不透明及潜在的利益输送倾向，并呼吁建立独立、透明的监管机构以重塑行业秩序。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>决策过程缺乏公正性与透明度：</strong> 文章指出，白宫近期针对 Anthropic 等公司的限制性决策缺乏充分的解释与正当程序，且决策过程中涉及多位与 OpenAI 及相关投资方（如 Josh Kushner、Amazon 等）有利益关联的人物，引发了外界对腐败和偏袒的质疑。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>监管随意性带来的负面影响：</strong> 这种仓促且缺乏技术事实支撑的决策不仅损害了美国 AI 实验室的研发进度，还可能导致人才流失（Brain Drain），并促使全球市场转向“主权 AI”或其他国家（如中国）的替代方案，从而削弱美国的科技竞争力。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>“零监管”理念的终结：</strong> 尽管政府决策过程备受诟病，但该事件客观上终结了硅谷部分人士推崇的“AI 无需监管”的论调。政府已承认部分模型存在风险，当前的争议焦点已从“是否监管”转向“如何透明、科学地监管”。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心治理建议：</strong> 作者引用多方观点强调，AI 治理必须遵循透明、公平、清晰且基于技术事实的原则。最有效的解决方案是建立一个独立于政治博弈之外的监管机构，而非由少数人进行闭门决策。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章深刻指出，美国政府当前这种“基于 ego（自我）而非证据”的监管方式，不仅无法实现有效的 AI 安全治理，反而因其不确定性和腐败嫌疑，正在将全球 AI 话语权拱手让给竞争对手。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://garymarcus.substack.com/p/what-washington-must-do" style="color:#3182ce;text-decoration:none;">https://garymarcus.substack.com/p/what-washington-must-do</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/f3b18a906755d96dc8b102434dc525e8.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">14. GLM-5.2 is probably the most powerful text-only open weights LLM</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">中国 AI 实验室 Z.ai 发布了全新的开源大模型 GLM-5.2，凭借卓越的基准测试表现，被视为当前性能最强的纯文本开源大模型之一。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>模型架构与规模</strong>：GLM-5.2 是一款拥有 7530 亿参数的混合专家模型（MoE），实际激活参数为 400 亿。该模型采用纯文本输入架构，并将上下文窗口大幅扩展至 100 万 token。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>基准测试表现</strong>：根据 Artificial Analysis 的 Intelligence Index v4.1 评估，GLM-5.2 以 51 分的成绩位居开源模型榜首，超越了 MiniMax-M3、DeepSeek V4 Pro 及 Kimi K2.6 等竞争对手。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>编码能力</strong>：在 Code Arena WebDev 前端开发任务排行榜中，GLM-5.2 排名第二，仅次于 Claude Fable 5，证明了其在无需视觉输入的情况下，依然具备极强的代理式编程能力。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>资源消耗与成本</strong>：该模型表现出较高的“token 饥渴度”，在执行任务时输出的 token 数量明显高于同类模型；目前通过 OpenRouter 等平台接入的成本极具竞争力，远低于 GPT-5.5 或 Claude Opus 4.5 等闭源模型。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>生成质量波动</strong>：在 SVG 矢量图生成测试中，GLM-5.2 在复杂动画生成上表现出色，但在特定创意任务（如动物骑行场景）的稳定性上，相比前代 GLM-5.1 出现了性能退化。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：GLM-5.2 证明了在纯文本架构下，通过超大规模参数与长上下文优化，开源模型在复杂编程与逻辑任务中已具备挑战顶级闭源模型的实力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/17/glm-52/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/17/glm-52/#atom-everything</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/689285152d41ad0ee2110d92c18833a2.svg" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">15. Windows stack limit checking retrospective, follow-up</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了 Windows 在不同处理器架构下实现栈探测（Stack Probe）时，为避免破坏入参而采用的特殊调用约定及寄存器分配策略。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>栈探测的困境与解决方案</strong>：在执行栈探测前，函数无法使用栈空间来保存入参，因此必须通过自定义调用约定，将栈大小参数传递给专门的探测函数，且该过程不能覆盖任何用于传递入参的寄存器。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>非标准寄存器的使用</strong>：以 AArch64 架构为例，Windows 选择使用 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">x15</code> 寄存器传递栈大小参数，而非标准的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">x0</code> 寄存器，这是为了避开用于传递函数入参的寄存器范围，确保探测过程的安全性。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>跨架构的实现逻辑</strong>：文章对比了 8086、x86-32、MIPS、PowerPC、Alpha AXP、x86-64 及 AArch64 等多种架构，指出系统通常倾向于使用“超易失性（super-volatile）”寄存器（如汇编器临时寄存器或模块间调用辅助寄存器）来执行栈探测，以实现对入参的保护。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：通过为栈探测函数设计“避开入参寄存器”的自定义调用约定，Windows 在极度受限的底层执行环境下，巧妙地解决了栈溢出检查与参数完整性保护之间的冲突。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://devblogs.microsoft.com/oldnewthing/20260617-00/?p=112436" style="color:#3182ce;text-decoration:none;">https://devblogs.microsoft.com/oldnewthing/20260617-00/?p=112436</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">16. Why AI hasn’t replaced software engineers, and won’t</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">尽管 AI 在编程领域展现出强大潜力，但由于软件工程的核心价值在于需求定义、责任承担及深度的业务理解，AI 无法取代人类工程师。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>就业数据不支持大规模裁员论：</strong> 尽管 AI 技术飞速发展，但目前缺乏证据支持 AI 导致了大规模失业。以纽约州为例，在 WARN 法案（大规模裁员通知法）的 AI 披露机制实施首年，超过 160 家公司提交了裁员通知，但无一勾选“AI 导致裁员”选项。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>编程并非软件工程的瓶颈：</strong> AI 虽然能加速代码编写过程，但软件工程的真正瓶颈在于会议沟通、调试及复杂任务的拆解。这些环节涉及大量人类协作与决策，目前难以被自动化替代。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>三大核心壁垒难以逾越：</strong> 软件工程师的不可替代性主要体现在三个方面：一是决定并明确“构建什么”的决策能力；二是验证交付成果并承担责任的职业素养；三是基于对代码库、业务逻辑及外部环境的深厚理解所形成的“深度人类洞察力”。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：软件工程的本质并非单纯的“代码输出”，而是对业务问题的深度理解与决策，这种基于人类经验的判断力构成了 AI 难以逾越的职业护城河。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/14/why-ai-hasnt-replaced-software-engineers/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/14/why-ai-hasnt-replaced-software-engineers/#atom-everything</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">17. Retrofitting the WM_COPY­DATA message onto Windows 3.1</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文回顾了 Windows 32 位系统引入 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">WM_COPYDATA</code> 消息的历史背景，并揭示了该机制如何巧妙地兼容 16 位 Windows 环境。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术背景差异</strong>：在 16 位 Windows 中，所有程序共享同一地址空间，因此进程间传递远指针（Far Pointer）即可实现数据共享；而 32 位 Windows 引入了独立的地址空间，导致传统的指针传递失效，必须引入 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">WM_COPYDATA</code> 进行数据封送（Marshaling）。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>兼容性设计策略</strong>：为了让 Win32s（在 16 位系统上运行 32 位应用的子系统）支持 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">WM_COPYDATA</code>，微软采取了“无操作”的巧妙设计，即当消息在两个 16 位程序间传递时，系统无需进行任何额外处理。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>实现机制</strong>：由于 Windows 3.1 本身就会原封不动地传递消息的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">wParam</code> 和 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">lParam</code>，且 16 位环境下的指针在所有进程中均有效，因此 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">WM_COPYDATA</code> 在 16 位程序间传递时，天然符合其预期的行为逻辑。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该设计展示了系统架构演进中的一种“隐性兼容”智慧：通过预先设计的通用消息传递逻辑，使得新引入的机制能够无缝适配旧有的运行环境，无需为 16 位系统编写额外的特殊代码。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://devblogs.microsoft.com/oldnewthing/20260616-00/?p=112430" style="color:#3182ce;text-decoration:none;">https://devblogs.microsoft.com/oldnewthing/20260616-00/?p=112430</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">18. "They screwed us": Personality clashes sent Anthropic's models offline</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">Anthropic 旗下模型因内部沟通冲突及安全争议导致服务下线，目前正积极与美国商务部就出口管制及模型安全性进行交涉。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>事件起因与背景：</strong> 此次模型下线事件源于 Anthropic 与美国政府在出口管制及模型安全性方面的摩擦，内部人员冲突及沟通不畅加剧了这一局势。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>关键人员介入：</strong> Anthropic 派出包括红队负责人 Logan Graham、安全负责人 Dave Orr 及知名安全研究员 Nicholas Carlini 在内的核心团队前往华盛顿，与美国商务部进行直接沟通。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术与合规挑战：</strong> 核心争议点在于模型是否能实现“完全防越狱”。尽管 Anthropic 坚称其 Claude Mythos 模型不存在“通用越狱”漏洞，并将引发政府干预的事件定性为“潜在的、窄范围的非通用越狱”，但美国政府仍要求其在安全保障上达到更高标准。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>未来不确定性：</strong> 监管层面的解决方案不仅涉及技术层面的防御加固，还包括对企业沟通态度的要求，即确保政府监管方在与 AI 企业的互动中获得足够的安全感与信任，这使得模型恢复上线的时间表尚不明朗。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该事件揭示了 AI 前沿模型在走向商业化与全球化过程中，不仅面临严峻的技术防御挑战，更深陷于复杂的政治博弈与监管沟通困境，技术合规已成为 AI 企业生存的关键变量。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/15/axios-clashes-anthropics/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/15/axios-clashes-anthropics/#atom-everything</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">19. OpenAI’s lead is dwindling fast</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">OpenAI 正面临市场份额萎缩、核心投资者关系疏离以及财务亏损加剧的多重挑战，其行业领先地位正迅速动摇。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场竞争加剧导致护城河消失：</strong> 由于各家公司都在开发同质化的 AI 产品，OpenAI 难以维持其技术壁垒，导致市场份额持续流失。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心投资者关系恶化：</strong> 作为 OpenAI 的主要支持者，微软近期表现出明显的疏离迹象，甚至传出考虑将核心产品外包至中国的消息，这对 OpenAI 而言是极强的负面信号。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>财务状况堪忧：</strong> 最新报告显示 OpenAI 的资金消耗速度远超预期，其年度亏损额呈指数级增长，这种高昂的烧钱模式在商业逻辑上难以长期维持。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>行业格局的不确定性：</strong> 外部监管环境（如华盛顿对 Anthropic 的潜在干预）以及潜在的并购变数（如马斯克可能成为“黑马”竞购者），为 AI 行业的未来竞争增添了更多变数。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：OpenAI 正在经历从“行业领跑者”向“高成本、低壁垒”困境的转变，其商业模式的可持续性正面临前所未有的严峻考验。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://garymarcus.substack.com/p/openais-lead-is-dwindling-fast" style="color:#3182ce;text-decoration:none;">https://garymarcus.substack.com/p/openais-lead-is-dwindling-fast</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/531aab3dc545cf702593f92df5bb3eb9.jpeg" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">20. The Fable 5 Export Controls Harm US Cyber Defense</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">现行的 AI 出口管制政策因未能区分“防御性代码修复”与“恶意攻击辅助”，正对美国网络安全防御能力造成负面影响。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>误判防御行为：</strong> 研究表明，Claude Fable 5 等模型因拒绝执行“修复已知漏洞代码”的指令而被列入出口管制禁令，但该行为本质上是标准的软件安全维护流程，而非越狱或攻击。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>防御性工作流受阻：</strong> 网络安全专家指出，AI 最核心的防御价值在于执行“发现漏洞、修复代码、编写测试用例”的闭环。若限制模型执行此类任务，将直接削弱其修复漏洞和验证补丁的实用性。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>政策与技术的脱节：</strong> 文章批评非技术背景的决策者过度担忧 AI 制造网络攻击的风险，导致监管手段“一刀切”，反而阻碍了防御者利用先进 AI 工具提升代码安全性的能力。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该文章揭示了当前 AI 监管的一个核心悖论：为了防止 AI 被用于攻击，监管政策正在扼杀 AI 在网络安全防御中最具价值的自动化修复能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/16/fable-5-export-controls/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/16/fable-5-export-controls/#atom-everything</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">21. Quoting Matteo Wong, The Atlantic</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">网络安全专家 Katie Moussouris 近期披露了白宫关于 Fable 模型“越狱”测试的报告细节，指出该模型在处理安全漏洞修复请求时表现出符合预期的防御逻辑。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>测试背景与过程</strong>：白宫委托相关 IT 专家对 Fable 模型进行测试，旨在评估其在发现并修复代码漏洞方面的能力。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>指令响应差异</strong>：测试发现，当直接要求模型“审查代码安全问题”时，模型会拒绝执行；但若将指令调整为“修复代码”并辅以人工辅助步骤，模型则会配合完成任务。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>专家观点</strong>：Katie Moussouris 认为，这种拒绝机制并非模型被“越狱”或失效，而是模型在网络防御场景下按既定安全逻辑正常运作的表现。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该事件揭示了 AI 模型在安全防御任务中，通过语义引导（而非直接指令）实现合规操作的微妙平衡，展示了模型在安全边界控制上的设计意图。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/16/matteo-wong-the-atlantic/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/16/matteo-wong-the-atlantic/#atom-everything</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">22. Cloudflare CAPTCHA on at least one ampersand</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">开发者 Simon Willison 通过优化 Cloudflare 防爬规则，实现了在保障搜索功能正常使用的同时，有效过滤恶意爬虫流量。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>问题背景</strong>：作者原先在搜索页面启用了 Cloudflare 的“托管挑战”（Managed Challenge），导致简单的单参数搜索（如 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">?q=term</code>）也会触发验证码，严重影响了正常用户的搜索体验。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术路径</strong>：通过调整 Cloudflare 自定义防火墙规则，将触发条件限定为“路径包含 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">/search/</code> 且查询参数中包含至少一个 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">&</code> 符号”，从而精准区分简单搜索与复杂的组合查询。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>工具应用</strong>：作者在调试过程中尝试使用 Claude Code 及其 MCP（模型上下文协议）进行规则配置，在发现 MCP 无法直接修改防火墙规则后，转而通过 Claude Code 调用 Cloudflare API 成功实现了规则更新。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该案例展示了如何利用 AI 辅助编程工具（Claude Code）结合 API 自动化，对云端安全策略进行精细化调优，从而在防爬安全与用户体验之间找到最佳平衡点。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/16/captcha-on-at-least-one-ampersand/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/16/captcha-on-at-least-one-ampersand/#atom-everything</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">23. This Week in Package Management: 20 June 2026</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本周包管理工具生态更新频繁，涵盖了从构建系统性能优化、安全机制加固到供应链治理模式的深度演进。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>构建系统与性能优化</strong>：sbt 2.0.0 正式发布，全面转向 Scala 3 并引入 Bazel 兼容的缓存层，显著提升了编译效率；pnpm 11.7 引入 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">frozenStore</code> 模式，支持在只读环境下运行，并优化了工作空间发布流程；uv 0.11.22 增强了审计与元数据处理能力，进一步巩固了其在 Python 生态中的高性能地位。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>安全加固与供应链防御</strong>：npm 12.0.0-pre.1 开启了更严格的默认安全策略，默认禁用未授权的安装脚本；pnpm 修复了多项路径遍历漏洞（GHSA-qrv3-253h-g69c 等）；Docker Engine 29.6.0 新增了获取镜像 attestations（如 SLSA 溯源和 SBOM）的 API，强化了容器镜像的透明度与安全性。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>生态治理与架构思考</strong>：社区围绕“包管理器的未来”展开讨论，包括对中心化注册表（如 crates.io）安全风险的质疑，以及提倡采用类似 Go 的“直接指向源码仓库+校验数据库”模式；同时，针对 AI 辅助漏洞报告的规范化（以 Prompt 为核心）以及开源项目治理的透明度问题也引发了广泛关注。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>工具链兼容性提升</strong>：mise 增加了对 Alpine apk 的支持，Stack 调整了 Windows 下的默认环境至 CLANG64，而 Go 1.27rc1 则移除了对 Bazaar 的支持，反映了主流开发工具对现代化基础设施的持续适配。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：本周最值得关注的是 <strong>npm 12.0.0-pre.1 激进的安全默认策略</strong>，它通过强制要求显式声明安装脚本（allowScripts）和限制默认权限，标志着主流包管理器正从“默认开放”向“默认零信任”的供应链安全范式彻底转型。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://nesbitt.io/2026/06/20/this-week-in-package-management.html" style="color:#3182ce;text-decoration:none;">https://nesbitt.io/2026/06/20/this-week-in-package-management.html</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">24. Accenture: Then and now, and how it may signify things to come</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">埃森哲（Accenture）近期财报表现不佳，折射出企业在押注生成式 AI 后未能实现预期投资回报的普遍困境。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>财务表现下滑：</strong> 埃森哲近期季度财报表现不及预期，导致其股价大幅波动，较 52 周高点跌幅超过 50%，显示出市场对其大规模 AI 战略的信心动摇。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>AI 投资回报未达预期：</strong> 尽管埃森哲曾大力宣传 AI 对业务的变革潜力，但实际执行结果并未带来预期的生产力飞跃，这与 MIT、麦肯锡及贝恩等机构近期研究中显示的“生成式 AI 增效有限”结论相吻合。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>行业趋势转变：</strong> 随着企业对 AI 投资回报率（RoI）的审视愈发严格，“堆砌 Token”（tokenmaxxing）的盲目扩张模式正在走向终结，若更多大客户出现类似失望情绪，AI 行业可能面临增长逻辑的重塑。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术路径的局限性：</strong> 尽管如 Claude Code 等特定领域的神经符号系统有望提升编程效率，但技术债务等现实因素可能抵消这些增益，表明 AI 的实际应用仍面临复杂挑战。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：埃森哲的业绩失利并非孤立事件，而是标志着企业界从“AI 狂热”转向“务实 ROI 评估”的关键转折点。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://garymarcus.substack.com/p/accenture-then-and-now-and-how-it" style="color:#3182ce;text-decoration:none;">https://garymarcus.substack.com/p/accenture-then-and-now-and-how-it</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/5cb20e59a5c42f845716570413000b61.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">25. The Washington Post on the EU’s DMA Folly</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">欧盟《数字市场法案》（DMA）对系统级互操作性的严苛要求，导致苹果等科技巨头因合规成本过高而选择在欧洲市场延迟或放弃推出 AI 功能。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>合规冲突的核心：</strong> DMA 要求 AI 代理必须向竞争对手开放用户消息、文件及聊天记录等深度权限。苹果试图通过增加安全层及分阶段部署来满足合规，但遭到了欧盟委员会的拒绝。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>监管逻辑的滞后：</strong> DMA 的立法逻辑源于浏览器和应用商店时代，主张组件的可互换性；然而，这一逻辑在深度集成系统级 AI 时面临技术与安全挑战，导致苹果无法在欧洲推出其设计的完整版 Siri AI。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>“监管超级大国”策略的失效：</strong> 欧盟试图通过巨大的市场影响力迫使全球企业遵循其规则，但当合规成本超过市场收益时，科技公司宁愿选择剥离功能而非妥协。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>市场占比与激励机制：</strong> 欧盟仅占苹果全球营收的约 7%，且由于缺乏强有力的竞争替代（Android 同样面临合规困境），苹果缺乏足够的经济动力去为欧洲市场专门研发一套符合 DMA 标准的独立 AI 系统。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：欧盟试图通过行政手段强行推动技术架构的“互操作性”，却因忽视了科技公司在安全与工程成本上的权衡，最终导致欧洲消费者被迫承受技术落后的代价，暴露了“监管霸权”在面对前沿 AI 技术时的局限性。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.washingtonpost.com/opinions/2026/06/14/apple-withholding-siri-ai-europe-is-another-dma-failure/" style="color:#3182ce;text-decoration:none;">https://www.washingtonpost.com/opinions/2026/06/14/apple-withholding-siri-ai-europe-is-another-dma-failure/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">26. Breaking: Trump asks the impossible of Anthropic</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">当前大语言模型（LLM）的底层架构决定了其难以实现完美的安全性，这使得在“过度限制”与“过度放任”之间寻找平衡成为行业面临的根本性困境。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术局限性：</strong> 现有的“下一个词预测”（Next-token prediction）模型架构本质上并非为安全性而设计，这导致任何安全护栏（Guardrails）都难以在严苛限制与自由输出之间达成有效平衡。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>行业共识：</strong> 安全专家早已指出，生成式 AI 的安全性问题并非个别公司（如 Anthropic）的特有挑战，而是整个行业面临的系统性难题。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>政策与现实的冲突：</strong> 随着政治干预与监管需求增加，AI 安全护栏的有效性已成为当前技术发展与社会治理的核心矛盾，且短期内缺乏理想的解决方案。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>未来路径抉择：</strong> 作者认为，在找到更安全的技术替代方案之前，人类必须在“限制 LLM 的能力”与“承担其潜在风险”之间做出艰难选择。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：文章深刻揭示了 AI 安全问题的本质——即当前的生成式 AI 架构在技术底层上存在“安全先天不足”，这意味着单纯依靠外部护栏无法从根本上解决风险，必须重新审视技术路径的选择。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://garymarcus.substack.com/p/breaking-trump-asks-the-impossible" style="color:#3182ce;text-decoration:none;">https://garymarcus.substack.com/p/breaking-trump-asks-the-impossible</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">27. The European Commission Ruled Months Ago That Google’s Integration of Gemini in Android Violates the DMA</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">欧盟委员会初步认定谷歌在安卓系统中深度集成 Gemini 的做法违反了《数字市场法案》（DMA），并正推动强制开放系统权限以引入公平竞争。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>监管核心诉求：</strong> 欧盟要求谷歌向第三方 AI 服务开放安卓系统的底层权限，包括允许第三方 AI 通过唤醒词或按键全局调用、读取屏幕上下文、访问本地数据，以及自主控制已安装的应用和系统功能。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>硬件与性能保障：</strong> 为确保竞争公平，欧盟建议强制要求谷歌提供必要的硬件访问权限，使第三方开发者能够以高性能、高响应度运行本地 AI 模型，并要求谷歌免费提供相关的 API 和技术支持。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>合规策略差异：</strong> 谷歌采取了“先发布后补救”的策略，直接在欧盟市场推送 Gemini 集成，目前正面临合规性挑战；相比之下，苹果选择在欧盟推迟发布 Apple Intelligence，以规避潜在的监管违规风险。</li>
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>潜在的执行后果：</strong> 评论指出，谷歌为满足监管要求而构建复杂的 API 和隐私保护机制成本高昂，谷歌最终可能选择直接在欧盟市场撤回 Gemini 的深度集成功能，而非向竞争对手开放核心系统访问权。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该事件凸显了科技巨头在欧盟《数字市场法案》监管下，面临“产品创新与系统封闭性”之间的尖锐矛盾，即监管机构试图通过强制开放系统级权限来打破垄断，却可能因技术复杂性和隐私安全风险导致厂商选择“功能阉割”而非“开放生态”。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arstechnica.com/ai/2026/04/europe-could-force-google-to-open-android-to-other-ai-assistants/" style="color:#3182ce;text-decoration:none;">https://arstechnica.com/ai/2026/04/europe-could-force-google-to-open-android-to-other-ai-assistants/</a></p>
-
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI服务</h2>
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">28. Datasette Apps: Host custom HTML applications inside Datasette</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">Datasette 推出全新插件 Datasette Apps，允许用户在受限的 iframe 沙盒中运行自定义的 HTML/JavaScript 应用，并安全地与后端 SQLite 数据库进行交互。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>安全沙盒机制</strong>：Datasette Apps 利用 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;"><iframe></code> 的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">sandbox</code> 属性及严格的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">Content-Security-Policy</code> (CSP) 头部，确保运行的代码无法访问父页面的 Cookie、localStorage 或进行未经授权的外部 HTTP 请求，从而有效防止恶意代码窃取敏感数据。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>受控的通信协议</strong>：为了在安全前提下实现功能，插件采用了基于 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">MessageChannel()</code> 的通信机制。这种方式比传统的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">postMessage()</code> 更安全，能够确保在页面导航跳转时自动关闭通道，防止恶意脚本劫持通信。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>灵活的数据库交互</strong>：应用支持通过预定义的“存储查询”（Stored Queries）执行只读或写操作。父页面会对请求进行校验，确保应用只能访问白名单内的数据库，从而在开放功能的同时保障数据安全。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>开发者友好的调试支持</strong>：系统内置了可见的日志记录功能，能够实时捕获并展示 SQL 执行情况及 CSP 拦截错误，帮助开发者快速定位和解决应用开发中的问题。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：通过将“Claude Artifacts”式的交互体验与持久化关系型数据库相结合，Datasette Apps 提供了一种在保障高度安全的前提下，快速构建并运行自定义数据驱动型 Web 应用的创新范式。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://simonwillison.net/2026/Jun/18/datasette-apps/#atom-everything" style="color:#3182ce;text-decoration:none;">https://simonwillison.net/2026/Jun/18/datasette-apps/#atom-everything</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260621/77c5b132e350738f818eef929bd92942.jpg" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260621/" style="color:#3182ce;text-decoration:none;">29. Windows ME released June 19, 2000</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">Windows Millennium Edition (Windows ME) 于 2000 年 6 月 19 日正式发布，作为 Windows 98 SE 的继任者，它在微软操作系统发展史上留下了争议性的印记。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>产品定位与发布背景</strong>：Windows ME 是微软在 2000 年推出的消费级操作系统，旨在接替 Windows 98 SE，但因系统稳定性问题被公认为微软自 20 世纪 80 年代以来最不成功的操作系统之一。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术架构地位</strong>：该系统是微软最后一款基于 MS-DOS 架构开发的操作系统，标志着微软从传统 DOS 架构向 Windows NT 架构全面过渡的终结。</li>
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场评价</strong>：由于频繁的系统崩溃和兼容性问题，Windows ME 在用户群体中口碑不佳，其市场生命周期相对较短，随后被 Windows XP 取代。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：Windows ME 是微软历史上最后一款基于 MS-DOS 架构的操作系统，其失败的商业表现直接推动了微软后续向更稳定、基于 NT 内核的操作系统架构转型。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://dfarq.homeip.net/windows-me-released-june-19-2000/" style="color:#3182ce;text-decoration:none;">https://dfarq.homeip.net/windows-me-released-june-19-2000/</a></p>
 
 
   <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">往期推荐</h2>
