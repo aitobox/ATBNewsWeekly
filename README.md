@@ -15,6 +15,10 @@
 
 ## 2026
 
+**九月**
+
+- 20260905期：[OpenAI 发布 GPT-6 Astra：一款拥有 105 万上下文、具备计算机操作能力并受制于“严重”网络安全门槛的模型[OpenAI Releases GPT-6 Astra: A 1.05M-Context Computer-Use Model Gated Behind’ a ‘Critical’ Cyber Threshold]](docs/AIToBoxWeeklyNews_20260905.md)
+
 **八月**
 
 - 20260829期：[GLM-5.3-Flash 对比 Qwen3.8-Flash-Next：两家中国AI实验室独立收敛于相同的模型架构[GLM-5.3-Flash vs Qwen3.8-Flash-Next: Two Chinese AI Labs Independently Converge on the Same Model Architecture]](docs/AIToBoxWeeklyNews_20260829.md)
