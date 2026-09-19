@@ -17,6 +17,7 @@
 
 **九月**
 
+- 20260919期：[Anthropic的“放缓前沿”三步计划赢得OpenAI、xAI与微软支持：现在减速AI是否为时已晚？[Anthropic’s 3-Step ‘Pace the Frontier’ Plan Wins OpenAI, xAI and Microsoft Support: Is It Too Late to Slow AI Down?]](docs/AIToBoxWeeklyNews_20260919.md)
 - 20260912期：[DeepSeek AI 发布具有 100 万上下文、FP4 KV 缓存及跨层注意力重用的 DeepSeek-V4.1-Flash[DeepSeek AI Released DeepSeek-V4.1-Flash with 1M Context, FP4 KV Cache, and Cross-Layer Attention Reuse]](docs/AIToBoxWeeklyNews_20260912.md)
 - 20260905期：[OpenAI 发布 GPT-6 Astra：一款拥有 105 万上下文、具备计算机操作能力并受制于“严重”网络安全门槛的模型[OpenAI Releases GPT-6 Astra: A 1.05M-Context Computer-Use Model Gated Behind’ a ‘Critical’ Cyber Threshold]](docs/AIToBoxWeeklyNews_20260905.md)
 
