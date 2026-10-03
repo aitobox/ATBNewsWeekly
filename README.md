@@ -15,6 +15,10 @@
 
 ## 2026
 
+**十月**
+
+- 20261003期：[OpenAI 推出 dots：运行在独立云端计算机上的全天候 GPT-6 Astra 智能体[OpenAI Launches dots: Always-On GPT-6 Astra Agents That Work From Their Own Cloud Computers]](docs/AIToBoxWeeklyNews_20261003.md)
+
 **九月**
 
 - 20260919期：[Anthropic的“放缓前沿”三步计划赢得OpenAI、xAI与微软支持：现在减速AI是否为时已晚？[Anthropic’s 3-Step ‘Pace the Frontier’ Plan Wins OpenAI, xAI and Microsoft Support: Is It Too Late to Slow AI Down?]](docs/AIToBoxWeeklyNews_20260919.md)
