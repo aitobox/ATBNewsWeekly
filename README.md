@@ -17,6 +17,7 @@
 
 **十月**
 
+- 20261018期：[Meta 发布 Muse Spark Open：具备 1M 上下文的 8160 亿参数开源权重 MoE 模型[Meta Releases Muse Spark Open: 816B Open-Weight MoE With 1M Context]](docs/AIToBoxWeeklyNews_20261018.md)
 - 20261010期：[GPT-6 Astra、GPT-6.1 Sol、Gemini 4 Argon 与 Claude Fable 5.1 深度横评：哪款前沿大模型真正适合你的业务？[GPT-6 Astra vs GPT-6.1 Sol vs Gemini 4 Argon vs Claude Fable 5.1: Which Frontier Model Fits Which Job]](docs/AIToBoxWeeklyNews_20261010.md)
 - 20261003期：[OpenAI 推出 dots：运行在独立云端计算机上的全天候 GPT-6 Astra 智能体[OpenAI Launches dots: Always-On GPT-6 Astra Agents That Work From Their Own Cloud Computers]](docs/AIToBoxWeeklyNews_20261003.md)
 

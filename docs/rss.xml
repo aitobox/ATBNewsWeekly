@@ -5,8 +5,634 @@
     <link>https://newsweekly.aitobox.com/</link>
     <description>记录每周值得分享的AI资讯、好用的工具和服务，周六发布。</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 17 Oct 2026 18:30:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 10:05:41 +0800</lastBuildDate>
     <atom:link href="https://newsweekly.aitobox.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[ 20261018期：Meta 发布 Muse Spark Open：具备 1M 上下文的 8160 亿参数开源权重 MoE 模型[Meta Releases Muse Spark Open: 816B Open-Weight MoE With 1M Context] ]]></title>
+      <link>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/</link>
+      <guid>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/</guid>
+      <pubDate>Sun, 18 Oct 2026 18:00:00 +0800</pubDate>
+      <description><![CDATA[<div style="max-width:720px;margin:0 auto;line-height:1.85;font-size:16px;color:#2d3748;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;padding:0 8px;">
+  <h1 style="margin-top:0;margin-bottom:16px;font-size:1.8em;color:#1a202c;line-height:1.2;">AIToBox周刊：20261018</h1>
+
+  <p style="margin-bottom:14px;line-height:1.85;">这里记录每周值得分享的AI科技内容，周末发布。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本杂志开源（GitHub: <a href="https://github.com/aitobox/newsweekly" style="color:#3182ce;text-decoration:none;">aitobox/newsweekly</a>），欢迎提交 issue，投稿或推荐你的项目。</p>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>统计周期</strong>: 2026-10-11 ~ 2026-10-18 | <strong>共收录优质资讯</strong>：30 篇</p>
+  </blockquote>
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">🌟 本期头条 (Headline)</h2>
+
+  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;"><strong>Meta 发布 Muse Spark Open：具备 1M 上下文的 8160 亿参数开源权重 MoE 模型[Meta Releases Muse Spark Open: 816B Open-Weight MoE With 1M Context]</strong></h3>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>深度解读</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Meta 旗下超级智能实验室（Meta Superintelligence Labs）近日重磅推出了开源权重模型 Muse Spark Open，这也是 Meta 迄今为止发布的最强开源多模态模型。该模型采用了大规模混合专家（MoE）架构，总参数高达 8160 亿，但每个 Token 仅激活 420 亿参数，同时原生支持文本、图像、音视频多模态输入，并具备惊人的 100 万 Token 上下文窗口。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">在技术生态与部署层面上，该模型带来了里程碑式的突破。通过 NVFP4 量化技术以及 MLX 张量并行，该模型能够在两台搭载 M5 Ultra（各 512GB 统一内存）的 Mac Studio 上运行，或者借助 Unsloth 2-bit GGUF 压缩至约 300GB 内存的单工作站环境中，极大降低了超大模型在桌面与本地数据中心的推理门槛。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">但在性能维度上，呈现出明显的结构性分化。Muse Spark Open 在智能体（Agent）工具调用（MCP-Atlas 斩获 89.2 分）与长程任务中表现极其亮眼，但在代码生成（Terminal-Bench 2.1 仅 76.4 分）与综合智能指标上，依然明显落后于 Kimi K3、GLM 5.3 以及 Qwen3.8 等中国头部开源模型。这不仅坐实了其“美国本土最强开源权重模型”的称号，也折射出当前全球大模型竞争的新常态：Meta 虽在架构工程和多模态落地部署上极具压迫感，但在基础推理与代码高阶任务上，中国开源梯队的综合壁垒依旧牢固。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>核心摘录 (Core Highlights)</strong></p>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>EN</strong>: Muse Spark Open is an 816B-parameter Mixture-of-Experts model that activates 42B parameters per token. It takes text, image, video and audio input, returns text, and holds a 1M-token context window. Meta team claims it to be the most capable US open-weight model to date. For developers, the real news is deployment: the NVFP4 build runs on 2 Apple M5 Ultra Mac Studios.</p>
+  </blockquote>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>ZH</strong>: Muse Spark Open 是一个 8160 亿参数的混合专家（MoE</p>
+  </blockquote>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/15/meta-muse-spark-open-816b-open-weight-model/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/15/meta-muse-spark-open-816b-open-weight-model/</a></p>
+
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">📬 社区投稿</h2>
+
+  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
+    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;">本期收录 4 条来自社区的投稿，感谢各位贡献者！</p>
+  </blockquote>
+
+  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;">Doc2X 文档解析与翻译</h3>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>一句话简介</strong></li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Doc2X 是 PDF/图片文档解析与翻译工具，识别公式表格并导出可编辑文档。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>功能特点</strong></li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">网页产品可将PDF、扫描件、图片转 Word、Markdown、LaTeX，支持PDF/Word翻译、Zotero插件；开发者可使用API及配套开源MCP。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">NoEdgeAI 官方 MIT TypeScript stdio MCP，配套实际 doc2x-mcp Skill，提供 PDF/图片解析、公式表格识别、导出文档与提取版面 JSON。适合作为科研办公文档预处理组件。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">仓库：<a href="https://github.com/NoEdgeAI/doc2x-mcp" style="color:#3182ce;text-decoration:none;">https://github.com/NoEdgeAI/doc2x-mcp</a></p>
+  <p style="margin-bottom:14px;line-height:1.85;">真实Skill：<a href="https://github.com/NoEdgeAI/doc2x-mcp/blob/main/skills/doc2x-mcp/SKILL.md" style="color:#3182ce;text-decoration:none;">https://github.com/NoEdgeAI/doc2x-mcp/blob/main/skills/doc2x-mcp/SKILL.md</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">需 Node.js >=18、自己的 API Key。文档上传云端处理，API按用量收费；MIT是源码许可，不表示云API免费。国内网页 <a href="https://doc2x.noedgeai.com/" style="color:#3182ce;text-decoration:none;">https://doc2x.noedgeai.com/</a> 有试用和部分免费工具，其余会员/积分，API另计。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">受项目方委托自荐、AI辅助整理；本次仅核对公开资料，未调用付费API，不声称实测准确率或兼容性，供编辑审核。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>体验地址</strong></li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://doc2x.noedgeai.com/" style="color:#3182ce;text-decoration:none;">https://doc2x.noedgeai.com/</a></p>
+  <p style="margin-bottom:14px;line-height:1.85;">API平台：<a href="https://open.noedgeai.com/" style="color:#3182ce;text-decoration:none;">https://open.noedgeai.com/</a></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>配图或视频</strong></li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">暂无本次实际运行截图；官方README包含安装与工作流说明。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>投稿链接</strong>: <a href="https://github.com/aitobox/newsweekly/issues/106" style="color:#3182ce;text-decoration:none;">https://github.com/aitobox/newsweekly/issues/106</a></p>
+
+  <hr style="border:none;border-top:1px solid #edf2f7;margin:24px 0;">
+
+  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;">[AI service recommendation] Ad Multiplier: variations of existing short video ads</h3>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>一句话简介</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">Ad Multiplier 是视频广告变体工具：以一条现有的 4–30 秒广告为输入，生成不同人物、服装、场景或产品的视觉版本，可选择保留原音频。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>功能特点</strong></li>
+  </ul>
+
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">接受 MP4、MOV、WebM，源文件不超过 100 MB；每条广告最多生成 4 个版本，可排队处理最多 5 条源广告。</li>
+    <li style="margin-bottom:6px;line-height:1.7;">可补充文字指令及参考图片，选择 720p 或 1080p 输出，下载 MP4 或 ZIP 后人工检查和发布。</li>
+    <li style="margin-bottom:6px;line-height:1.7;">这是广告素材制作工具，不直接连接广告平台投放，也不提供效果提升保证。</li>
+    <li style="margin-bottom:6px;line-height:1.7;">付费积分按输出计费，无订阅。4–15 秒的 Standard 输出为 1 积分，单积分价格 $9.90；较长或 HD 输出消耗更多积分。价格以官网价格页为准。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>体验地址</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">官网：<a href="https://admultipliers.com/" style="color:#3182ce;text-decoration:none;">https://admultipliers.com/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">价格与限制：<a href="https://admultipliers.com/pricing/" style="color:#3182ce;text-decoration:none;">https://admultipliers.com/pricing/</a></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>配图或视频</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">官网展示页可公开查看。本次不附客户广告、私有工作截图或未经核实的生成结果。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>关联说明</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">我是项目关联方，这是自荐。介绍由 AI 辅助整理，依据当前官网功能与价格核对；没有提供实测广告效果、用户数或营收数据。请编辑判断是否适合读者。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>投稿链接</strong>: <a href="https://github.com/aitobox/newsweekly/issues/105" style="color:#3182ce;text-decoration:none;">https://github.com/aitobox/newsweekly/issues/105</a></p>
+
+  <hr style="border:none;border-top:1px solid #edf2f7;margin:24px 0;">
+
+  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;">Beav：多账号社媒创作与 AI 素材库</h3>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>一句话简介</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">作者自荐：Beav 将多个社媒账号的素材、稿件和长期偏好分开管理，让 AI 基于已有素材辅助选题、写稿与图文制作。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>功能特点</strong></li>
+  </ul>
+
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">多账号空间：按账号或品牌整理自己的知识、资产和创作规划。</li>
+    <li style="margin-bottom:6px;line-height:1.7;">小红书与社媒内容制作：保存公开笔记和评论作为参考，复用带文字变量与参考图的模板，制作不同主题的图文。</li>
+    <li style="margin-bottom:6px;line-height:1.7;">AI 素材库：资料可检索、引用并拖入对话，供 AI 继续创作；提供 Beav Creator / MCP 接入说明。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">定位是面向社媒创作、给 AI 使用的 Eagle 式素材工作台。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>体验地址</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://github.com/Jamailar/Beav" style="color:#3182ce;text-decoration:none;">https://github.com/Jamailar/Beav</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">README 提供正式版下载与使用说明。公开源码是 Tauri + Rust 的 2.5.0 快照，采用 Beav Source-Available 非商业许可（非标准 MIT / OSI 开源许可）。正式产品持续更新，功能进度与公开源码不同。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>配图或视频</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">可在仓库 README 查看公开产品演示。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>投稿链接</strong>: <a href="https://github.com/aitobox/newsweekly/issues/104" style="color:#3182ce;text-decoration:none;">https://github.com/aitobox/newsweekly/issues/104</a></p>
+
+  <hr style="border:none;border-top:1px solid #edf2f7;margin:24px 0;">
+
+  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;">Sage 2.0：桌面与 Web 共用 Python 运行时的开源智能体平台</h3>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>一句话简介</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">自荐 Sage 2.0：一个 MIT 开源的智能体平台，桌面端、Web 服务和自建 Python 应用共用同一套运行时，支持持久会话、人工审批以及 MCP 和 Skills。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>功能特点</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;">我是 Sage 的维护者。这次 2.0 更新主要面向两类使用方式：直接在桌面端处理项目工作，或把智能体运行时嵌入自己的应用。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>桌面端直接体验</strong>：提供 macOS、Windows 和 Linux 安装包，已包含 Python 和后端；无需先搭建 Flutter 开发环境。Linux 仍需 GTK 和 bubblewrap。</li>
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>执行过程可交互</strong>：保存会话历史，流式输出执行事件；任务可以暂停，等待用户输入或审批后继续。</li>
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>工具与协作</strong>：接入内置工具、可复用 Skills 和 MCP 服务；Studio 成员可以通过定向消息协作。</li>
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>Python 集成</strong>：SAgents v2 要求 Python 3.12+，提供 Agent 包、Session、Run 和插件接口。桌面端、服务端和自建应用使用相同内核。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">使用者需要配置自己的模型服务凭证，模型调用可能产生费用。macOS 安装包尚未公证，Windows 安装包尚未做代码签名，请先阅读发布页说明。自建 Server v2 当前支持单 worker；本地进程执行也不等同于容器隔离。</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>体验地址</strong></li>
+  </ul>
+
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;">源码和中文介绍：<a href="https://github.com/ZHangZHengEric/Sage/blob/main/README_CN.md" style="color:#3182ce;text-decoration:none;">https://github.com/ZHangZHengEric/Sage/blob/main/README_CN.md</a></li>
+    <li style="margin-bottom:6px;line-height:1.7;">2.0.0 安装包与发布说明：<a href="https://github.com/ZHangZHengEric/Sage/releases/tag/v2.0.0" style="color:#3182ce;text-decoration:none;">https://github.com/ZHangZHengEric/Sage/releases/tag/v2.0.0</a></li>
+    <li style="margin-bottom:6px;line-height:1.7;">Python 运行时与最小示例：<a href="https://github.com/ZHangZHengEric/Sage/blob/main/sagents/v2/README.md" style="color:#3182ce;text-decoration:none;">https://github.com/ZHangZHengEric/Sage/blob/main/sagents/v2/README.md</a></li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>配图或视频</strong></li>
+  </ul>
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><img width="2730" height="1402" alt="Image" src="<a href="https://github.com/user-attachments/assets/b1742a04-10ca-46f0-ade3-33422379fb6b" style="color:#3182ce;text-decoration:none;">https://github.com/user-attachments/assets/b1742a04-10ca-46f0-ade3-33422379fb6b</a>" /></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">欢迎试用后在 Sage 仓库提出具体问题。本次为维护者自荐。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>投稿链接</strong>: <a href="https://github.com/aitobox/newsweekly/issues/103" style="color:#3182ce;text-decoration:none;">https://github.com/aitobox/newsweekly/issues/103</a></p>
+
+  <hr style="border:none;border-top:1px solid #edf2f7;margin:24px 0;">
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI资讯</h2>
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">1. 20 Jev Alternatives: The Decision Models Taking On TypeSafe in 2026</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">**：TypeSafe的Jev是一种纯文本并行打分/分类的决策模型（输入100万token仅0.042美元</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/17/20-jev-alternatives-the-decision-models-taking-on-typesafe-in-2026/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/17/20-jev-alternatives-the-decision-models-taking-on-typesafe-in-2026/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">2. Perplexity 开源 SPACE：面向 AI Agent 的 Firecracker 微虚拟机沙箱平台 [Perplexity Open-Sources SPACE, a Firecracker MicroVM Sandbox for AI Agents]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Perplexity 正式开源了其支撑 Perplexity Computer 的核心沙箱平台 SPACE，通过基于 Rust 的 Firecracker 微虚拟机技术，为 AI Agent 的代码执行提供生产级安全隔离与亚秒级响应能力。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>架构设计与技术栈</strong>：SPACE 采用 Rust 编写并在 Apache 2.0 协议下开源（首发版本 0.8.0），系统由 PostgreSQL 支持的 API、控制器、Worker 服务</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/16/perplexity-open-sources-space-firecracker-microvm-sandbox-ai-agents/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/16/perplexity-open-sources-space-firecracker-microvm-sandbox-ai-agents/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">3. 金融领域的 AI 风险管理：金融稳定委员会负责任 AI 报告的核心启示</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[AI Risk Management in Finance: Key Lessons From</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/10/16/ai-risk-management-in-finance-key-lessons-from-the-fsbs-new-report-on-responsible-ai/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/10/16/ai-risk-management-in-finance-key-lessons-from-the-fsbs-new-report-on-responsible-ai/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">4. 走近 Grok Voice 3.0：SpaceXAI 语音智能体模型登顶 Artificial Analysis 榜单</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/14/meet-grok-voice-3-0-spacexai-voice-agent-model-ranks-1-on-artificial-analysis/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/14/meet-grok-voice-3-0-spacexai-voice-agent-model-ranks-1-on-artificial-analysis/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">5. BigBear.ai 在国土安全、国防、情报及联邦民事机构斩获逾 2.25 亿美元合同</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/10/14/bigbear-ai-secures-more-than-225m-in-contract-awards-across-homeland-security-defense-intelligence-and-federal-civilian-agencies/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/10/14/bigbear-ai-secures-more-than-225m-in-contract-awards-across-homeland-security-defense-intelligence-and-federal-civilian-agencies/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">6. Claude，别动我的“工作总量”[Claude, don’t touch my lump]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">面对 AI 引发的大规模</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.experimental-history.com/p/claude-dont-touch-my-lump" style="color:#3182ce;text-decoration:none;">https://www.experimental-history.com/p/claude-dont-touch-my-lump</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/c3f7a4da918875da4341a4ddbb588598.jpeg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">7. Loops 完成 350 万美元融资，打造电商领域的“AI 操作系统”</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[Loops Closes $3</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/10/13/loops-closes-3-5m-in-funding-to-build-the-ai-operating-system-for-commerce/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/10/13/loops-closes-3-5m-in-funding-to-build-the-ai-operating-system-for-commerce/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/6d992cd64c42bcb16053afa399fe7c94.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">8. Annualized Enron Rate</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">：年化安然率[Annualized Enron Rate]</p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>引言</strong>：本文尖锐抨击了当前生成式</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.wheresyoured.at/annualized-enron-rate/" style="color:#3182ce;text-decoration:none;">https://www.wheresyoured.at/annualized-enron-rate/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/fa652093349bcbdb6cb4c196fb444595.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">9. 开源模型优势显著，但能否抵消其潜在风险？[Open models have real benefits. Do they outweigh the risks?]</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks/" style="color:#3182ce;text-decoration:none;">https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">10. 最后的回答[The Last Answer]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文是一篇讽刺科幻短文，描绘了通用人工智能（AGI）</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://idiallo.com/blog/the-last-answer" style="color:#3182ce;text-decoration:none;">https://idiallo.com/blog/the-last-answer</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/c446c24f22c48e45729edee1fd6932b0.gif" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">11. KONST 完成由威刚科技领投的 3000 万美元 B 轮融资，加速亚洲 AI 数据中心</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/10/12/konst-announces-30m-series-b-funding-led-by-adata-technology-to-scale-up-ai-data-center-buildout-in-asia-and-advance-its-token-factory-strategy/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/10/12/konst-announces-30m-series-b-funding-led-by-adata-technology-to-scale-up-ai-data-center-buildout-in-asia-and-advance-its-token-factory-strategy/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">12. 对 OpenAI 和 Anthropic 说“不”[Just say no to OpenAI and Anthropic]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">文章呼吁开发者与用户放弃 OpenAI</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://micahflee.com/just-say-no-to-openai-and-anthropic/" style="color:#3182ce;text-decoration:none;">https://micahflee.com/just-say-no-to-openai-and-anthropic/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/eb039be9b7267f081574e2b97a01d482.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">13. openKylin在欧洲开源峰会上描摹AI时代重塑Linux的新蓝图</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[openKylin Outlines Its Vision</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/15/openkylin-outlines-its-vision-for-reimagining-linux-in-the-ai-era-at-open-source-summit-europe-2026/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/15/openkylin-outlines-its-vision-for-reimagining-linux-in-the-ai-era-at-open-source-summit-europe-2026/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/31a05487027a571d864f2a8ea050d9fb.jpeg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">14. Z.ai 推出 GLM-Legal 法律模型，在 Harvey LAB 基准测试中击败 Claude Fable 5 和 Kimi K3[Z.ai GLM-Legal Beats Claude Fable 5 and Kimi K3 on Harvey LAB]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Z.ai 正式发布基于 GLM-5.3-Flash 构建的法律领域专用模型 GLM-Legal，凭借极高的性价比在 Harvey 法律智能体基准测试中超越多款前沿模型。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>架构与训练路径</strong>：GLM-Legal 基于 320B 总参数、18B 激活参数的 GLM-5.3-Flash 混合专家（MoE）多模态底座构建，具备 1M 上下文和 128K 输出能力。训练采用两阶段方案：首先在扩充的法律语料上进行二次预训练（Mid-training），随后在数万个法律任务环境中进行强化学习，并实现智能体框架（Harness）与模型的共同演进。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>基准测试与性能表现</strong>：在权威的 Harvey 法律智能体基准测试（LAB）中，GLM-Legal 取得 19.17% 的全通过率，较底座模型的 6.67% 提升近 3 倍，在 Vals AI 榜单中位列第 7/79 名，领先于 Kimi K3（12.92%）和 Claude Fable 5（11.25%）；在 LegalBench 上达到 86.23%，逼近领跑的 Claude Fable 5（88.56%）。但在 Legal Research Bench 上出现性能倒退，得分（41.83%）略低于其底座模型（45.19%）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>成本与推理效率对比</strong>：在 Harvey LAB 单次测试成本上，GLM-Legal 仅需 0.15 美元，约为 Claude Fable 5（19.23 美元）的 1/128，性价比极高；但其推理速度偏慢，单任务平均耗时达 1 小时 12 分钟，远超竞品。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>开放与获取方式</strong>：该模型目前不开源权重，未公开具体 API 定价，仅通过申请制向律所、企业法务等机构提供托管 API 访问权限，未来计划集成至其桌面端智能体应用 AutoClaw。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：GLM-Legal 在极度严苛的 Harvey LAB 全通过率评估中逼近前沿梯队，以仅为 Claude Fable 5 约 1/128 的超低测试成本，实现了专业法律 Agent 任务上的重大效费比突破。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/13/zai-glm-legal-harvey-lab-legal-ai-model/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/13/zai-glm-legal-harvey-lab-legal-ai-model/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">15. 阿里通义千问推出 QwenGyre：面向超长周期智能体的弹性强化学习框架</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[Alibaba Qwen Introdu</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/12/alibaba-qwen-introduces-qwengyre-elastic-reinforcement-learning-rl-for-xlong-horizon-agents/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/12/alibaba-qwen-introduces-qwengyre-elastic-reinforcement-learning-rl-for-xlong-horizon-agents/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">16. AI周报前瞻：传亚马逊拟70亿美元收购Decart、英伟达洽购Reflection，以及“</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/10/12/week-ahead-in-ai-report-of-decart-acquisition-by-amazon-nvidia-investment-in-reflection-talk-plus-will-super-intelligence-term-stick/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/10/12/week-ahead-in-ai-report-of-decart-acquisition-by-amazon-nvidia-investment-in-reflection-talk-plus-will-super-intelligence-term-stick/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/6203e8dd66f7e6005cb7bc8677b9ad81.svg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">17. 2026年9大最佳AI网关盘点：Bifrost、Portkey、LiteLLM、Kong等排名前列[9 Best AI Gateways in 2026: Bifrost, Portkey, LiteLLM, Kong and 5 More Ranked]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">本文全面盘点了2026年面向生产级环境的9大主流AI网关，并从性能、覆盖度、治理能力与供应链安全等维度对各方案进行了深度对比与排名。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场格局与安全风险加剧</strong>：AI网关作为模型与应用之间的控制层，今年迎来快速整合与洗牌。Palo Alto Networks完成了对Portkey的收购，Mintlify收购了Helicone；同时，随着LiteLLM曾遭遇PyPI供应链安全问题，企业选型网关已从单纯关注功能扩展至考量供应商背景与供应链安全风险。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>排名前三的核心开源网关特性</strong>：</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>Bifrost（排名第1）</strong>：采用Go语言编写（Apache 2.0协议），主打极高性能，在5,000 RPS测试下仅产生11微秒（µs）延迟，支持MCP协议与分层预算控制，最适合高并发自托管与气隙（air-gapped）环境。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>Portkey（排名第2）</strong>：MIT开源协议，支持1,600+模型，延迟低于1毫秒，具备完善的输入输出安全护栏（Guardrails）机制，目前已被Palo Alto Networks纳入旗下Prisma AIRS生态。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>LiteLLM（排名第3）</strong>：生态普及度最高（GitHub超53.8K星标），支持100+模型提供商，Python技术栈友好，在1,000 RPS下P95延迟为8毫秒，覆盖聊天、嵌入、MCP及智能体间（A2A）全协议接口。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>企业级与托管型网关各具优势</strong>：</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>Kong AI Gateway（排名第4）</strong>：适合传统API团队，将成熟的API网关能力拓展至AI领域，统一治理LLM、MCP及智能体间（A2A）流量并提供PII数据脱敏与计费分摊能力。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>托管型选项</strong>：Cloudflare依托边缘网络提供免费核心功能；Vercel主打零Token加价；OpenRouter专注于聚合主流商业与开源大模型的便捷调用。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：在追求模型丰富度之外，AI网关正向“极低网络开销”（如Bifrost实现微秒级延迟）与“原生集成MCP/智能体（A2A）治理标准”两大方向深度演进。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/14/best-ai-gateways-2026/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/14/best-ai-gateways-2026/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">18. 认识 Kyutai REKI：为机器人操控引入高效记忆机制的 2.4B VLA 模型[Meet Kyutai REKI: The 2.4B VLA Model Bringing Efficient Memory to Robot Manipulation]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Kyutai 联合 Inria 与国立路桥大学推出开源视觉-语言-动作（VLA）模型 REKI，仅依赖公开数据预训练并通过创新的轻量化时序记忆机制显著提升机器人操控表现。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>架构设计与参数规模</strong>：REKI 拥有 2.4B 参数，由 2.2B 的 Qwen3.5-2B 视觉语言主干网络与 200M 参数的流匹配（Flow-Matching）动作专家组成；在单张 NVIDIA H100 上经编译后，处理双视角 256×256 输入的动作块（Action Chunk）延迟仅为 21.8 ms。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>高效记忆架构</strong>：传统 VLA 多依赖单帧输入，REKI 则在动作专家中引入了 32 个可学习的寄存器 Token（Register Tokens），覆盖过去 3 帧的观测；该记忆缓存每过去一帧仅占用约 2 MiB 显存，读取耗时仅增加 0.1 ms，有效解决了因感知混淆导致机械臂在两种姿态间振荡的失败模式（在 RoboTwin 上振荡失败率从 18.6% 降至 4.1%）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>训练数据与基准表现</strong>：预训练仅采用公开数据集（覆盖真实机器人遥测、仿真及第一人称人类视频共计 10 亿帧与 1220 万视觉语言样本）；在 LIBERO-Plus 基准上斩获 90.4% 的最高分，击败了参数量更大的 Qwen-RobotManip（89.0%）与 π0.5（85.7%），并在分布外（OOD）评估中展现出极佳的泛化性能。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>部署与开源生态</strong>：所有权重已在 Hugging Face 开源（采用 CC BY-NC-SA 4.0 协议），并支持 LeRobot 异步推理 gRPC 协议，实机测试中在 UR5 机械臂上仅需 50 条演示数据微调约 1 小时即可完成任务适配。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：REKI 创新地将时序记忆嵌入动作专家而非庞大的视觉语言主干网络中，仅以 0.1 ms 的极低推理延迟和 2 MiB 显存开销，就成功解决了传统单帧 VLA 模型的机械臂姿态振荡难题，实现了小参数模型超越翻倍体量竞品的优异性能。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/17/meet-kyutai-reki-the-2-4b-vla-model-bringing-efficient-memory-to-robot-manipulation/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/17/meet-kyutai-reki-the-2-4b-vla-model-bringing-efficient-memory-to-robot-manipulation/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">19. Cloudflare 推出 Clef-omni：支持音视频及图文的 30B-A3B 多模态</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/11/cloudflare-clef-omni-multimodal-decision-model/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/11/cloudflare-clef-omni-multimodal-decision-model/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">20. 什么是 Decision 3.0？vLLM 语义路由团队推出全新开源决策模型家族</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[What is Decision 3.0</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/11/what-is-decision-3-0-vllm-semantic-routers-new-open-decision-models/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/11/what-is-decision-3-0-vllm-semantic-routers-new-open-decision-models/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">21. Claude Code 2.1.299 版本发布：引入空闲上下文压缩与多项安全性增强</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[2.1</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://code.claude.com/docs/en/changelog#2-1-299" style="color:#3182ce;text-decoration:none;">https://code.claude.com/docs/en/changelog#2-1-299</a></p>
+
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI服务</h2>
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">22. 英伟达发布 Nemotron 3.5 Super VL：拥有 1200 亿参数的开源多模态智能</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/15/nvidia-nemotron-3-5-super-vl-release/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/15/nvidia-nemotron-3-5-super-vl-release/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">23. CopilotKit 发布 CLiF：将 Agent 轨迹与用户行为转化为技能、评估和微调数据的持续学习平台</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/15/copilotkit-releases-clif-a-continual-learning-platform-that-turns-agent-traces-and-user-actions-into-skills-evals-and-fine-tuning-data/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/15/copilotkit-releases-clif-a-continual-learning-platform-that-turns-agent-traces-and-user-actions-into-skills-evals-and-fine-tuning-data/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/394ddcbca9acb77433721ed2ecca4c45.png" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">24. 谷歌发布 Gemini 4 Argon API：支持高达 100 万 Token 输出上限</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[Google Releases Gemini</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/13/google-gemini-4-argon-api-release/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/13/google-gemini-4-argon-api-release/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">25. Liquid AI 发布 LFM2.5-24B-A2B：面向端侧 Agent 的 2</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/14/liquid-ai-lfm2-5-24b-a2b/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/14/liquid-ai-lfm2-5-24b-a2b/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">26. DeepSeek 发布 V4.1-Flash-1017：DeepSWE 评分达 77.0，</a></h4>
+
+
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/17/deepseek-just-released-v4-1-flash-1017-scores-77-0-on-deepswe-opens-search-api/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/17/deepseek-just-released-v4-1-flash-1017-scores-77-0-on-deepswe-opens-search-api/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">27. Meta 发布 Muse Wonder 与 Muse Wonder Full：基准测试、定价及使用指南</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[Meta Launches Muse Wonder and Muse Wonder Full</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/13/meta-muse-wonder-muse-wonder-full-release/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/13/meta-muse-wonder-muse-wonder-full-release/</a></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20261018/58baf3859e59ae66a43496393540e68f.jpg" style="color:#3182ce;text-decoration:none;">image</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">28. 2026年12款顶级AI实时翻译工具：延迟、语言支持与定价全景盘点</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">[Top</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/12/top-12-ai-live-translation-tools-2026/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/12/top-12-ai-live-translation-tools-2026/</a></p>
+
+
+  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261018/" style="color:#3182ce;text-decoration:none;">29. Datalab 发布 OmniParseBench：包含 16,288 项通过/失败测试的开源 OCR 基准，用于审查文档解析器[Datalab Releases OmniParseBench: An Open OCR Benchmark With 16,288 Pass/Fail Tests to Audit OCR Parsers]</a></h4>
+
+  <p style="margin-bottom:14px;line-height:1.85;">Datalab 推出了包含 1.6 万余项单元测试的开源 OCR 评估基准 OmniParseBench，旨在通过多维度离线可审计的标准帮助工程师精准评估不同文档解析器的实际表现。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>规模与覆盖范围</strong>：OmniParseBench 包含基于 2,343 份文档（共 2,937 页）构建的 16,288 项“是/否”（通过/失败）单元测试，涵盖 92 种语言和 22 个测试套件，数据集和评估代码完全开源。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>评测机制与架构</strong>：基准不依赖大模型作为裁判，而是采用全开源代码进行纯离线评分（无需网络与 API 密钥）。最终得分为文本、表格和版面（Layout）三个家族维度的均值，涵盖内容存在性、阅读顺序、表格单元格邻接关系及排版类型等 5 种具体测试类型。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>多维度细粒度标签</strong>：每个测试参数均在结构、渲染、角色、文字书写系统（ISO 15924）和语言（ISO 639-3）等 5 个维度被打上标签，支持开发者按需筛选切片，并记录了每项测试答案的构建来源（如 JATS XML、PDF 文本层、人工校验等 10 种衍生方式）。</li>
+  </ul>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><strong>首发评测结果</strong>：在各主流解析器中，Gemini 3.8 Flash 以 92.9 的总分位列第一，Datalab 自研的高精度解析器以 92.7 分居次席；Claude Sonnet 5.5 在文本和表格上取得最高分，但因版面得分受限总分为 88.7；传统 OCR 工具 Tesseract 则表现垫底。</li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">亮点：摒弃了大模型作为裁判的主观性与不可控性，OmniParseBench 采用统一的离线单元测试指标和 5 维细粒度标签切片，让开发者能精确评估“哪种解析器最适合我手头的特定文档”。</p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
+
+  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/10/14/datalab-omniparsebench-open-ocr-document-parsing-benchmark/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/10/14/datalab-omniparsebench-open-ocr-document-parsing-benchmark/</a></p>
+
+
+  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">往期推荐</h2>
+
+  <ul style="margin:8px 0 16px 0;padding-left:24px;">
+    <li style="margin-bottom:6px;line-height:1.7;"><a href="https://newsweekly.aitobox.com/" style="color:#3182ce;text-decoration:none;">AIToBox周报</a></li>
+  </ul>
+
+  <p style="margin-bottom:14px;line-height:1.85;">(完)</p>
+</div>]]></description>
+    </item>
     <item>
       <title><![CDATA[ 20261010期：GPT-6 Astra、GPT-6.1 Sol、Gemini 4 Argon 与 Claude Fable 5.1 深度横评：哪款前沿大模型真正适合你的业务？[GPT-6 Astra vs GPT-6.1 Sol vs Gemini 4 Argon vs Claude Fable 5.1: Which Frontier Model Fits Which Job] ]]></title>
       <link>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20261010/</link>
@@ -7659,895 +8285,6 @@
   <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/groundcover-closes-100m-series-c-to-create-the-observability-platform-built-for-the-ai-era/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/groundcover-closes-100m-series-c-to-create-the-observability-platform-built-for-the-ai-era/</a></p>
 
   <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260808/4ea0cfeec99211b2ee7d42da59ebd46b.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">往期推荐</h2>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><a href="https://newsweekly.aitobox.com/" style="color:#3182ce;text-decoration:none;">AIToBox周报</a></li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">(完)</p>
-</div>]]></description>
-    </item>
-    <item>
-      <title><![CDATA[ 20260807期：Meta 发布 Muse Code，一款面向大型软件项目的全新 AI 编程智能体[Meta Launches Muse Code, a New AI Coding Agent for Large Software Projects] ]]></title>
-      <link>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/</link>
-      <guid>https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/</guid>
-      <pubDate>Fri, 07 Aug 2026 18:00:00 +0800</pubDate>
-      <description><![CDATA[<div style="max-width:720px;margin:0 auto;line-height:1.85;font-size:16px;color:#2d3748;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;padding:0 8px;">
-  <h1 style="margin-top:0;margin-bottom:16px;font-size:1.8em;color:#1a202c;line-height:1.2;">AIToBox周刊：20260807</h1>
-
-  <p style="margin-bottom:14px;line-height:1.85;">这里记录每周值得分享的AI科技内容，周末发布。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本杂志开源（GitHub: <a href="https://github.com/aitobox/newsweekly" style="color:#3182ce;text-decoration:none;">aitobox/newsweekly</a>），欢迎提交 issue，投稿或推荐你的项目。</p>
-
-  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>统计周期</strong>: 2026-08-06 ~ 2026-08-07 | <strong>共收录优质资讯</strong>：30 篇</p>
-  </blockquote>
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">🌟 本期头条 (Headline)</h2>
-
-  <h3 style="margin-top:28px;margin-bottom:10px;font-size:1.25em;color:#1a202c;line-height:1.4;border-left:3px solid #4299e1;padding-left:10px;"><strong>Meta 发布 Muse Code，一款面向大型软件项目的全新 AI 编程智能体[Meta Launches Muse Code, a New AI Coding Agent for Large Software Projects]</strong></h3>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>深度解读</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本期头条聚焦于 Meta 在人工智能领域的最新重大动作——推出了面向大型软件项目的终端级 AI 编程智能体 Muse Code。在当前大模型竞争白热化的背景下，OpenAI 和 Anthropic 等竞争对手早已在 AI 编程工具领域展开布局。Meta 此次发布 Muse Code，标志着其正式正面切入这一高价值市场，进一步拓展其在广告业务之外的 AI 商业版图。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">从技术层面来看，Muse Code 的核心亮点在于其解决大型代码库复杂任务的能力。它依托于 Meta 先前发布的 Muse Spark 编程模型，并创新性地采用了多智能体协同架构。在处理繁重任务时，系统能够部署多个子智能体，在隔离的虚拟环境中同时并行工作，既保证了开发效率，又确保了开发者原始工作副本的安全与完整。正如 Meta 首席执行官马克·扎克伯格所演示的，该系统能够无冲突地同时为一款游戏构建六个不同的功能，这充分展现了其在复杂工程工作流管理上的强大潜力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">此外，该工具的经济性也是一大看点。Meta 超级智能实验室负责人亚历山大·王指出，Muse Code 对于注重成本效益的开发者而言极具吸引力。从今年 6 月进军企业级客服自动化市场，到如今推出面向软件工程全流程的 Muse Code，Meta 正在通过差异化的产品矩阵，加速构建其在企业级 AI 市场的生态壁垒。这不仅将重塑软件开发的日常工作流，也将加剧整个科技行业在 AI 智能体赛道上的军备竞赛。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>核心摘录 (Core Highlights)</strong></p>
-
-  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>EN</strong>: Powered by Meta’s previously released coding model, Muse Spark, Muse Code manages large projects by deploying multiple sub-agents that work simultaneously in isolated environments, leaving a developer’s original working copy untouched.</p>
-  </blockquote>
-
-  <blockquote style="border-left:4px solid #4299e1;background:#ebf8ff;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;">
-    <p style="margin:4px 0;color:#2c5282;font-style:normal;line-height:1.8;"><strong>ZH</strong>: 在 Meta 此前发布的编程模型 Muse Spark 的驱动下，Muse Code 通过部署多个在隔离环境中同时工作的子智能体来管理大型项目，同时保持开发者的原始工作副本完好无损。</p>
-  </blockquote>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/meta-launches-muse-code-a-new-ai-coding-agent-for-large-software-projects/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/meta-launches-muse-code-a-new-ai-coding-agent-for-large-software-projects/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/1f9648472a31bb7a8608d908b7f517ad.jpg" style="color:#3182ce;text-decoration:none;">headline_image</a></p>
-
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI资讯</h2>
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">1. 2026年你需要了解的19家法国AI初创公司[19 France-Based AI Scale-Ups You Need to Know in 2026]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文盘点了法国最具代表性的AI创新企业，展示了其从巴黎深厚技术生态到外省硬核科学探索的全面布局。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>地域与领域分布</strong>：法国AI初创企业呈现出“重科技（Deep-Tech）”和“巴黎集中”的特点，主要总部位于巴黎及其周边，涵盖国防软件、专用处理器、安全运营和纳米光子芯片等领域；同时，里昂、格勒诺布尔等外省城市也在癌症治疗、在线监控及健康智能平台等硬核科学领域多点开花。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>重点企业融资动态</strong>：文章列举了多家获得数千万美元融资的代表性企业，例如利用AI进行国防指挥系统开发的 Comand AI（总融资额达4900万美元，为榜单最高）、专注于AI处理器硬件层的 Arago（融资2600万美元），以及提供AI驱动视频后期制作平台的 Aive（融资2400万美元）。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>多元的应用场景</strong>：这些AI初创公司的技术落地场景极为广泛，不仅包括企业级应用（如 Edflex 的AI个性化企业学习平台、Audion 的音频广告AI优化）、网络安全（如 Escape 的生成式AI驱动API安全平台），还深入到生物医疗前沿（如 ErVimmune 利用AI发现抗原以攻克冷肿瘤）。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：法国AI经济正在证明，其发展不仅依赖软件创新，更是根植于国防科技、生物医药和专用芯片等“硬科学”土壤之中。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/20-france-based-ai-scale-ups-you-need-to-know-in-2026/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/20-france-based-ai-scale-ups-you-need-to-know-in-2026/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/41ed2579672729ec24dee8981ff596e1.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">2. Freehand 获得 7500 万美元融资，旨在为财富 500 强企业扩展供应链支出 AI 管理团队[Freehand Secures $75M to Scale AI Teams Managing Supply Chain Spend for Fortune 500 Companies]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">AI 初创公司 Freehand 完成 7500 万美元融资，通过部署自主 AI 代理团队，帮助大型企业实现供应链支出管理流程的全面自动化与降本增效。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>融资概况</strong>：本轮融资由 Battery Ventures 和 NewRoad Capital Partners 共同领投，PSP Growth、Nexus Venture Partners 等机构跟投。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心技术路径</strong>：Freehand 的核心竞争力在于其自主研发的“类别上下文图谱”（Category Context Graph），该技术能够整合企业内部的结构化数据与非结构化数据（如合同、沟通记录），使 AI 代理具备资深供应链专家的决策能力。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>业务效能表现</strong>：在 Meta、联合利华、辉瑞等企业的早期部署中，Freehand 成功帮助客户在复杂品类中节省了 5%–10% 的支出，将工作流处理速度提升 5–7 倍，并将“采购到付款”（procure-to-pay）周期缩短了 70% 以上。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>功能定位</strong>：不同于仅提供建议的 AI 助手，Freehand 的 AI 代理具备执行力，能够独立完成合同解读、供应商谈判、发票审计、付款处理及异常管理，旨在替代传统的高成本外包劳动力和陈旧的软件系统。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：Freehand 标志着企业级 AI 从“辅助型软件”（Co-pilot）向“执行型软件”（Agentic AI）的重大范式转移，通过将 AI 代理直接嵌入业务流程，实现了从决策到执行的闭环自动化。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/freehand-secures-75m-to-scale-ai-teams-managing-supply-chain-spend-for-fortune-500-companies/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/freehand-secures-75m-to-scale-ai-teams-managing-supply-chain-spend-for-fortune-500-companies/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/73138b7b589b8610a3c9c367debe6f3f.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">3. 为什么我不认为谷歌会被出局[Seven reasons I wouldn’t count Google out]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">尽管谷歌近期面临人才流失和高层变动等挑战，但其在数据、算力、资金及产品分发渠道等方面的巨大优势意味着现在将其排除出局还为时过早。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>海量独家数据与顶尖基础设施</strong>：谷歌拥有无可匹敌的海量数据资源（来自搜索和邮箱等），并在算力和分布式系统建设方面具备极强的全球头部竞争实力。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>自主芯片研发与雄厚财务实力</strong>：谷歌长期拥有自研的 TPU 芯片以减少对英伟达的依赖，且去年创下 4020 亿美元营收和 1320 亿美元利润，资金储备远超 OpenAI 和 Anthropic。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>强大的产品分发网络与核心领导层延续</strong>：通过 Android、Gmail、YouTube 等生态，谷歌拥有极强的产品分发能力；原负责人德米斯·哈萨比斯（Demis Hassabis）转任董事长及首席科学官并未离职，其继任者科雷·卡夫库克奥卢（Koray Kavukcuoglu）与其已合作超十年。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>竞争对手自身亦面临困境</strong>：OpenAI 面临声誉下滑，Anthropic 与政府存在摩擦，微软和亚马逊则缺乏同等级别的人才库，且初创公司在缺乏多元业务支撑的情况下难以承受大模型利润薄弱的风险。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：在当前大模型市场竞争激烈且可能面临微利结局的背景下，谷歌凭借强大的传统核心业务（搜索、Android、YouTube）和雄厚的资金储备，具备远超纯AI初创公司的长期抗风险与生存能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://garymarcus.substack.com/p/seven-reasons-i-wouldnt-count-google" style="color:#3182ce;text-decoration:none;">https://garymarcus.substack.com/p/seven-reasons-i-wouldnt-count-google</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/60fe23688775edc561553f516b8b45f6.jpeg" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">4. 古尔曼谈 OpenAI 设备：“一款售价超过 300 美元的甜甜圈形扬声器”[Gurman on OpenAI’s Device: ‘A Doughnut-Shaped Speaker That Costs Over $300’]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">OpenAI 正在研发一款具备拟人化交互能力、配备传感器与动态部件的便携式智能设备，旨在打造一款如同“电子宠物”般的陪伴型 AI。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心功能与交互</strong>：该设备将搭载更先进的 AI 模型，提供类似 ChatGPT 语音模式的交互体验，并能通过长期学习用户习惯，实现更具个性化和拟人化的对话。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>硬件设计特点</strong>：设备外观呈圆环状（甜甜圈形），内置可自主移动的机械部件，并配备摄像头、传感器及指示灯，用以感知环境并反馈交互状态，使其比传统静态音箱更具“生命感”。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>便携性与定位</strong>：该产品采用电池供电，设计灵活，可放置在床头、厨房或手持使用。虽然其具备音箱功能，但其本质更接近于一款具备感知能力的机器人伴侣，而非单纯的音频播放设备。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场预期</strong>：据报道，该设备的定价预计将超过 300 美元，其核心目标是成为用户全天候的陪伴者。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该设备通过引入“可移动部件”与“环境感知系统”，试图打破传统智能音箱的工具属性，将 AI 硬件从单纯的语音助手进化为具有情感连接的“电子宠物”。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.bloomberg.com/news/articles/2026-08-06/what-is-openai-s-device-a-doughnut-shaped-speaker-that-costs-over-300?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc4NjA0NjY3NSwiZXhwIjoxNzg2NjUxNDc1LCJhcnRpY2xlSWQiOiJUSjlNQ01UOU5KTFUwMCIsImJjb25uZWN0SWQiOiJDNEVEQ0FFMUZBMDU0MEJFQTI0QTlGMjExQzFFOTA4MCJ9.pj0oCNz7Ez90rn67tMWib-ed2PxcUAhAG2-hlVQ_DRg&leadSource=article-gifting" style="color:#3182ce;text-decoration:none;">https://www.bloomberg.com/news/articles/2026-08-06/what-is-openai-s-device-a-doughnut-shaped-speaker-that-costs-over-300?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc4NjA0NjY3NSwiZXhwIjoxNzg2NjUxNDc1LCJhcnRpY2xlSWQiOiJUSjlNQ01UOU5KTFUwMCIsImJjb25uZWN0SWQiOiJDNEVEQ0FFMUZBMDU0MEJFQTI0QTlGMjExQzFFOTA4MCJ9.pj0oCNz7Ez90rn67tMWib-ed2PxcUAhAG2-hlVQ_DRg&leadSource=article-gifting</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">5. Shopify 财报显示 AI 搜索正推动第二季度营收增长与商家流量[Shopify Reports AI Search Driving Revenue Growth and Merchant Traffic in Q2]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">Shopify 在第二季度财报中指出，AI 驱动的搜索与流量实现近乎三倍的同比增长，成为推动公司营收超预期增长的关键动力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>营收与利润超预期</strong>：Shopify 第二季度营收同比增长 36% 至 36 亿美元，超出华尔街预测的 34 亿美元；毛运营利润增长 31% 至 17.1 亿美元。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>AI 搜索与传统搜索并行</strong>：总裁哈雷·芬克尔斯坦（Harley Finkelstein）表示，AI 并没有取代传统搜索，而是与其形成互补；传统搜索流量仍占所有店面访问量的三分之一左右。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>购物路径大幅缩短</strong>：AI 代理通过对产品目录进行多次查询以匹配买家特定需求，使得 50% 的 AI 引流会话直接降落至产品页面，该比例是传统搜索的 2.5 倍，且 75% 的 AI 归因购买发生在 Shopify 前 100 大产品类别之外。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>广泛的 AI 生态整合</strong>：公司重点介绍了与 Claude、ChatGPT、Perplexity、Manus、Replit 和 Vercel 等多项领先 AI 工具的集成。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：AI 搜索不仅使 Shopify 的总体流量和营收大幅增长，更通过精准匹配将购物转化路径压缩，有效赋能平台上的中小型商家并盘活了长尾商品。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/shopify-reports-ai-search-driving-revenue-growth-and-merchant-traffic-in-q2/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/shopify-reports-ai-search-driving-revenue-growth-and-merchant-traffic-in-q2/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/de9d34a169ec06a546e0e4b2a73e9c26.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">6. 易于完成、难于选择：调查大语言模型在 ProverbIT 基准上的表现[Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文通过引入全新的意大利语俗语基准测试（ProverbIT），揭示了当前顶尖大语言模型在处理具文化内涵的具象语言时，虽然能够完成俗语补全，但在复杂选择任务中却暴露出深度语义理解与推理能力的严重不足。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>提出新型基准测试（ProverbIT）</strong>：研究团队推出了包含 100 个多项选择题的意大利语基准，专门用于评估大语言模型理解和补全意大利语俗语的能力。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>评估多款前沿模型</strong>：对 13 个前沿模型（包括传统大语言模型和大型推理模型 LRMs）进行了三项任务的测试：俗语补全、有正确答案的多项选择以及无正确答案的多项选择。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>揭示性能断崖式下跌</strong>：虽然几乎所有模型都能通过俗语补全任务展示出相关知识，但在面对无正确答案的多项选择题时，模型性能急剧下降，即使是最先进的推理模型也出现了大幅退化。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>思维链（CoT）分析与偏见暴露</strong>：对两个大型推理模型的分析表明，模型在推理过程中往往表现出对字面同义词的强烈偏见，且经常在推理中提及正确的俗语结尾，却未能识别出它们在给定选项中的缺失。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：研究表明当前大语言模型在理解具文化背景的隐喻语言时，高度依赖死记硬背的模式而非深层的语义理解，这凸显了其在具象语言推理能力上的关键局限性。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04670" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04670</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">7. 超越狄拉克δ函数：缓解多功能图像生成中强化微调的多样性崩溃[Beyond the Dirac Delta: Mitigating Diversity Collapse in Reinforcement Fine-Tuning for Versatile Image Generation]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文提出了一种名为DRIFT的创新强化微调框架，通过多维度激励机制有效解决了大规模生成模型在对齐人类偏好时面临的多样性崩溃难题。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心挑战识别</strong>：指出了大规模生成模型在强化学习微调过程中普遍存在的“多样性崩溃”局限，即优化目标和景观容易导致策略坍缩为狄拉克δ函数。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>DRIFT框架的三大技术路径</strong>：</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">采样阶段：筛选并过滤奖励异常值，保留高奖励但集中的子集，防止模型过早崩溃。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">提示词阶段：引入随机变化来扩展条件空间。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">优化阶段：利用基于势函数的奖励塑造机制，优化组内多样性。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>显著的实验表现</strong>：实验结果表明，DRIFT在任务对齐与生成多样性之间实现了卓越的帕累托优势；在同等对齐水平下多样性提升了$9.08\%\sim 43.46\%$，在同等多样性水平下对齐度提升了$59.65\%\sim 65.86\%$。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：DRIFT框架首次系统性地从采样、提示和优化三个维度协同解决生成模型的强化微调多样性崩溃问题，实现了任务对齐与生成多样性的双重跃升。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2601.12401" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2601.12401</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">8. 基于观察校准的自我蒸馏智能体强化学习[Agentic Reinforcement Learning with Observation-Calibrated Self-Distillation]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文提出了一种全新的“观察校准自我蒸馏”（OCSD）方法，旨在解决大语言模型智能体在稀疏奖励强化学习中缺乏细粒度监督及混淆效应的问题。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>指出传统方法的混淆问题</strong>：现有基于同策略自我蒸馏（OPSD）的方法通过特权回放视图获取密集的Token级监督，但当未来环境观察作为特权信息时，回放支架的重建会引发分数偏移，导致难以区分信息来源。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>提出OCSD核心技术路径</strong>：OCSD通过对比“完整”与“观察消融”两个结构匹配的回放视图，推导出去除回放支架干扰的观察残差，从而精准捕捉未来观察带来的真实信息增益。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>优化GRPO策略更新机制</strong>：该方法将计算出的观察残差应用于高不确定性步骤的Token级GRPO更新调制，同时严格保持整体的轨迹级更新方向。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>实验与基准验证</strong>：在ALFWorld、WebShop和Search-QA三个基准测试以及三种Qwen3模型规模下的实验表明，OCSD的性能持续优于强基线模型，且诊断分析证实其校准残差能更好地契合局部环境反馈。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：OCSD通过巧妙的“双视图对比残差”设计，成功剥离了强化学习中特权回放带来的支架干扰噪声，为大模型智能体提供了更精准的Token级密集监督信号。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04788" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04788</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">9. Q-CueGraph：用于多模态推理的查询条件视觉证据图[Q-CueGraph: Query-Conditioned Visual Evidence Graphs for Multimodal Reasoning]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">Q-CueGraph 提出了一种通过查询条件引导视觉观察的策略，使多模态大模型能够以有限的计算预算精准定位并提取图像中的关键证据，从而显著提升推理效率与准确性。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>核心机制</strong>：Q-CueGraph 引入了一种显式的观察决策机制，将问题与图像表示映射为坐标级的观察点，为冻结的多模态模型（如 Qwen2.5-VL-7B）提供精准的局部视觉输入，而非全图处理。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>双重处理路径</strong>：系统针对不同图像类型采用差异化策略：对于文本密集型图像，利用可重用的 OCR/布局图；对于自然图像，则通过查询条件动态实例化视觉节点，统一了选择、组合与预算分配接口。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>无需标注的优化</strong>：该模型支持可选的效用细化（Utility Refinement），能够根据训练答案的正确性自动学习哪些候选裁剪区域对模型最有效，且无需额外的区域框（region-box）监督。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">  <strong>性能表现</strong>：在 Qwen2.5-VL-7B 模型上，Q-CueGraph 仅使用 19% 的图像区域预算，在 V*Bench 上的准确率从 0.696 提升至 0.833；在 InfographicVQA 上，仅用约一半的图像区域即可达到全图推理 92% 的 ANLS 分数。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：Q-CueGraph 成功证明了在多模态推理中，通过“显式观察”替代“全图盲目扫描”，可以在大幅降低计算成本的同时，通过精准定位局部证据显著增强模型的视觉理解能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04452" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04452</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">10. 对抗智能体系统中的知识污染：一种抗拜占庭的安全协同 RAG 框架[Combating Knowledge Corruption in Agent Systems: A Byzantine-Tolerant Secure Collaborative RAG Framework]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文提出了一种名为 SecureCollaRAG 的抗拜占庭协同 RAG 框架，旨在有效防御针对大语言模型检索增强生成系统的知识污染攻击。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心威胁挑战</strong>：大语言模型（LLM）的检索增强生成（RAG）系统虽然缓解了幻觉问题，但也面临知识污染攻击的新漏洞，攻击者通过投毒文档来操纵大语言模型的输出。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>创新防御框架</strong>：提出了 SecureCollaRAG 框架，引入了多源知识验证机制（Multi-source Knowledge Validation Mechanism），使智能体系统能够安全验证文档来源。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>关键技术路径</strong>：利用基于图神经网络（GNN）的动态可信度评分系统，在保持必要领域知识完整性的同时，有效防止隐蔽的知识污染攻击。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>性能与鲁棒性</strong>：通过广泛的评估和形式化分析，证明了 SecureCollaRAG 在非独立同分布（non-IID）数据分布下对攻击者具有强大的鲁棒性。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：首次将拜占庭容错机制与基于图神经网络的动态可信度评分相结合，为多源 RAG 系统的知识验证提供了一种安全、可靠的协同防御范式。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04366" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04366</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">11. Trident：如何攻破深度强化学习网络防御[Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文介绍了全新的智能红队框架 Trident，通过结合大语言模型与验证奖励强化学习（RLVR），成功揭示了现有深度强化学习网络防御系统在面对自适应威胁时的脆弱性。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>框架与环境构建</strong>：Trident 包含一个动态基准测试平台，提供涵盖 CybORG CAGE 4 和 CyberWheel 的隔离沙箱服务器，并构建了包含超过 13,000 条高保真红蓝交互轨迹的数据集，用于支持验证奖励强化学习（RLVR）。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>“代码即策略”的智能体架构</strong>：采用“日志总结器-规划器-Coded”的三部曲设计，将红队智能体训练重构为上下文赌博机问题；其中仅需一个可训练的 7B 规划器生成攻击策略，由冻结的编码器转化为可执行的 Python 策略。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>攻击效能与自适应发现</strong>：实验表明，仅凭单个 7B 规划器的 Trident 就能使蓝方防御性能平均下降 522%，并能自主发现静态启发式方法完全无法察觉的诱饵规避和自适应状态优先级排序等突发攻击行为。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：Trident 首次通过基于 RLVR 的智能红队框架暴露了深度强化学习网络防御的深层脆弱性，证明了自适应智能威胁能够轻易瓦解传统的静态防御基准。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04317" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04317</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">12. AgentAntibody：防御大模型智能体免受提示词注入的自适应免疫系统[AgentAntibody: An Adaptive Immune System for Defending LLM Agents against Prompt Injection]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文介绍了一种名为 AgentAntibody 的新型防御框架，它借鉴生物学自适应免疫机制，使大模型智能体能够通过与用户的持续交互自主进化出抵御提示词注入的安全边界。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>机制灵感与核心原理</strong>：AgentAntibody 受到生物学自适应免疫系统的启发，改变了传统防御方法将每个任务视为独立问题的局限性，构建了一个能够自我进化的防御体系。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>抗体库与动态防御</strong>：系统将用户安全边界的动态理解表示为一个持久化的“抗体库”。在运行时，该库能够识别威胁并启动相应的免疫响应，随着交互的增加不断增强智能体对未来攻击的免疫力。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>实验验证与表现</strong>：在三个基准测试和四个主流大模型（backbone LLMs）的大规模实验表明，AgentAntibody 能够通过经验学习用户边界，在防止有害行为的同时确保合法任务的顺利完成，其性能优于现有防御方案。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：AgentAntibody 首次引入了类似生物免疫的“经验学习”机制，通过持久化的抗体库让 AI 智能体在处理模糊用户请求时能够不断进化出更精准的安全边界，有效平衡了安全性与任务完成度。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04053" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04053</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">13. NuclearDiffusion：用于学习核能概念的文本到图像基础模型[NuclearDiffusion: Text-to-Image Foundation Models for Learning Nuclear Energy Concepts]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文系统研究了开源扩散模型在核工程这一垂直领域的域适应微调表现，揭示了底层生成架构对专业领域知识适配的关键影响。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">构建了首个包含 1,000 张带标注核能图像的数据集，涵盖反应堆、燃料循环、辐射及相关概念。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">对 SDXL、SD-v3.5-Medium 和 Flux.1 三款主流开源扩散模型进行了微调与评估，发现微调效果高度依赖于模型底层架构而非单纯的模型规模：SDXL 获得显著提升，SD-v3.5-Medium 收益有限，而 Flux.1 无明显改善。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;">将微调后的开源模型与 GPT-Image-2、Gemini-3.1-Flash-Image 和 Midjourney 等领先商业系统进行对比，证明微调后的开源模型在处理专业工程提示词时，输出结果比商业大模型更具技术准确性和一致性。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：研究证实了领域特定微调是开发面向垂直专业应用的可信生成式 AI 工具的有效路径，且模型的架构适应性比单纯扩大模型规模更为关键。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04030" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04030</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">14. 当提示词成为像素：多模态推理中的提示区域定位[When Prompts Become Pixels: Prompt-Region Grounding for Multimodal Reasoning]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文通过引入“视觉化任务语义（VTS）”基准测试，揭示了多模态大模型在处理图像内嵌指令时存在显著的“语义通道鸿沟”，并提出了一种创新的提示区域定位方法来有效弥合这一差距。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>发现视觉指令鸿沟</strong>：研究引入了“视觉化任务语义（VTS）”干预方法，将问题从纯文本转移至图像中。测试表明，在所有6个多模态大模型和4个基准测试的24种组合中，模型准确率平均下降了17.8个百分点。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>揭示根本原因</strong>：实验发现，模型通常能够准确识别并转录出图像中的文字问题，但却无法将其有效转化为推理指令，这证明了“OCR识别文本”与“将文本作为推理指令定位”是两种截然不同的能力，二者之间存在超越OCR的语义通道鸿沟。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>提出创新技术路径</strong>：研究团队提出了“提示区域定位（prompt-region grounding）”核心设计，通过将问题区域与键入语义对齐，并从掩码视图中恢复其清晰表征来解决该问题。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>显著提升性能</strong>：在同等训练成本下，该方法将四个基准测试上的VTS准确率从58.0%提升至66.3%，同时完全保留了模型在原有文本界面上的准确率，且在推理阶段不需要依赖OCR或区域元数据。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：本研究首次系统性地揭示并量化了多模态大模型在处理“像素级提示词”时的语义通道缺陷，并通过创新的区域定位技术，在不增加推理额外负担的前提下大幅提升了模型的跨模态指令理解与推理能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04726" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04726</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">15. FinPerMA：一个基于理论与事件的LLM智能体个性化记忆基准测试[FinPerMA: A Theory-Informed, Event-Grounded Personalized-Memory Benchmark for LLM Agents]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">该研究推出了 FinPerMA 基准测试，用于评估大语言模型智能体在金融等高风险领域中对长期、事件驱动的个性化用户偏好建模与更新能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>提出创新基准（FinPerMA）</strong>：针对现有记忆基准多侧重于事实保留、忽视事件驱动偏好适应的痛点，该研究构建了基于冻结的纵向投资者轨迹的评估基准，包含来自 276 个角色的 2,994 个测试问题。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>严谨的数据生成管线</strong>：结合了确定性的理论导向影响规则、受控的 LLM 叙述以及自动化质量筛选，并通过“冲击后（Post-Shock）”检查点来隔离智能体是否成功将重大事件整合到其持久用户模型中。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>前沿模型表现不佳</strong>：对 7 个前沿大模型及多达 7 种记忆配置的测试表明，当前系统远未饱和，任何全上下文配置的整体准确率均未超过约 0.47，多选题准确率未超过约 39%。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>归因分析发现</strong>：基于摘要的记忆虽然能保留事实细节，但往往会丢失个性化所需的偏好信号，导致简单检索在经历市场冲击后的表现有时甚至优于定制的记忆系统。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：研究揭示了当前主流大模型在长周期、事件驱动的金融个性化记忆任务中表现严重不足，指出传统摘要记忆易丢失偏好信号的致命缺陷，为未来构建高可靠性的金融 AI 智能体指明了关键改进方向。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04095" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04095</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">16. PICopilot：一个基于大语言模型通过脚本生成辅助光子集成电路设计的智能体框架[PICopilot: An LLM-based Agentic Framework for Assisting Photonic Integrated Circuit Design via Script Generation]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">该研究提出了首个基于大语言模型的智能体框架 PICopilot，旨在通过自然语言指令自动生成设计脚本，从而解决光子集成电路（PIC）设计中日益扩大的生产力鸿沟。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术背景与痛点</strong>：光子集成电路（PIC）的设计正从传统的图形用户界面（GUI）转向灵活度更高的脚本方法，但这要求设计人员掌握复杂的工具 API 和编程技能，导致手动脚本编写的效率和能力难以跟上日益增长的复杂设计需求。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>框架核心架构</strong>：PICopilot 采用了多智能体（multi-agent）架构，结合了高效的反馈机制以及专门设计的信息检索增强生成（RAG）管道，能够将自然语言指令转化为高成功率和高可靠性的设计脚本。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>实验与性能表现</strong>：在包含 48 个多样化 PIC 脚本任务的基准测试中，PICopilot 成功完成了所有测试任务，其性能不仅超越了其他同类大语言模型方法，在没有引入额外显著延迟和成本的前提下，甚至比采用通用 RAG 管道的高级 GPT-5 模型多解决了 21 个任务。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：PICopilot 证明了通过定制的多智能体架构与 RAG 管道结合，大语言模型能够突破传统 GUI 与脚本设计的效率瓶颈，在专业工程设计领域实现对通用最先进模型的显著性能超越。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.01791" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.01791</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">17. 等变深度学习的基础：统一图神经网络与束神经网络[Foundations of Equivariant Deep Learning: Unifying Graph and Sheaf Neural Networks]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文提出了一种名为阶等变神经网络（OENN）的全新理论框架，成功将几何深度学习与拓扑深度学习进行了数学层面的统一。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>理论创新与模型构建</strong>：开发了阶等变神经网络（OENN），通过面偏序集（或面范畴）上的等变向量丛理论，将标准的图消息传递机制和束神经网络（Sheaf Neural Networks）进行了深度泛化。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>数学特征刻画与证明</strong>：全面刻画了所有的线性阶等变映射，构建了具体的 OENN 网络层，并首次证明了连续阶等变映射的通用近似定理（UAT），该定理同时适用于更为广泛的束神经网络。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>范畴论底层连接</strong>：通过动作群胚的格罗滕迪克构造，将 OENN 与范畴等变神经网络（CENN）相连，为处理多对象上的非可逆对称性及组合关系提供了通用的范畴论形式。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该研究突破了传统群对称性的限制，首次在理论上实现了几何深度学习与拓扑深度学习的深度融合，并为图神经网络和束神经网络提供了统一的通用近似定理。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2607.03798" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2607.03798</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">18. 当比特破坏追索权：反事实忠实量化[When Bits Break Recourse: Counterfactual-Faithful Quantization]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了模型量化在决策系统中引发的“追索权失效”问题，并提出了旨在保持反事实决策一致性的量化框架。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>部署失配问题</strong>：研究指出，现有的模型量化主要关注预测准确率，但在提供算法追索（Algorithmic Recourse）的决策系统中，量化会导致原本有效的干预措施失效，或增加用户达成目标所需的干预成本。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>量化敏感度评估框架</strong>：提出了两个核心指标：有效性下降（Validity Drop, VD）用于衡量量化后失效的追索动作比例；反事实追索差距（Counterfactual Recourse Gap, CRG）用于衡量量化模型中最小追索成本的增加量。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>反事实忠实量化（CFQ）方法</strong>：引入了一种量化感知训练（QAT）方法，通过联合学习量化参数与混合精度分配，在保持教师模型追索点预测结果的同时优化模型，该方法也可作为训练后的校准程序。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>实验验证</strong>：在 Adult、German Credit 和 COMPAS 数据集上的测试表明，传统量化方法虽能保持准确率，但会显著损害追索稳定性；CFQ 在同等精度和比特预算下，能大幅降低 VD 和 CRG 指标（例如在 Adult 数据集上，VD/CRG 分别从 0.121/0.162 降至 0.061/0.071）。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该研究揭示了模型量化在公平性与可解释性领域的一个盲区，即“准确率一致”并不等同于“决策逻辑一致”，CFQ 为构建对用户更友好、更稳定的可信 AI 系统提供了关键的技术路径。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2605.17160" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2605.17160</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">19. 线性系统强化学习与模型预测控制融合的系统性综述与分类法[A Systematic Review and Taxonomy of Reinforcement Learning-Model Predictive Control Integration for Linear Systems]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文对截至2025年发表的关于线性及线性化系统强化学习与模型预测控制（RL-MPC）融合的研究进行了全面且系统性的文献综述。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>互补优势整合</strong>：模型预测控制（MPC）擅长结构化优化、显式约束处理及稳定性保障，而强化学习（RL）则在应对不确定性和模型失配时提供数据驱动的自适应能力与性能提升。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>多维度分类框架</strong>：研究构建了一个多维分类体系，涵盖RL功能角色、RL算法类别、MPC公式化方法、成本函数结构以及具体的应用领域。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>交叉维度综合分析</strong>：通过对文献库的交叉维度综合，识别出了循环出现的设计模式以及各维度之间的内在关联。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心挑战剖析</strong>：指出了当前方法面临的共性实践挑战，包括计算负担、样本效率、鲁棒性以及闭环性能保证等方法论趋势。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：首次针对线性系统中的RL-MPC集成建立了全面的多维分类法与系统性综述，为研究人员和实践者设计高效的混合控制架构提供了结构化的参考基准。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2604.21030" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2604.21030</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">20. 多模态学习与遗传编程的碰撞：潜在空间优化中的对齐分析[Multi-Modal Learning meets Genetic Programming: Analyzing Alignment in Latent Space Optimization]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文探讨了多模态潜在空间优化（LSO）在符号回归（SR）中的实际效能，指出当前主流模型在跨模态对齐精度上存在局限，难以实现有效的引导式搜索。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术背景</strong>：符号回归传统上依赖遗传编程（GP）进行组合搜索，而潜在空间优化（LSO）通过神经网络将符号表达式映射至连续空间，从而将搜索问题转化为连续优化问题。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>SNIP 模型机制</strong>：SNIP 模型借鉴 CLIP 的对比预训练思想，通过多模态方法在共享潜在空间中对齐符号编码器与数值编码器，旨在利用数值空间的优化来隐式引导符号空间的搜索。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>实验发现</strong>：研究表明，在优化过程中，跨模态对齐效果并未随适应度（fitness）的提升而改善；同时，SNIP 所习得的对齐粒度过于粗糙，无法支撑在符号空间内进行高效的原则性搜索。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>未来方向</strong>：尽管多模态 LSO 在符号回归领域具有巨大潜力，但目前尚未实现真正的对齐引导优化，实现“细粒度对齐”是该领域后续研究的关键突破口。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该研究通过实证分析揭示了多模态对齐在符号回归应用中的“粗粒度”瓶颈，为优化符号搜索算法提供了重要的方向性修正。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2604.08324" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2604.08324</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">21. FinRpt：用于股票研究报告生成的数据集、评估系统及基于大语言模型的多智能体框架 [FinRpt: Dataset, Evaluation System and LLM-based Multi-agent Framework for Equity Research Report Generation]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">该研究首次定义了股票研究报告（ERR）自动生成任务，并推出了包含数据集构建、评估体系及多智能体生成框架在内的完整解决方案。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>构建 FinRpt 基准与数据集：</strong> 针对金融领域数据匮乏的问题，研究团队设计了一套自动化数据构建流水线，整合了 7 种不同类型的金融数据，生成了高质量的股票研究报告数据集，为模型训练与评估提供了基础。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>建立多维度评估体系：</strong> 填补了该领域缺乏评估指标的空白，提出了包含 11 项指标的综合评估系统，能够全面衡量生成报告的质量与准确性。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>提出 FinRpt-Gen 多智能体框架：</strong> 专门针对报告生成任务设计了多智能体协作框架，并利用监督微调（SFT）和强化学习（RL）对大语言模型智能体进行了训练，显著提升了报告生成的专业性与逻辑性。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>开源贡献：</strong> 研究成果已全部开源，旨在推动金融科技领域在自动撰写深度研究报告方向的创新与应用。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该研究通过构建全链路的自动化流程，成功将大语言模型从简单的金融问答任务拓展至高复杂度的专业研报撰写领域，为金融自动化分析提供了标准化的评估与执行范式。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2511.07322" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2511.07322</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">22. 双向强化学习路径实现仿真到真实环境的最优化[Bi-Level Reinforcement Learning Pathway for Sim-to-Real Optimality]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文提出了一种基于敏感性分析的双层强化学习方法，通过直接利用真实世界策略性能的梯度来调整仿真参数，从而有效缩小“仿真到真实”（Sim-to-Real）的差距。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>解决“仿真到真实”差距</strong>：传统方法由于仿真模型侧重预测准确性而策略侧重任务性能，导致目标不匹配（objective mismatch），从而在真实环境中表现不佳。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>推导策略敏感性</strong>：研究团队推导了在actor-critic框架下，利用随机策略梯度（SPG）方法训练的局部收敛策略对仿真参数的敏感性。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>构建双层RL框架</strong>：基于敏感性分析，设计了一种双层强化学习（Bi-Level RL）方法，通过真实世界策略性能的梯度来学习仿真参数，实现仿真模型自适应与策略性能的直接耦合。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>理论与算法验证</strong>：文章不仅提供了该方法的全面收敛性分析，还通过概念验证型的双层PPO（Proximal Policy Optimization）算法展示了其有效性。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：通过数学推导将策略对仿真参数的敏感性与真实世界性能梯度直接挂钩，为弥合Sim-to-Real鸿沟提供了一条严谨的优化路径。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2510.17709" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2510.17709</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">23. MemSIF：从结构化交互到大模型智能体的双轨事实记忆[MemSIF: From Structured Interactions to Dual-Track Fact Memory for LLM Agents]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">MemSIF 框架通过引入结构化交互记忆与双轨事实记忆机制，有效解决了大模型智能体在长期记忆中面临的时序结构失调与效用延迟问题。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心挑战识别</strong>：研究指出大模型长期记忆存在两大瓶颈：一是“时序-结构失调”（TSM），即时间上的邻近性无法准确反映主题或事件的相关性；二是“效用延迟表现”（DUM），即写入时的信息显著性无法预判未来的查询价值。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>结构化交互记忆（SIM）</strong>：该模块将原始交互数据重组为“主题片段”（Topical Segments）以保持局部连贯性，并构建“事件轨迹”（Event Trajectories）以维持跨时间的事件连续性。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>双轨事实记忆（Dual-Track Fact Memory）</strong>：采用双轨并行策略：CoreFact 记忆在写入时固化结构化信息，ActiveFact 记忆则根据需求动态生成，并优先保留具有多源支持和高频查询需求的事实。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>性能表现</strong>：在 LoCoMo 和 LongMemEval-S 基准测试中，MemSIF 在五种主流大模型上均取得了最高准确率，相比现有最强基线模型，性能提升幅度分别达到 2.29%-8.79% 和 2.87%-6.15%。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：MemSIF 创新性地将“静态事实固化”与“动态需求触发”相结合，通过双轨机制成功解耦了记忆存储与未来查询效用之间的不确定性，为解决长周期智能体任务中的记忆遗忘与检索偏差提供了新范式。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.01742" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.01742</a></p>
-
-
-  <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">AI服务</h2>
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">24. Prime Intellect 发布开源代码智能体框架 Prime Agent[Prime Intellect Releases Prime Agent: An Open-Source RLM Harness Where Sub-Agents Are Function Calls Inside Persistent IPython Kernel]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">Prime Intellect 推出了开源的自进化代码智能体框架 Prime Agent，通过将 IPython 内核作为唯一核心工具并结合递归语言模型（RLM），大幅提升了 AI 在复杂、长周期任务中的表现。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心架构创新</strong>：Prime Agent 放弃了传统的固定工具架构，采用持久化 IPython 内核作为唯一工具。子智能体被设计为内核内部的函数调用（通过 RLM 抽象），而提示词、技能和记忆则作为可由智能体自主增删改查的状态（Continual Harness）。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>出色的基准测试表现</strong>：在结合 Opus 5 模型时，Prime Agent 在 ARC-AGI-3 测试中取得了 95.5% 的准确率，超越了人类专家基准（95.4%），并且在多个长上下文评估和复杂案例（如从零构建模拟器、编写 GPU 内核）中表现优异。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>灵活的部署与生态兼容</strong>：该框架采用 MIT 开源协议，支持一键安装（Linux/macOS），兼容各大主流订阅账号、API 密钥以及本地托管模型（如 vLLM、Ollama 等），适用于中大型工程团队及 AI 研究实验室。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：Prime Agent 引入了基于运行轨迹的 <code style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;font-size:0.9em;font-family:monospace;">/refine</code> 自我改进机制，允许智能体动态优化自身的提示词、技能和记忆，甚至展现出了能根据任务需求自主生成并优化代码策略的高级自适应能力。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://www.marktechpost.com/2026/08/06/prime-intellect-releases-prime-agent/" style="color:#3182ce;text-decoration:none;">https://www.marktechpost.com/2026/08/06/prime-intellect-releases-prime-agent/</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">25. groundcover完成100万美元C轮融资，构建专为AI时代打造的可观测性平台[groundcover Closes $100M Series C to Create the Observability Platform Built for the AI Era]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">云原生可观测性平台 groundcover 宣布获得由 One Peak 领投的 1 亿美元 C 轮融资，累计融资额达到 1.6 亿美元，旨在加速其面向 AI 时代的自主运维平台建设。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>融资规模与投资方</strong>：本轮 1 亿美元的 C 轮融资由 One Peak 领投，Morgan Stanley Expansion Capital 以及现有投资者 Zeev Ventures、Angular Ventures、Heavybit 和 Jibe 参与跟投，使公司总融资额达到 1.6 亿美元。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>业务高速增长</strong>：在过去一年中，groundcover 的年度经常性收入（ARR）实现三倍增长，全球团队规模翻倍，付费客户超过 250 家，涵盖初创企业至财富 5 强企业。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>技术路径与核心优势</strong>：平台采用自带云（BYOC）、eBPF 和 OpenTelemetry 原生架构，能够以零采样、无基数限制的方式捕获全保真遥测数据，满足 AI 时代对高容量和隐私控制的需求。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>资金未来用途</strong>：新资金将用于加速北美市场的开拓、进军新地理区域、深化云合作伙伴的联合销售活动，以及推进 AI 时代的平台功能和“Agent Mode”智能代理模式的持续开发。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：groundcover 创新的 BYOC 与 eBPF 结合架构打破了传统可观测性平台在面对海量 AI 遥测数据时的扩展瓶颈，为未来的 AI 自主运维提供了可靠的数据基石。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/groundcover-closes-100m-series-c-to-create-the-observability-platform-built-for-the-ai-era/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/groundcover-closes-100m-series-c-to-create-the-observability-platform-built-for-the-ai-era/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/4ea0cfeec99211b2ee7d42da59ebd46b.png" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">26. IBM推出Apptio AI Value & ROI，旨在弥合AI投入与业务成果之间的差距[IBM Introduces Apptio AI Value & ROI to Close the Gap Between AI Spend and Business Results]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">IBM发布了全新的Apptio AI Value & ROI工具，旨在为企业提供AI支出与业务产出之间的透明度，以解决当前AI投资回报率难以量化的行业痛点。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>解决AI投资问责缺口</strong>：针对Gartner调查显示84%的财务主管无法衡量AI投资回报率的现状，该工具通过集中化管理，将AI支出（包括Token成本、人力及技术投入）与具体的业务成果（如收入、生产力、风险控制等）直接挂钩。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心功能与指标追踪</strong>：该平台提供“证明指标（Proof Metrics）”功能，支持企业自定义关键绩效指标（如周期时间、转化率、事故量等），并能实时追踪基准目标与实际产出，从而评估AI项目的价值实现情况。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>多源集成与灵活性</strong>：该工具与IBM Cloudability及IBM Apptio AI TCO & Usage深度集成，能够整合多渠道的成本与使用数据，为企业提供全方位的AI成本优化与价值评估框架。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>市场可用性</strong>：目前该产品已面向IBM Apptio现有客户开放公开预览，预计将于2026年第三季度正式全面上市。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该工具通过将抽象的AI技术支出转化为可量化的业务价值，成功将“AI成本危机”转化为可管理的投资决策，助力企业通过消除浪费来释放更多创新资金。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/ibm-introduces-apptio-ai-value-roi-to-close-the-gap-between-ai-spend-and-business-results/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/ibm-introduces-apptio-ai-value-roi-to-close-the-gap-between-ai-spend-and-business-results/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/40c9fe3b60142892eb5c95a476439949.jpg" style="color:#3182ce;text-decoration:none;">image</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">27. 用金丝雀工具诊断大模型智能体的工具选择推理[Diagnosing Tool-Selection Reasoning in LLM Agents with Canary Tools]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">本文介绍了一种名为“金丝雀工具”的诊断框架，用于精准剖析大模型智能体（LLM Agents）在工具选择过程中的推理缺陷和失败原因。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>提出“金丝雀工具”与六维分类法</strong>：研究人员在模型的MCP工具集中植入诊断性探针工具，并建立了一个包含语义诱饵、参数陷阱、能力幻觉、前提盲区、时间诱饵和粒度陷阱在内的六类分类法，将单一的错误结果转化为多维度的推理画像。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>大规模实验评估</strong>：对8个模型（6个托管模型和2个8B开源模型）在3种密度条件和3个随机种子下进行了120个任务共8640次运行，并辅以2880次微妙性消融实验，任务成功率由双独立评审员进行评估（Cohen's kappa = 0.75）。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心发现一：易受攻击率随能力提升急剧下降</strong>：每项任务的金丝雀易受攻击率（CSR）在不同模型间相差约36倍，其中Claude Opus 4.8表现最低，而Llama 3.1 8B最高。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心发现二：能力层级不能完全预测安全性</strong>：单纯的模型能力层级无法直接等同于安全性，最易受攻击的托管模型处于中端水平，且同一供应商内更便宜的模型可能表现得更安全。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心发现三：分类法呈现能力分层特征</strong>：能力幻觉最容易困住前沿模型，而其他类型主要对小型开源模型生效，同时软化提示词短语并不影响前沿模型的CSR，证明该探针测试的是真实推理能力而非关键词匹配。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：该研究突破了传统评估只知“选错工具”而不知“原因何在”的局限，首次利用金丝雀探针将智能体的工具选择推理能力进行多维度、系统化的量化剖析。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://arxiv.org/abs/2608.04719" style="color:#3182ce;text-decoration:none;">https://arxiv.org/abs/2608.04719</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">28. OpenAI提交28页动议要求驳回苹果的诉讼[OpenAI Files 28-Page Motion to Dismiss Apple’s Lawsuit (PDF Link)]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">OpenAI近日正式提交了一份长达28页的法律动议，有力且直率地反驳并要求驳回苹果针对其前员工Tan的诉讼。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>核心反驳</strong>：OpenAI在动议中严厉指出，苹果的起诉内容毫无事实依据，根本无法也并未针对被告Tan构成真正的商业秘密挪用指控。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>文风特点</strong>：该法律文件文笔清晰、逻辑严密，摒弃了晦涩难懂的冗长法律术语，展现了高质量的法律辩护水平。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>媒体报道现状</strong>：原文作者指出，尽管多家媒体报道了该事件，但绝大多数未能提供原始PDF文档的链接，仅有少数媒体（如The Verge的Jess Weatherbed）做到了这一点。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：OpenAI通过一份逻辑清晰、用语通俗且直击要害的28页动议，公开且强势地反击了苹果的指控，为公众提供了一个透明度极高的法律抗辩范本。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://storage.courtlistener.com/recap/gov.uscourts.cand.474095/gov.uscourts.cand.474095.59.0.pdf" style="color:#3182ce;text-decoration:none;">https://storage.courtlistener.com/recap/gov.uscourts.cand.474095/gov.uscourts.cand.474095.59.0.pdf</a></p>
-
-
-  <h4 style="margin-top:20px;margin-bottom:8px;font-size:1.1em;color:#2d3748;line-height:1.4;"><a href="https://newsweekly.aitobox.com/AIToBoxWeeklyNews_20260807/" style="color:#3182ce;text-decoration:none;">29. OpenAI动议驳回苹果商业机密诉讼，指控其存在安全漏洞[OpenAI Files Motion to Dismiss Apple’s Trade Secrets Lawsuit, Cites Security Lapses]</a></h4>
-
-  <p style="margin-bottom:14px;line-height:1.85;">OpenAI近日提交动议要求驳回苹果发起的商业机密诉讼，并反戈一击指出苹果自身存在重大安全疏漏和管理不善。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>详细内容</strong></p>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>指控苹果内部管理与安全漏洞：</strong> OpenAI在辩护文件中指出，苹果允许员工使用个人iCloud账号处理工作，且在员工离职后未能妥善撤销访问权限；并举例称有苹果经理在某离职工程师离职后仍登录其个人账号并寻求技术协助。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>质疑诉讼动机与机密明确性：</strong> OpenAI认为苹果的指控模糊不清，未能具体指出涉案的商业机密，仅泛泛涉及制造和供应商关系；并指责该诉讼实为苹果试图遏制OpenAI硬件发展野心的手段，以掩盖自身在留住顶尖人才和整合AI方面的困境。</li>
-  </ul>
-
-  <ul style="margin:8px 0 16px 0;padding-left:24px;">
-    <li style="margin-bottom:6px;line-height:1.7;"><strong>诉讼背景与苹果最新动作：</strong> 苹果于7月提起诉讼，指控OpenAI策划通过前苹果工程师获取机密的硬件信息，并于近期因内部调查显示可能涉事更多前员工，而要求法院加快证据发现程序。</li>
-  </ul>
-
-  <p style="margin-bottom:14px;line-height:1.85;">亮点：OpenAI反客为主，通过揭露竞争对手在离职员工管理和账号权限控制上的内部安全漏洞，来动摇苹果商业机密指控的法律基础。</p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><strong>资讯地址</strong></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;"><a href="https://theaiinsider.tech/2026/08/06/openai-files-motion-to-dismiss-apples-trade-secrets-lawsuit-cites-security-lapses/" style="color:#3182ce;text-decoration:none;">https://theaiinsider.tech/2026/08/06/openai-files-motion-to-dismiss-apples-trade-secrets-lawsuit-cites-security-lapses/</a></p>
-
-  <p style="margin-bottom:14px;line-height:1.85;">!<a href="images/20260807/eb1b543933195fe8e4801d1f4609489a.png" style="color:#3182ce;text-decoration:none;">image</a></p>
 
 
   <h2 style="margin-top:36px;margin-bottom:14px;font-size:1.5em;color:#1a202c;line-height:1.3;border-bottom:2px solid #4299e1;padding-bottom:6px;">往期推荐</h2>
