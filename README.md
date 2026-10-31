@@ -17,6 +17,7 @@
 
 **十月**
 
+- 20261031期：[Mistral 免费开源万亿参数 AI，谷歌却将其顶尖模型深锁高阁[Mistral Gives Away a Trillion-Parameter AI as Google Locks Its Own Up]](docs/AIToBoxWeeklyNews_20261031.md)
 - 20261024期：[月之暗面发布 Kimi K3.1 Pro：总参数 2.8T/激活 104B（MoE）并支持百万上下文的大模型[Moonshot AI Releases Kimi K3.1 Pro: A 2.8](docs/AIToBoxWeeklyNews_20261024.md)
 - 20261018期：[Meta 发布 Muse Spark Open：具备 1M 上下文的 8160 亿参数开源权重 MoE 模型[Meta Releases Muse Spark Open: 816B Open-Weight MoE With 1M Context]](docs/AIToBoxWeeklyNews_20261018.md)
 - 20261010期：[GPT-6 Astra、GPT-6.1 Sol、Gemini 4 Argon 与 Claude Fable 5.1 深度横评：哪款前沿大模型真正适合你的业务？[GPT-6 Astra vs GPT-6.1 Sol vs Gemini 4 Argon vs Claude Fable 5.1: Which Frontier Model Fits Which Job]](docs/AIToBoxWeeklyNews_20261010.md)
