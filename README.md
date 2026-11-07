@@ -15,6 +15,10 @@
 
 ## 2026
 
+**十一月**
+
+- 20261107期：[OpenAI 智能体发现 948 种接管 Linux 的方法，平均每处漏洞成本仅 1,279 美元[OpenAI’s Agents Found 948 Ways to Take Over Linux, at $1,27](docs/AIToBoxWeeklyNews_20261107.md)
+
 **十月**
 
 - 20261031期：[Mistral 免费开源万亿参数 AI，谷歌却将其顶尖模型深锁高阁[Mistral Gives Away a Trillion-Parameter AI as Google Locks Its Own Up]](docs/AIToBoxWeeklyNews_20261031.md)
