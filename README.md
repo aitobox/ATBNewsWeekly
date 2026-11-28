@@ -17,6 +17,7 @@
 
 **十一月**
 
+- 20261128期：[OpenAI and Cisco Releases Shirudo: An Open-Source Linux Runtime Allowing Agents to Defend Systems Without Downtime](docs/AIToBoxWeeklyNews_20261128.md)
 - 20261121期：[当代码变得廉价后的软件工程：对话微软CEO萨提亚·纳德拉[Software engineering after code becomes cheap with Satya Nadella]](docs/AIToBoxWeeklyNews_20261121.md)
 - 20261114期：[AI周刊第347期：英伟达间谍门、Anthropic 1.4万亿美元IPO与AI蓝色浪潮[Last Week (Month) in AI #347 - Nvidia's spy, Anthropic's $1.4T IPO, AI's blue wave]](docs/AIToBoxWeeklyNews_20261114.md)
 - 20261107期：[OpenAI 智能体发现 948 种接管 Linux 的方法，平均每处漏洞成本仅 1,279 美元[OpenAI’s Agents Found 948 Ways to Take Over Linux, at $1,27](docs/AIToBoxWeeklyNews_20261107.md)
